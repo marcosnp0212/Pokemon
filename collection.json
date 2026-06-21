@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-06-21T20:40:00.000Z",
+  "updatedAt": "2026-06-21T21:05:41.637Z",
   "cards": [
     {
       "id": "6ae1a33c-769c-4be6-9ea2-5ce3d88f563e",
@@ -401,19 +401,6 @@
       "condition": "NM",
       "quantity": 1,
       "language": "es",
-      "priceOverride": null,
-      "notes": "",
-      "addedAt": "2026-06-21T20:40:00.000Z"
-    },
-    {
-      "id": "95ead290-681f-4652-8635-ffbb6870c224",
-      "cardId": "sv9-103",
-      "name": "Wailord",
-      "image": "https://images.pokemontcg.io/sv9/103.png",
-      "variant": "normal",
-      "condition": "NM",
-      "quantity": 1,
-      "language": "ja",
       "priceOverride": null,
       "notes": "",
       "addedAt": "2026-06-21T20:40:00.000Z"
