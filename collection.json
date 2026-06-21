@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-06-21T21:23:07.371Z",
+  "updatedAt": "2026-06-21T21:23:20.957Z",
   "cards": [
     {
       "id": "6ae1a33c-769c-4be6-9ea2-5ce3d88f563e",
@@ -1210,6 +1210,19 @@
       "priceOverride": null,
       "notes": "",
       "addedAt": "2026-06-21T21:23:07.371Z"
+    },
+    {
+      "id": "be85bb67-954c-4303-a871-0aa63e2ff8ad",
+      "cardId": "me02.5-238",
+      "name": "Team Rocket's Mimikyu",
+      "image": "https://assets.tcgdex.net/en/me/me02.5/238/low.webp",
+      "variant": "normal",
+      "condition": "NM",
+      "quantity": 1,
+      "language": "en",
+      "priceOverride": null,
+      "notes": "",
+      "addedAt": "2026-06-21T21:23:20.957Z"
     }
   ]
 }
