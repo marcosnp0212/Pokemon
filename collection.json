@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-06-21T21:11:09.324Z",
+  "updatedAt": "2026-06-21T21:12:31.814Z",
   "cards": [
     {
       "id": "6ae1a33c-769c-4be6-9ea2-5ce3d88f563e",
@@ -664,6 +664,19 @@
       "priceOverride": null,
       "notes": "",
       "addedAt": "2026-06-21T21:11:09.324Z"
+    },
+    {
+      "id": "6118332c-0db4-4ba6-9b01-b4b06c1bc164",
+      "cardId": "swsh12.5-GG01",
+      "name": "Hisuian Voltorb",
+      "image": "https://assets.tcgdex.net/en/swsh/swsh12.5/GG01/low.webp",
+      "variant": "normal",
+      "condition": "NM",
+      "quantity": 1,
+      "language": "en",
+      "priceOverride": null,
+      "notes": "",
+      "addedAt": "2026-06-21T21:12:31.814Z"
     }
   ]
 }
