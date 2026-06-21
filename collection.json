@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-06-21T21:15:27.934Z",
+  "updatedAt": "2026-06-21T21:15:33.025Z",
   "cards": [
     {
       "id": "6ae1a33c-769c-4be6-9ea2-5ce3d88f563e",
@@ -124,19 +124,6 @@
       "cardId": "sv8pt5-73",
       "name": "Dragapult ex",
       "image": "https://images.pokemontcg.io/sv8pt5/73.png",
-      "variant": "normal",
-      "condition": "NM",
-      "quantity": 1,
-      "language": "es",
-      "priceOverride": null,
-      "notes": "",
-      "addedAt": "2026-06-21T20:40:00.000Z"
-    },
-    {
-      "id": "cd94eb04-13c0-4a21-832d-f66623f235ab",
-      "cardId": "sv8pt5-173",
-      "name": "Eevee",
-      "image": "https://images.pokemontcg.io/sv8pt5/173.png",
       "variant": "normal",
       "condition": "NM",
       "quantity": 1,
