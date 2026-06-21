@@ -77,6 +77,440 @@
 </head>
 <body>
   <main id="app"><p class="muted center">Cargando…</p></main>
-  <script type="module" src="./app.js"></script>
+  <script type="module">
+// ====== variants ======
+// Configuración compartida de variantes y mapeo de campos de precio.
+// La importan tanto el trabajador (Node, scripts/update-prices.mjs)
+// como el frontend (navegador, src/app.js).
+//
+// IDEA CENTRAL: la VARIANTE es la unidad de precio. Una misma carta (cardId)
+// tiene varias impresiones que en Cardmarket son productos distintos con
+// precios distintos. Aquí declaramos, por cada variante y cada fuente,
+// QUÉ campo leer y SI esa fuente es fiable para esa variante.
+
+const VARIANTS = [
+  { id: 'normal',       label: 'Normal' },
+  { id: 'holo',         label: 'Holo' },
+  { id: 'reverse',      label: 'Reverse Holo' },
+  { id: 'firstEdition', label: '1ª Edición' },
+  { id: 'promo',        label: 'Promo' },
+];
+
+const VARIANT_LABEL = Object.fromEntries(VARIANTS.map(v => [v.id, v.label]));
+
+// Mapeo por fuente. Cada entrada: { fields: [...orden de preferencia], reliable: bool }
+// - fields: se prueban en orden; se usa el primero con un número > 0.
+// - reliable: si false, el valor existe pero NO se usa para el cálculo de
+//   consenso (solo informativo), porque la fuente no distingue esa variante.
+const PRICE_MAP = {
+  // pokemontcg.io -> objeto card.cardmarket.prices (EUR)
+  ptcg: {
+    normal:       { fields: ['trendPrice', 'averageSellPrice', 'avg7'], reliable: true },
+    holo:         { fields: ['trendPrice', 'averageSellPrice', 'avg7'], reliable: true },
+    reverse:      { fields: ['reverseHoloTrend', 'reverseHoloSell', 'reverseHoloAvg7'], reliable: true },
+    firstEdition: { fields: ['trendPrice', 'averageSellPrice', 'avg7'], reliable: false },
+    promo:        { fields: ['trendPrice', 'averageSellPrice', 'avg7'], reliable: true },
+  },
+  // TCGdex -> objeto card.pricing.cardmarket (EUR)
+  tcgdex: {
+    normal:       { fields: ['trend', 'avg', 'avg7'], reliable: true },
+    holo:         { fields: ['trend-holo', 'avg-holo', 'avg7-holo'], reliable: true },
+    // TCGdex NO tiene campo de reverse holo en Cardmarket: solo standard/holo.
+    // Por eso es la causa raíz del bug. La marcamos NO fiable para reverse.
+    reverse:      { fields: ['trend-holo', 'avg-holo', 'trend', 'avg'], reliable: false },
+    firstEdition: { fields: ['trend', 'avg'], reliable: false },
+    promo:        { fields: ['trend', 'avg'], reliable: false },
+  },
+};
+
+// Umbrales de consenso entre fuentes fiables.
+const THRESHOLDS = {
+  divergeRel: 0.20, // 20% de diferencia relativa
+  divergeAbs: 0.50, // o 0,50 € de diferencia absoluta
+};
+
+// Extrae el primer campo válido (> 0) de un objeto de precios según la lista.
+function pickField(priceObj, fields) {
+  if (!priceObj) return null;
+  for (const f of fields) {
+    const v = priceObj[f];
+    if (typeof v === 'number' && v > 0) return { value: v, field: f };
+  }
+  return null;
+}
+
+// ====== github ======
+// Acceso a tu repositorio como base de datos, vía la API REST de GitHub.
+// Solo se usa un token fine-grained con permiso de "Contents" sobre ESTE repo.
+// El token vive únicamente en localStorage del navegador; nunca se guarda en el repo.
+
+const SETTINGS_KEY = 'pkmn.settings';
+
+function getSettings() {
+  try { return JSON.parse(localStorage.getItem(SETTINGS_KEY)) || {}; }
+  catch { return {}; }
+}
+function saveSettings(s) {
+  localStorage.setItem(SETTINGS_KEY, JSON.stringify(s));
+}
+function isConfigured() {
+  const s = getSettings();
+  return !!(s.owner && s.repo && s.token);
+}
+
+function api(path, opts = {}) {
+  const s = getSettings();
+  return fetch(`https://api.github.com${path}`, {
+    ...opts,
+    headers: {
+      'Accept': 'application/vnd.github+json',
+      'Authorization': `Bearer ${s.token}`,
+      'X-GitHub-Api-Version': '2022-11-28',
+      ...(opts.headers || {}),
+    },
+  });
+}
+
+// b64 <-> UTF-8 (las cartas pueden tener acentos / caracteres no ASCII)
+const toB64 = (str) => btoa(String.fromCharCode(...new TextEncoder().encode(str)));
+const fromB64 = (b64) => new TextDecoder().decode(Uint8Array.from(atob(b64), c => c.charCodeAt(0)));
+
+// Lee un fichero del repo -> { json, sha }
+async function getFile(path) {
+  const s = getSettings();
+  const branch = s.branch || 'main';
+  const res = await api(`/repos/${s.owner}/${s.repo}/contents/${path}?ref=${branch}&t=${Date.now()}`);
+  if (res.status === 404) return { json: null, sha: null };
+  if (!res.ok) throw new Error(`GitHub ${res.status}: ${await res.text()}`);
+  const data = await res.json();
+  const content = data.content ? fromB64(data.content.replace(/\n/g, '')) : '';
+  return { json: content ? JSON.parse(content) : null, sha: data.sha };
+}
+
+// Escribe un fichero (crea o actualiza). Devuelve el nuevo sha.
+async function putFile(path, json, sha, message) {
+  const s = getSettings();
+  const branch = s.branch || 'main';
+  const body = {
+    message: message || `update ${path}`,
+    content: toB64(JSON.stringify(json, null, 2) + '\n'),
+    branch,
+    ...(sha ? { sha } : {}),
+  };
+  const res = await api(`/repos/${s.owner}/${s.repo}/contents/${path}`, {
+    method: 'PUT',
+    body: JSON.stringify(body),
+  });
+  if (!res.ok) throw new Error(`GitHub ${res.status}: ${await res.text()}`);
+  return (await res.json()).content.sha;
+}
+
+// Verifica que el token y el repo son válidos (para el panel de ajustes).
+async function testConnection() {
+  const s = getSettings();
+  const res = await api(`/repos/${s.owner}/${s.repo}`);
+  if (!res.ok) throw new Error(`No se pudo acceder al repo (${res.status}). Revisa owner/repo/token.`);
+  return await res.json();
+}
+
+const gh = { getSettings, saveSettings, isConfigured, getFile, putFile, testConnection };
+// ====== tcgdex ======
+// Búsqueda de cartas en TCGdex (gratis, sin API key, permite CORS desde el navegador).
+// Solo se usa para AÑADIR cartas (identificarlas). Los precios los calcula el trabajador.
+
+async function searchCards(query) {
+  const q = query.trim();
+  if (q.length < 2) return [];
+  const url = `https://api.tcgdex.net/v2/en/cards?name=like:${encodeURIComponent(q)}`;
+  const res = await fetch(url);
+  if (!res.ok) throw new Error('Error buscando en TCGdex (' + res.status + ')');
+  const list = await res.json();
+  return (Array.isArray(list) ? list : []).slice(0, 40).map(c => ({
+    cardId: c.id,
+    localId: c.localId,
+    name: c.name,
+    image: c.image ? c.image + '/low.webp' : null,
+  }));
+}
+
+// "swsh3-136" -> { set: "swsh3", number: "136" }  (para mostrar set/número)
+function parseCardId(cardId) {
+  const i = cardId.lastIndexOf('-');
+  return i === -1 ? { set: cardId, number: '' }
+                  : { set: cardId.slice(0, i), number: cardId.slice(i + 1) };
+}
+
+// ====== app ======
+
+const CONDITIONS = ['NM', 'EX', 'GD', 'LP', 'PL', 'PO']; // Near Mint ... Poor
+
+const FLAG_TEXT = {
+  sources_diverge: 'Las dos fuentes no coinciden — precio dudoso, verifica en Cardmarket.',
+  single_source: 'Solo una fuente fiable da precio para esta variante.',
+  no_reliable_source: 'Ninguna fuente fiable; valor solo orientativo.',
+  no_data: 'Sin datos de precio en ninguna fuente.',
+  tcgdex_identical_variants: 'Posible bug de TCGdex: precios idénticos entre variantes.',
+};
+const CONF = {
+  high:   { label: 'Alta',   cls: 'c-high' },
+  medium: { label: 'Media',  cls: 'c-med'  },
+  low:    { label: 'Baja',   cls: 'c-low'  },
+  none:   { label: '—',      cls: 'c-none' },
+};
+
+let state = { collection: { version: 1, cards: [] }, sha: null, prices: {} };
+
+const $ = (s) => document.querySelector(s);
+const uuid = () => (crypto.randomUUID ? crypto.randomUUID() : 'id' + Date.now() + Math.random());
+const eur = (n) => n == null ? '—' : n.toLocaleString('es-ES', { style: 'currency', currency: 'EUR' });
+function el(tag, attrs = {}, ...kids) {
+  const n = document.createElement(tag);
+  for (const [k, v] of Object.entries(attrs)) {
+    if (k === 'class') n.className = v;
+    else if (k === 'html') n.innerHTML = v;
+    else if (k.startsWith('on')) n.addEventListener(k.slice(2), v);
+    else if (v != null) n.setAttribute(k, v);
+  }
+  for (const kid of kids.flat()) if (kid != null) n.append(kid.nodeType ? kid : document.createTextNode(kid));
+  return n;
+}
+
+// ---------------------------------------------------------------- datos
+async function loadPrices() {
+  try {
+    const res = await fetch(`./prices.json?t=${Date.now()}`);
+    if (res.ok) { const d = await res.json(); state.prices = d.prices || {}; return d.generatedAt; }
+  } catch {}
+  return null;
+}
+async function loadCollection() {
+  const { json, sha } = await gh.getFile('collection.json');
+  state.collection = json || { version: 1, cards: [] };
+  state.sha = sha;
+}
+async function saveCollection(message) {
+  state.collection.updatedAt = new Date().toISOString();
+  state.sha = await gh.putFile('collection.json', state.collection, state.sha, message);
+}
+function priceFor(c) { return state.prices[`${c.cardId}|${c.variant}`] || null; }
+function effective(c) {
+  if (typeof c.priceOverride === 'number') return c.priceOverride;
+  const p = priceFor(c); return p ? p.eur : null;
+}
+
+// ---------------------------------------------------------------- render
+function render(generatedAt) {
+  const app = $('#app'); app.innerHTML = '';
+
+  // cabecera
+  app.append(el('header', { class: 'top' },
+    el('h1', {}, 'Mi colección Pokémon'),
+    el('div', { class: 'actions' },
+      el('button', { class: 'btn primary', onclick: openAdd }, '+ Añadir carta'),
+      el('button', { class: 'btn', onclick: refresh }, '↻ Recargar'),
+      el('button', { class: 'btn ghost', onclick: openSettings }, '⚙ Ajustes'),
+    )
+  ));
+
+  const cards = state.collection.cards || [];
+  // estadísticas
+  let total = 0, flagged = 0;
+  for (const c of cards) {
+    const v = effective(c); if (v != null) total += v * (c.quantity || 1);
+    const p = priceFor(c); if (p && p.flags && p.flags.length) flagged += 1;
+  }
+  app.append(el('section', { class: 'stats' },
+    stat('Cartas', cards.reduce((a, c) => a + (c.quantity || 1), 0)),
+    stat('Entradas', cards.length),
+    stat('Valor total', eur(total)),
+    stat('Con aviso', flagged),
+    el('div', { class: 'stat updated' },
+      el('span', { class: 'k' }, 'Precios'),
+      el('span', { class: 'v' }, generatedAt ? new Date(generatedAt).toLocaleDateString('es-ES') : 'sin datos'))
+  ));
+
+  if (!cards.length) {
+    app.append(el('div', { class: 'empty' }, 'Aún no hay cartas. Pulsa “Añadir carta”.'));
+    return;
+  }
+
+  // tabla
+  const tbody = el('tbody');
+  for (const c of cards) tbody.append(rowFor(c));
+  app.append(el('div', { class: 'tablewrap' }, el('table', {},
+    el('thead', {}, el('tr', {},
+      ...['', 'Carta', 'Set/Nº', 'Variante', 'Estado', 'Cant.', 'Precio €', 'Confianza', 'Avisos', 'Manual', ''].map(h => el('th', {}, h)))),
+    tbody
+  )));
+}
+
+function stat(k, v) {
+  return el('div', { class: 'stat' }, el('span', { class: 'k' }, k), el('span', { class: 'v' }, String(v)));
+}
+
+function rowFor(c) {
+  const p = priceFor(c);
+  const { set, number } = parseCardId(c.cardId);
+  const conf = CONF[p?.confidence || 'none'];
+  const overridden = typeof c.priceOverride === 'number';
+
+  const flags = (p?.flags || []).map(f =>
+    el('span', { class: 'flag', title: FLAG_TEXT[f] || f }, '⚠'));
+
+  const cmLink = p?.cardmarketUrl
+    ? el('a', { href: p.cardmarketUrl, target: '_blank', rel: 'noopener', class: 'cm', title: 'Ver/verificar en Cardmarket' }, '↗')
+    : null;
+
+  const override = el('input', {
+    type: 'number', step: '0.01', min: '0', class: 'ovr',
+    placeholder: 'auto', value: overridden ? c.priceOverride : '',
+    title: 'Precio manual (gana al automático)',
+    onchange: async (e) => {
+      const val = e.target.value.trim();
+      c.priceOverride = val === '' ? null : parseFloat(val);
+      await saveCollection(`fix: precio manual ${c.name}`);
+      refresh();
+    }
+  });
+
+  return el('tr', { class: overridden ? 'has-ovr' : '' },
+    el('td', {}, c.image ? el('img', { src: c.image, class: 'thumb', loading: 'lazy', alt: '' }) : ''),
+    el('td', {}, el('span', { class: 'name' }, c.name), c.language && c.language !== 'en' ? el('span', { class: 'lang' }, c.language) : null),
+    el('td', { class: 'mono' }, `${set} · ${number}`),
+    el('td', {}, VARIANT_LABEL[c.variant] || c.variant),
+    el('td', {}, c.condition || '—'),
+    el('td', { class: 'num' }, String(c.quantity || 1)),
+    el('td', { class: 'num price' }, eur(effective(c)), overridden ? el('span', { class: 'mtag', title: 'Precio manual' }, 'M') : null),
+    el('td', {}, el('span', { class: 'badge ' + conf.cls }, conf.label)),
+    el('td', { class: 'flags' }, ...flags, cmLink),
+    el('td', {}, override),
+    el('td', {}, el('button', { class: 'btn tiny danger', title: 'Eliminar',
+      onclick: async () => { if (!confirm(`¿Eliminar ${c.name}?`)) return;
+        state.collection.cards = state.collection.cards.filter(x => x.id !== c.id);
+        await saveCollection(`del: ${c.name}`); refresh(); } }, '🗑'))
+  );
+}
+
+// ---------------------------------------------------------------- añadir
+function openAdd() {
+  const results = el('div', { class: 'results' });
+  const input = el('input', { class: 'search', placeholder: 'Buscar carta por nombre (ej. Charizard)...', autofocus: true });
+  let timer;
+  input.addEventListener('input', () => {
+    clearTimeout(timer);
+    timer = setTimeout(async () => {
+      results.innerHTML = '<p class="muted">Buscando…</p>';
+      try {
+        const cards = await searchCards(input.value);
+        results.innerHTML = '';
+        if (!cards.length) { results.innerHTML = '<p class="muted">Sin resultados.</p>'; return; }
+        for (const card of cards) results.append(resultRow(card, close));
+      } catch (e) { results.innerHTML = `<p class="err">${e.message}</p>`; }
+    }, 350);
+  });
+  const { close } = modal('Añadir carta', el('div', {}, input, results));
+  input.focus();
+}
+
+function resultRow(card, closeModal) {
+  const variant = el('select', { class: 'sel' }, ...VARIANTS.map(v => el('option', { value: v.id }, v.label)));
+  const cond = el('select', { class: 'sel' }, ...CONDITIONS.map(x => el('option', { value: x }, x)));
+  const qty = el('input', { type: 'number', min: '1', value: '1', class: 'qty' });
+  const { set, number } = parseCardId(card.cardId);
+  return el('div', { class: 'rrow' },
+    card.image ? el('img', { src: card.image, class: 'thumb', loading: 'lazy', alt: '' }) : el('div', { class: 'thumb ph' }),
+    el('div', { class: 'rinfo' }, el('strong', {}, card.name), el('span', { class: 'mono muted' }, `${set} · ${number}`)),
+    variant, cond, qty,
+    el('button', { class: 'btn primary tiny', onclick: async (e) => {
+      e.target.disabled = true;
+      state.collection.cards.push({
+        id: uuid(), cardId: card.cardId, name: card.name, image: card.image,
+        variant: variant.value, condition: cond.value, quantity: parseInt(qty.value) || 1,
+        language: 'en', priceOverride: null, notes: '', addedAt: new Date().toISOString(),
+      });
+      try { await saveCollection(`add: ${card.name}`); closeModal(); refresh(); }
+      catch (err) { alert('Error guardando: ' + err.message); e.target.disabled = false; }
+    } }, 'Añadir')
+  );
+}
+
+// ---------------------------------------------------------------- ajustes
+function openSettings() {
+  const s = gh.getSettings();
+  const f = (name, ph, val, type = 'text') =>
+    el('label', { class: 'field' }, el('span', {}, name),
+      el('input', { id: 'set_' + name, type, placeholder: ph, value: val || '' }));
+  const owner = f('owner', 'tu-usuario-github', s.owner);
+  const repo = f('repo', 'pokemon-collection', s.repo);
+  const branch = f('branch', 'main', s.branch || 'main');
+  const token = f('token', 'github_pat_...', s.token, 'password');
+  const status = el('p', { class: 'muted' });
+  const body = el('div', { class: 'settings' }, owner, repo, branch, token,
+    el('p', { class: 'hint' }, 'El token (fine-grained, permiso Contents: Read and write sobre este repo) se guarda solo en este navegador.'),
+    el('div', { class: 'row' },
+      el('button', { class: 'btn', onclick: async () => {
+        save(); status.textContent = 'Probando…';
+        try { const r = await gh.testConnection(); status.innerHTML = `✅ Conectado a <b>${r.full_name}</b>`; }
+        catch (e) { status.innerHTML = `<span class="err">${e.message}</span>`; }
+      } }, 'Probar conexión'),
+      el('button', { class: 'btn primary', onclick: async () => { save(); close(); await boot(); } }, 'Guardar')
+    ), status);
+
+  function save() {
+    gh.saveSettings({
+      owner: document.querySelector('#set_owner').value.trim(),
+      repo: document.querySelector('#set_repo').value.trim(),
+      branch: document.querySelector('#set_branch').value.trim() || 'main',
+      token: document.querySelector('#set_token').value.trim(),
+    });
+  }
+  const { close } = modal('Ajustes', body);
+}
+
+// ---------------------------------------------------------------- modal
+function modal(title, content) {
+  const overlay = el('div', { class: 'overlay' });
+  const close = () => overlay.remove();
+  overlay.addEventListener('click', (e) => { if (e.target === overlay) close(); });
+  overlay.append(el('div', { class: 'dialog' },
+    el('div', { class: 'dhead' }, el('h2', {}, title), el('button', { class: 'x', onclick: close }, '×')),
+    el('div', { class: 'dbody' }, content)));
+  document.body.append(overlay);
+  return { close };
+}
+
+// ---------------------------------------------------------------- ciclo
+async function refresh() {
+  const gen = await loadPrices();
+  render(gen);
+}
+async function boot() {
+  const app = $('#app');
+  if (!gh.isConfigured()) {
+    app.innerHTML = '';
+    app.append(el('div', { class: 'welcome' },
+      el('h1', {}, 'Mi colección Pokémon'),
+      el('p', {}, 'Conecta tu repositorio de GitHub para empezar.'),
+      el('button', { class: 'btn primary', onclick: openSettings }, 'Configurar')));
+    return;
+  }
+  app.innerHTML = '<p class="muted center">Cargando colección…</p>';
+  try {
+    await loadCollection();
+    const gen = await loadPrices();
+    render(gen);
+  } catch (e) {
+    app.innerHTML = '';
+    app.append(el('div', { class: 'welcome' },
+      el('h1', {}, 'No se pudo cargar'),
+      el('p', { class: 'err' }, e.message),
+      el('button', { class: 'btn', onclick: openSettings }, 'Revisar ajustes')));
+  }
+}
+
+boot();
+
+
+  </script>
 </body>
 </html>
