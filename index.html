@@ -6,511 +6,404 @@
 <title>Mi colección Pokémon</title>
 <style>
   :root{
-    --bg:#0f1115; --panel:#171a21; --panel2:#1f232c; --line:#2a2f3a;
-    --txt:#e7e9ee; --muted:#9aa3b2; --pri:#ffcb05; --pri2:#3b6cff;
-    --green:#36c275; --yellow:#e8b73a; --red:#e2564d; --grey:#5b6270; }
+    --bg:#0a0b0f; --bg2:#0e1016;
+    --glass:rgba(255,255,255,.045); --glass2:rgba(255,255,255,.07);
+    --line:rgba(255,255,255,.09); --line2:rgba(255,255,255,.16);
+    --txt:#eef0f6; --muted:#9097a6; --dim:#646b7a;
+    --green:#3fd17f; --yellow:#f0bf45; --red:#f0635a; --grey:#6b7280;
+    --holo:linear-gradient(125deg,#ff80c0 0%,#9b8cff 28%,#5ad7ff 55%,#7dffc4 78%,#fff59b 100%);
+    --radius:16px; --radius-sm:10px;
+  }
   *{box-sizing:border-box}
-  body{margin:0;background:var(--bg);color:var(--txt);font:15px/1.45 system-ui,Segoe UI,Roboto,sans-serif}
-  #app{max-width:1100px;margin:0 auto;padding:20px 16px 60px}
-  h1{font-size:22px;margin:0}
-  .center{text-align:center}.muted{color:var(--muted)}.err{color:var(--red)}.mono{font-family:ui-monospace,Menlo,monospace;font-size:13px}
-  .top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:16px}
-  .actions{display:flex;gap:8px;flex-wrap:wrap}
-  .btn{background:var(--panel2);color:var(--txt);border:1px solid var(--line);border-radius:8px;padding:8px 12px;cursor:pointer;font-size:14px}
-  .btn:hover{border-color:#3a4150}
-  .btn.primary{background:var(--pri);color:#1a1a1a;border-color:var(--pri);font-weight:600}
+  html,body{margin:0}
+  body{
+    background:
+      radial-gradient(900px 500px at 12% -8%, rgba(123,140,255,.10), transparent 60%),
+      radial-gradient(800px 500px at 100% 0%, rgba(90,215,255,.08), transparent 55%),
+      var(--bg);
+    color:var(--txt);
+    font:15px/1.5 ui-sans-serif,system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    min-height:100vh;
+  }
+  #app{max-width:1180px;margin:0 auto;padding:22px 18px 80px}
+  .center{text-align:center}.muted{color:var(--muted)}.err{color:var(--red)}
+  .mono{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12px}
+  a{color:inherit}
+
+  /* ---------- header ---------- */
+  .top{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:22px}
+  .brand{display:flex;align-items:center;gap:12px}
+  .logo{width:38px;height:38px;border-radius:11px;background:var(--holo);position:relative;flex:none;
+    box-shadow:0 6px 22px rgba(123,140,255,.35)}
+  .logo::after{content:"";position:absolute;inset:5px;border-radius:50%;
+    background:var(--bg);box-shadow:inset 0 0 0 3px rgba(255,255,255,.85)}
+  .logo::before{content:"";position:absolute;left:5px;right:5px;top:50%;height:3px;background:rgba(255,255,255,.85);transform:translateY(-1.5px);z-index:1}
+  h1{font-size:20px;margin:0;letter-spacing:-.02em;font-weight:650}
+  .sub{font-size:12px;color:var(--dim);margin-top:1px}
+  .actions{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+
+  .btn{background:var(--glass);color:var(--txt);border:1px solid var(--line);border-radius:11px;
+    padding:9px 13px;cursor:pointer;font-size:13px;font-weight:500;display:inline-flex;align-items:center;gap:7px;
+    transition:.15s;backdrop-filter:blur(8px)}
+  .btn:hover{background:var(--glass2);border-color:var(--line2);transform:translateY(-1px)}
+  .btn:active{transform:translateY(0)}
+  .btn.primary{background:var(--holo);color:#10121a;border:none;font-weight:650;
+    box-shadow:0 6px 20px rgba(123,140,255,.30)}
+  .btn.primary:hover{filter:brightness(1.06)}
   .btn.ghost{background:transparent}
-  .btn.tiny{padding:5px 9px;font-size:13px}
-  .btn.danger{color:var(--red)}
-  /* stats */
-  .stats{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:18px}
-  .stat{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px}
-  .stat .k{display:block;color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.04em}
-  .stat .v{display:block;font-size:20px;font-weight:600;margin-top:2px}
-  /* tabla */
-  .tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:10px}
-  table{width:100%;border-collapse:collapse;min-width:760px}
-  th,td{padding:9px 10px;text-align:left;border-bottom:1px solid var(--line);vertical-align:middle}
-  th{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.03em;background:var(--panel)}
-  tr:last-child td{border-bottom:none}
-  tr:hover td{background:#141821}
-  .thumb{width:36px;height:50px;object-fit:contain;border-radius:4px;background:#0c0e12}
-  .thumb.ph{display:inline-block}
-  .name{font-weight:600}.lang{margin-left:6px;font-size:11px;color:var(--muted);text-transform:uppercase}
-  .num{text-align:right;font-variant-numeric:tabular-nums}
-  .price{font-weight:600}
-  .mtag{margin-left:5px;font-size:10px;background:var(--pri2);color:#fff;border-radius:4px;padding:1px 4px}
-  .badge{font-size:12px;padding:3px 8px;border-radius:20px;font-weight:600}
-  .c-high{background:rgba(54,194,117,.16);color:var(--green)}
-  .c-med{background:rgba(232,183,58,.16);color:var(--yellow)}
-  .c-low{background:rgba(226,86,77,.16);color:var(--red)}
+  .btn.tiny{padding:6px 9px;font-size:12px;border-radius:9px}
+  .btn.danger{color:var(--red);border-color:rgba(240,99,90,.3)}
+  .btn.danger:hover{background:rgba(240,99,90,.12)}
+  .icon{width:16px;height:16px;display:inline-block;vertical-align:-3px}
+
+  .seg{display:inline-flex;background:var(--glass);border:1px solid var(--line);border-radius:11px;padding:3px;gap:2px}
+  .seg button{background:transparent;border:none;color:var(--muted);padding:6px 11px;border-radius:8px;cursor:pointer;font-size:12px;font-weight:500;display:flex;align-items:center;gap:6px}
+  .seg button.on{background:var(--glass2);color:var(--txt)}
+  .seg button.on .icon{color:var(--txt)}
+
+  /* ---------- stats ---------- */
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:18px}
+  .stat{background:var(--glass);border:1px solid var(--line);border-radius:var(--radius);padding:14px 16px;backdrop-filter:blur(8px)}
+  .stat .k{display:block;color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.06em;font-weight:600}
+  .stat .v{display:block;font-size:23px;font-weight:700;margin-top:3px;letter-spacing:-.02em}
+  .stat.value .v{background:var(--holo);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+
+  /* ---------- filtros ---------- */
+  .filters{display:flex;gap:9px;flex-wrap:wrap;align-items:center;margin-bottom:18px;
+    background:var(--glass);border:1px solid var(--line);border-radius:var(--radius);padding:11px 13px;backdrop-filter:blur(8px)}
+  .searchbox{position:relative;flex:1;min-width:200px}
+  .searchbox .icon{position:absolute;left:11px;top:50%;transform:translateY(-50%);color:var(--dim)}
+  .searchbox input{width:100%;padding-left:34px}
+  input,select{background:var(--bg2);border:1px solid var(--line);border-radius:10px;color:var(--txt);
+    padding:9px 11px;font-size:13px;outline:none;transition:.15s}
+  input:focus,select:focus{border-color:var(--line2);box-shadow:0 0 0 3px rgba(123,140,255,.18)}
+  select{cursor:pointer}
+  .chk{display:flex;align-items:center;gap:7px;font-size:13px;color:var(--muted);cursor:pointer;user-select:none}
+  .chk input{width:16px;height:16px;accent-color:#9b8cff}
+
+  /* ---------- grid ---------- */
+  .group-h{display:flex;align-items:baseline;gap:10px;margin:22px 4px 12px}
+  .group-h h3{margin:0;font-size:15px;font-weight:600}
+  .group-h .gv{color:var(--muted);font-size:13px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(176px,1fr));gap:14px}
+  .pcard{background:var(--glass);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;
+    position:relative;transition:.18s;backdrop-filter:blur(8px)}
+  .pcard:hover{transform:translateY(-3px);border-color:transparent;
+    box-shadow:0 10px 34px rgba(0,0,0,.5),0 0 0 1.5px rgba(155,140,255,.5)}
+  .pcard .imgwrap{position:relative;aspect-ratio:245/342;background:#05060a;display:flex;align-items:center;justify-content:center;overflow:hidden}
+  .pcard img.art{width:100%;height:100%;object-fit:contain}
+  .pcard .noart{color:var(--dim);font-size:12px}
+  .pcard .badge{position:absolute;top:8px;right:8px}
+  .pcard .body{padding:11px 12px 12px}
+  .pcard .nm{font-weight:600;font-size:14px;line-height:1.25;display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden}
+  .pcard .meta{color:var(--dim);font-size:11px;margin-top:2px;display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+  .vtag{background:var(--glass2);border:1px solid var(--line);border-radius:6px;padding:1px 6px;font-size:10px;color:var(--muted)}
+  .pcard .pr{display:flex;align-items:baseline;justify-content:space-between;margin-top:9px;gap:8px}
+  .price{font-size:18px;font-weight:700;letter-spacing:-.02em}
+  .price.dim{color:var(--dim);font-weight:600;font-size:14px}
+  .pcard .row2{display:flex;align-items:center;gap:6px;margin-top:9px}
+  .ovr{flex:1;min-width:0;padding:6px 8px;font-size:12px}
+  .pcard .qbubble{position:absolute;top:8px;left:8px;background:rgba(0,0,0,.6);border:1px solid var(--line);
+    border-radius:8px;padding:1px 7px;font-size:11px;font-weight:600;backdrop-filter:blur(4px)}
+
+  /* ---------- badges ---------- */
+  .badge{font-size:11px;padding:3px 9px;border-radius:20px;font-weight:600;display:inline-flex;align-items:center;gap:5px;backdrop-filter:blur(6px)}
+  .badge::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor}
+  .c-high{background:rgba(63,209,127,.16);color:var(--green)}
+  .c-med{background:rgba(240,191,69,.16);color:var(--yellow)}
+  .c-low{background:rgba(240,99,90,.16);color:var(--red)}
   .c-none{background:rgba(120,130,150,.16);color:var(--muted)}
-  .flags{white-space:nowrap}
-  .flag{color:var(--yellow);margin-right:3px;cursor:help}
-  .cm{color:var(--pri2);text-decoration:none;font-weight:700;margin-left:4px}
-  .ovr{width:74px;background:var(--panel2);border:1px solid var(--line);border-radius:6px;color:var(--txt);padding:5px 6px}
-  .has-ovr td{background:rgba(59,108,255,.05)}
-  .empty,.welcome{text-align:center;padding:60px 20px;color:var(--muted)}
-  .welcome h1{color:var(--txt);margin-bottom:8px}
-  /* modal */
-  .overlay{position:fixed;inset:0;background:rgba(0,0,0,.6);display:flex;align-items:flex-start;justify-content:center;padding:40px 16px;z-index:50;overflow:auto}
-  .dialog{background:var(--panel);border:1px solid var(--line);border-radius:14px;width:100%;max-width:620px}
-  .dhead{display:flex;justify-content:space-between;align-items:center;padding:14px 18px;border-bottom:1px solid var(--line)}
-  .dhead h2{font-size:17px;margin:0}
-  .x{background:none;border:none;color:var(--muted);font-size:24px;cursor:pointer;line-height:1}
-  .dbody{padding:18px}
-  .search{width:100%;background:var(--panel2);border:1px solid var(--line);border-radius:8px;color:var(--txt);padding:10px 12px;font-size:15px}
-  .results{margin-top:14px;display:flex;flex-direction:column;gap:8px;max-height:50vh;overflow:auto}
-  .rrow{display:flex;align-items:center;gap:10px;background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:8px 10px}
+  .flag{color:var(--yellow);cursor:help;font-size:13px}
+  .cm{color:#7dffc4;text-decoration:none;font-weight:700}
+  .cm:hover{filter:brightness(1.2)}
+
+  /* ---------- tabla ---------- */
+  .tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:var(--radius);background:var(--glass);backdrop-filter:blur(8px)}
+  table{width:100%;border-collapse:collapse;min-width:780px}
+  th,td{padding:11px 12px;text-align:left;border-bottom:1px solid var(--line);vertical-align:middle}
+  th{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;font-weight:600;position:sticky;top:0;background:var(--bg2)}
+  tr:last-child td{border-bottom:none}
+  tbody tr{transition:.12s}
+  tbody tr:hover{background:rgba(255,255,255,.03)}
+  .thumb{width:34px;height:47px;object-fit:contain;border-radius:5px;background:#05060a}
+  .nm-cell{font-weight:600}
+  .num{text-align:right;font-variant-numeric:tabular-nums}
+  .mtag{margin-left:6px;font-size:9px;background:#9b8cff;color:#10121a;border-radius:5px;padding:1px 5px;font-weight:700;vertical-align:middle}
+
+  /* ---------- vacíos / welcome ---------- */
+  .empty,.welcome{text-align:center;padding:70px 20px;color:var(--muted)}
+  .welcome .logo{width:60px;height:60px;border-radius:18px;margin:0 auto 18px}
+  .welcome h1{font-size:26px;margin-bottom:8px}
+  .welcome p{max-width:420px;margin:0 auto 22px}
+
+  /* ---------- modal ---------- */
+  .overlay{position:fixed;inset:0;background:rgba(4,5,9,.72);display:flex;align-items:flex-start;justify-content:center;padding:46px 16px;z-index:50;overflow:auto;backdrop-filter:blur(6px)}
+  .dialog{background:var(--bg2);border:1px solid var(--line2);border-radius:20px;width:100%;max-width:640px;
+    box-shadow:0 30px 80px rgba(0,0,0,.6)}
+  .dhead{display:flex;justify-content:space-between;align-items:center;padding:17px 20px;border-bottom:1px solid var(--line)}
+  .dhead h2{font-size:17px;margin:0;font-weight:600}
+  .x{background:none;border:none;color:var(--muted);font-size:24px;cursor:pointer;line-height:1;padding:0 4px}
+  .x:hover{color:var(--txt)}
+  .dbody{padding:18px 20px 22px}
+  .search{width:100%;font-size:15px;padding:11px 13px}
+  .results{margin-top:14px;display:flex;flex-direction:column;gap:9px;max-height:52vh;overflow:auto}
+  .rrow{display:flex;align-items:center;gap:11px;background:var(--glass);border:1px solid var(--line);border-radius:13px;padding:9px 11px}
+  .rrow:hover{border-color:var(--line2)}
   .rinfo{flex:1;display:flex;flex-direction:column;min-width:0}
-  .rinfo strong{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-  .sel,.qty{background:var(--bg);border:1px solid var(--line);border-radius:7px;color:var(--txt);padding:6px}
-  .qty{width:56px}
-  .settings{display:flex;flex-direction:column;gap:12px}
-  .field{display:flex;flex-direction:column;gap:5px}
-  .field span{font-size:13px;color:var(--muted)}
-  .field input{background:var(--panel2);border:1px solid var(--line);border-radius:8px;color:var(--txt);padding:9px 11px}
-  .hint{font-size:12px;color:var(--muted);background:var(--panel2);border-radius:8px;padding:10px;border:1px solid var(--line)}
-  .row{display:flex;gap:10px}
-  @media(max-width:640px){ .stats{grid-template-columns:repeat(2,1fr)} .stat.updated{grid-column:span 2} }
+  .rinfo strong{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:14px}
+  .sel,.qty{padding:7px 9px;font-size:12px}
+  .qty{width:58px}
+  .settings{display:flex;flex-direction:column;gap:13px}
+  .field{display:flex;flex-direction:column;gap:6px}
+  .field span{font-size:12px;color:var(--muted);font-weight:500}
+  .hint{font-size:12px;color:var(--muted);background:var(--glass);border-radius:11px;padding:11px;border:1px solid var(--line);line-height:1.55}
+  .rowf{display:flex;gap:10px}
+  @media(max-width:680px){ .stats{grid-template-columns:repeat(2,1fr)} h1{font-size:18px} }
 </style>
 </head>
 <body>
-  <main id="app"><p class="muted center">Cargando…</p></main>
-  <script type="module">
-// ====== variants ======
-// Configuración compartida de variantes y mapeo de campos de precio.
-// La importan tanto el trabajador (Node, scripts/update-prices.mjs)
-// como el frontend (navegador, src/app.js).
-//
-// IDEA CENTRAL: la VARIANTE es la unidad de precio. Una misma carta (cardId)
-// tiene varias impresiones que en Cardmarket son productos distintos con
-// precios distintos. Aquí declaramos, por cada variante y cada fuente,
-// QUÉ campo leer y SI esa fuente es fiable para esa variante.
+  <main id="app"><p class="muted center" style="padding:60px">Cargando…</p></main>
+<script type="module">
+/* ====== variantes ====== */
+const VARIANTS=[{id:'normal',label:'Normal'},{id:'holo',label:'Holo'},{id:'reverse',label:'Reverse Holo'},{id:'firstEdition',label:'1ª Edición'},{id:'promo',label:'Promo'}];
+const VARIANT_LABEL=Object.fromEntries(VARIANTS.map(v=>[v.id,v.label]));
+const CONDITIONS=['NM','EX','GD','LP','PL','PO'];
 
-const VARIANTS = [
-  { id: 'normal',       label: 'Normal' },
-  { id: 'holo',         label: 'Holo' },
-  { id: 'reverse',      label: 'Reverse Holo' },
-  { id: 'firstEdition', label: '1ª Edición' },
-  { id: 'promo',        label: 'Promo' },
-];
+/* ====== github (DB en tu repo) ====== */
+const SETTINGS_KEY='pkmn.settings';
+function getSettings(){try{return JSON.parse(localStorage.getItem(SETTINGS_KEY))||{}}catch{return{}}}
+function saveSettings(s){localStorage.setItem(SETTINGS_KEY,JSON.stringify(s))}
+function isConfigured(){const s=getSettings();return !!(s.owner&&s.repo&&s.token)}
+function api(path,opts={}){const s=getSettings();return fetch(`https://api.github.com${path}`,{...opts,headers:{'Accept':'application/vnd.github+json','Authorization':`Bearer ${s.token}`,'X-GitHub-Api-Version':'2022-11-28',...(opts.headers||{})}})}
+const toB64=(str)=>btoa(String.fromCharCode(...new TextEncoder().encode(str)));
+const fromB64=(b64)=>new TextDecoder().decode(Uint8Array.from(atob(b64),c=>c.charCodeAt(0)));
+async function getFile(path){const s=getSettings();const branch=s.branch||'main';const res=await api(`/repos/${s.owner}/${s.repo}/contents/${path}?ref=${branch}&t=${Date.now()}`);if(res.status===404)return{json:null,sha:null};if(!res.ok)throw new Error(`GitHub ${res.status}: ${await res.text()}`);const data=await res.json();const content=data.content?fromB64(data.content.replace(/\n/g,'')):'';return{json:content?JSON.parse(content):null,sha:data.sha}}
+async function putFile(path,json,sha,message){const s=getSettings();const branch=s.branch||'main';const body={message:message||`update ${path}`,content:toB64(JSON.stringify(json,null,2)+'\n'),branch,...(sha?{sha}:{})};const res=await api(`/repos/${s.owner}/${s.repo}/contents/${path}`,{method:'PUT',body:JSON.stringify(body)});if(!res.ok)throw new Error(`GitHub ${res.status}: ${await res.text()}`);return (await res.json()).content.sha}
+async function testConnection(){const s=getSettings();const res=await api(`/repos/${s.owner}/${s.repo}`);if(!res.ok)throw new Error(`No se pudo acceder al repo (${res.status}). Revisa owner/repo/token.`);return await res.json()}
+const gh={getSettings,saveSettings,isConfigured,getFile,putFile,testConnection};
 
-const VARIANT_LABEL = Object.fromEntries(VARIANTS.map(v => [v.id, v.label]));
+/* ====== búsqueda TCGdex ====== */
+async function searchCards(query){const q=query.trim();if(q.length<2)return[];const res=await fetch(`https://api.tcgdex.net/v2/en/cards?name=like:${encodeURIComponent(q)}`);if(!res.ok)throw new Error('Error buscando en TCGdex ('+res.status+')');const list=await res.json();return (Array.isArray(list)?list:[]).slice(0,40).map(c=>({cardId:c.id,localId:c.localId,name:c.name,image:c.image?c.image+'/low.webp':null}))}
+function artFor(image){return image?image.replace('/low.webp','/high.webp'):null}
+function parseCardId(cardId){const i=cardId.lastIndexOf('-');return i===-1?{set:cardId,number:''}:{set:cardId.slice(0,i),number:cardId.slice(i+1)}}
 
-// Mapeo por fuente. Cada entrada: { fields: [...orden de preferencia], reliable: bool }
-// - fields: se prueban en orden; se usa el primero con un número > 0.
-// - reliable: si false, el valor existe pero NO se usa para el cálculo de
-//   consenso (solo informativo), porque la fuente no distingue esa variante.
-const PRICE_MAP = {
-  // pokemontcg.io -> objeto card.cardmarket.prices (EUR)
-  ptcg: {
-    normal:       { fields: ['trendPrice', 'averageSellPrice', 'avg7'], reliable: true },
-    holo:         { fields: ['trendPrice', 'averageSellPrice', 'avg7'], reliable: true },
-    reverse:      { fields: ['reverseHoloTrend', 'reverseHoloSell', 'reverseHoloAvg7'], reliable: true },
-    firstEdition: { fields: ['trendPrice', 'averageSellPrice', 'avg7'], reliable: false },
-    promo:        { fields: ['trendPrice', 'averageSellPrice', 'avg7'], reliable: true },
-  },
-  // TCGdex -> objeto card.pricing.cardmarket (EUR)
-  tcgdex: {
-    normal:       { fields: ['trend', 'avg', 'avg7'], reliable: true },
-    holo:         { fields: ['trend-holo', 'avg-holo', 'avg7-holo'], reliable: true },
-    // TCGdex NO tiene campo de reverse holo en Cardmarket: solo standard/holo.
-    // Por eso es la causa raíz del bug. La marcamos NO fiable para reverse.
-    reverse:      { fields: ['trend-holo', 'avg-holo', 'trend', 'avg'], reliable: false },
-    firstEdition: { fields: ['trend', 'avg'], reliable: false },
-    promo:        { fields: ['trend', 'avg'], reliable: false },
-  },
-};
+/* ====== app ====== */
+const FLAG_TEXT={sources_diverge:'Las dos fuentes no coinciden — precio dudoso, verifica en Cardmarket.',single_source:'Solo una fuente fiable da precio para esta variante.',no_reliable_source:'Ninguna fuente fiable; valor solo orientativo.',no_data:'Sin datos de precio en ninguna fuente.',tcgdex_identical_variants:'Posible bug de TCGdex: precios idénticos entre variantes.'};
+const CONF={high:{label:'Alta',cls:'c-high'},medium:{label:'Media',cls:'c-med'},low:{label:'Baja',cls:'c-low'},none:{label:'—',cls:'c-none'}};
+const SI={search:'<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>',plus:'<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 5v14M5 12h14"/></svg>',refresh:'<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 1 1-2.6-6.4"/><path d="M21 3v6h-6"/></svg>',cog:'<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19 12a7 7 0 0 0-.1-1l2-1.5-2-3.5-2.4 1a7 7 0 0 0-1.7-1l-.3-2.5h-4l-.3 2.5a7 7 0 0 0-1.7 1l-2.4-1-2 3.5 2 1.5a7 7 0 0 0 0 2l-2 1.5 2 3.5 2.4-1a7 7 0 0 0 1.7 1l.3 2.5h4l.3-2.5a7 7 0 0 0 1.7-1l2.4 1 2-3.5-2-1.5a7 7 0 0 0 .1-1Z"/></svg>',grid:'<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>',list:'<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg>',dl:'<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 21h14"/></svg>',trash:'<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M9 7V4h6v3m-8 0 1 13h8l1-13"/></svg>'};
 
-// Umbrales de consenso entre fuentes fiables.
-const THRESHOLDS = {
-  divergeRel: 0.20, // 20% de diferencia relativa
-  divergeAbs: 0.50, // o 0,50 € de diferencia absoluta
-};
+let state={collection:{version:1,cards:[]},sha:null,prices:{},generatedAt:null,
+  view:localStorage.getItem('pkmn.view')||'grid',
+  filters:{q:'',set:'',variant:'',condition:'',confidence:'',sort:'value_desc',group:false}};
 
-// Extrae el primer campo válido (> 0) de un objeto de precios según la lista.
-function pickField(priceObj, fields) {
-  if (!priceObj) return null;
-  for (const f of fields) {
-    const v = priceObj[f];
-    if (typeof v === 'number' && v > 0) return { value: v, field: f };
-  }
-  return null;
-}
+const $=(s)=>document.querySelector(s);
+const uuid=()=>crypto.randomUUID?crypto.randomUUID():'id'+Date.now()+Math.random();
+const eur=(n)=>n==null?'—':n.toLocaleString('es-ES',{style:'currency',currency:'EUR'});
+function el(tag,attrs={},...kids){const n=document.createElement(tag);for(const[k,v]of Object.entries(attrs)){if(k==='class')n.className=v;else if(k==='html')n.innerHTML=v;else if(k.startsWith('on'))n.addEventListener(k.slice(2),v);else if(v!=null)n.setAttribute(k,v);}for(const kid of kids.flat())if(kid!=null)n.append(kid.nodeType?kid:document.createTextNode(kid));return n}
 
-// ====== github ======
-// Acceso a tu repositorio como base de datos, vía la API REST de GitHub.
-// Solo se usa un token fine-grained con permiso de "Contents" sobre ESTE repo.
-// El token vive únicamente en localStorage del navegador; nunca se guarda en el repo.
+function priceFor(c){return state.prices[`${c.cardId}|${c.variant}`]||null}
+function effective(c){if(typeof c.priceOverride==='number')return c.priceOverride;const p=priceFor(c);return p?p.eur:null}
+function confOf(c){const p=priceFor(c);return typeof c.priceOverride==='number'?'high':(p?.confidence||'none')}
 
-const SETTINGS_KEY = 'pkmn.settings';
+async function loadPrices(){try{const res=await fetch(`./prices.json?t=${Date.now()}`);if(res.ok){const d=await res.json();state.prices=d.prices||{};state.generatedAt=d.generatedAt;return}}catch{}state.prices={}}
+async function loadCollection(){const{json,sha}=await gh.getFile('collection.json');state.collection=json||{version:1,cards:[]};state.sha=sha}
+async function saveCollection(message){state.collection.updatedAt=new Date().toISOString();state.sha=await gh.putFile('collection.json',state.collection,state.sha,message)}
 
-function getSettings() {
-  try { return JSON.parse(localStorage.getItem(SETTINGS_KEY)) || {}; }
-  catch { return {}; }
-}
-function saveSettings(s) {
-  localStorage.setItem(SETTINGS_KEY, JSON.stringify(s));
-}
-function isConfigured() {
-  const s = getSettings();
-  return !!(s.owner && s.repo && s.token);
-}
-
-function api(path, opts = {}) {
-  const s = getSettings();
-  return fetch(`https://api.github.com${path}`, {
-    ...opts,
-    headers: {
-      'Accept': 'application/vnd.github+json',
-      'Authorization': `Bearer ${s.token}`,
-      'X-GitHub-Api-Version': '2022-11-28',
-      ...(opts.headers || {}),
-    },
+/* ---- filtros ---- */
+function filtered(){
+  let arr=[...(state.collection.cards||[])];
+  const f=state.filters;
+  if(f.q){const q=f.q.toLowerCase();arr=arr.filter(c=>c.name.toLowerCase().includes(q))}
+  if(f.set)arr=arr.filter(c=>parseCardId(c.cardId).set===f.set);
+  if(f.variant)arr=arr.filter(c=>c.variant===f.variant);
+  if(f.condition)arr=arr.filter(c=>c.condition===f.condition);
+  if(f.confidence)arr=arr.filter(c=>confOf(c)===f.confidence);
+  const val=(c)=>{const v=effective(c);return v==null?-1:v};
+  const s=f.sort;
+  arr.sort((a,b)=>{
+    if(s==='value_desc')return val(b)-val(a);
+    if(s==='value_asc')return val(a)-val(b);
+    if(s==='name')return a.name.localeCompare(b.name);
+    if(s==='recent')return (b.addedAt||'').localeCompare(a.addedAt||'');
+    return 0;
   });
+  return arr;
 }
 
-// b64 <-> UTF-8 (las cartas pueden tener acentos / caracteres no ASCII)
-const toB64 = (str) => btoa(String.fromCharCode(...new TextEncoder().encode(str)));
-const fromB64 = (b64) => new TextDecoder().decode(Uint8Array.from(atob(b64), c => c.charCodeAt(0)));
-
-// Lee un fichero del repo -> { json, sha }
-async function getFile(path) {
-  const s = getSettings();
-  const branch = s.branch || 'main';
-  const res = await api(`/repos/${s.owner}/${s.repo}/contents/${path}?ref=${branch}&t=${Date.now()}`);
-  if (res.status === 404) return { json: null, sha: null };
-  if (!res.ok) throw new Error(`GitHub ${res.status}: ${await res.text()}`);
-  const data = await res.json();
-  const content = data.content ? fromB64(data.content.replace(/\n/g, '')) : '';
-  return { json: content ? JSON.parse(content) : null, sha: data.sha };
-}
-
-// Escribe un fichero (crea o actualiza). Devuelve el nuevo sha.
-async function putFile(path, json, sha, message) {
-  const s = getSettings();
-  const branch = s.branch || 'main';
-  const body = {
-    message: message || `update ${path}`,
-    content: toB64(JSON.stringify(json, null, 2) + '\n'),
-    branch,
-    ...(sha ? { sha } : {}),
-  };
-  const res = await api(`/repos/${s.owner}/${s.repo}/contents/${path}`, {
-    method: 'PUT',
-    body: JSON.stringify(body),
-  });
-  if (!res.ok) throw new Error(`GitHub ${res.status}: ${await res.text()}`);
-  return (await res.json()).content.sha;
-}
-
-// Verifica que el token y el repo son válidos (para el panel de ajustes).
-async function testConnection() {
-  const s = getSettings();
-  const res = await api(`/repos/${s.owner}/${s.repo}`);
-  if (!res.ok) throw new Error(`No se pudo acceder al repo (${res.status}). Revisa owner/repo/token.`);
-  return await res.json();
-}
-
-const gh = { getSettings, saveSettings, isConfigured, getFile, putFile, testConnection };
-// ====== tcgdex ======
-// Búsqueda de cartas en TCGdex (gratis, sin API key, permite CORS desde el navegador).
-// Solo se usa para AÑADIR cartas (identificarlas). Los precios los calcula el trabajador.
-
-async function searchCards(query) {
-  const q = query.trim();
-  if (q.length < 2) return [];
-  const url = `https://api.tcgdex.net/v2/en/cards?name=like:${encodeURIComponent(q)}`;
-  const res = await fetch(url);
-  if (!res.ok) throw new Error('Error buscando en TCGdex (' + res.status + ')');
-  const list = await res.json();
-  return (Array.isArray(list) ? list : []).slice(0, 40).map(c => ({
-    cardId: c.id,
-    localId: c.localId,
-    name: c.name,
-    image: c.image ? c.image + '/low.webp' : null,
-  }));
-}
-
-// "swsh3-136" -> { set: "swsh3", number: "136" }  (para mostrar set/número)
-function parseCardId(cardId) {
-  const i = cardId.lastIndexOf('-');
-  return i === -1 ? { set: cardId, number: '' }
-                  : { set: cardId.slice(0, i), number: cardId.slice(i + 1) };
-}
-
-// ====== app ======
-
-const CONDITIONS = ['NM', 'EX', 'GD', 'LP', 'PL', 'PO']; // Near Mint ... Poor
-
-const FLAG_TEXT = {
-  sources_diverge: 'Las dos fuentes no coinciden — precio dudoso, verifica en Cardmarket.',
-  single_source: 'Solo una fuente fiable da precio para esta variante.',
-  no_reliable_source: 'Ninguna fuente fiable; valor solo orientativo.',
-  no_data: 'Sin datos de precio en ninguna fuente.',
-  tcgdex_identical_variants: 'Posible bug de TCGdex: precios idénticos entre variantes.',
-};
-const CONF = {
-  high:   { label: 'Alta',   cls: 'c-high' },
-  medium: { label: 'Media',  cls: 'c-med'  },
-  low:    { label: 'Baja',   cls: 'c-low'  },
-  none:   { label: '—',      cls: 'c-none' },
-};
-
-let state = { collection: { version: 1, cards: [] }, sha: null, prices: {} };
-
-const $ = (s) => document.querySelector(s);
-const uuid = () => (crypto.randomUUID ? crypto.randomUUID() : 'id' + Date.now() + Math.random());
-const eur = (n) => n == null ? '—' : n.toLocaleString('es-ES', { style: 'currency', currency: 'EUR' });
-function el(tag, attrs = {}, ...kids) {
-  const n = document.createElement(tag);
-  for (const [k, v] of Object.entries(attrs)) {
-    if (k === 'class') n.className = v;
-    else if (k === 'html') n.innerHTML = v;
-    else if (k.startsWith('on')) n.addEventListener(k.slice(2), v);
-    else if (v != null) n.setAttribute(k, v);
-  }
-  for (const kid of kids.flat()) if (kid != null) n.append(kid.nodeType ? kid : document.createTextNode(kid));
-  return n;
-}
-
-// ---------------------------------------------------------------- datos
-async function loadPrices() {
-  try {
-    const res = await fetch(`./prices.json?t=${Date.now()}`);
-    if (res.ok) { const d = await res.json(); state.prices = d.prices || {}; return d.generatedAt; }
-  } catch {}
-  return null;
-}
-async function loadCollection() {
-  const { json, sha } = await gh.getFile('collection.json');
-  state.collection = json || { version: 1, cards: [] };
-  state.sha = sha;
-}
-async function saveCollection(message) {
-  state.collection.updatedAt = new Date().toISOString();
-  state.sha = await gh.putFile('collection.json', state.collection, state.sha, message);
-}
-function priceFor(c) { return state.prices[`${c.cardId}|${c.variant}`] || null; }
-function effective(c) {
-  if (typeof c.priceOverride === 'number') return c.priceOverride;
-  const p = priceFor(c); return p ? p.eur : null;
-}
-
-// ---------------------------------------------------------------- render
-function render(generatedAt) {
-  const app = $('#app'); app.innerHTML = '';
-
-  // cabecera
-  app.append(el('header', { class: 'top' },
-    el('h1', {}, 'Mi colección Pokémon'),
-    el('div', { class: 'actions' },
-      el('button', { class: 'btn primary', onclick: openAdd }, '+ Añadir carta'),
-      el('button', { class: 'btn', onclick: refresh }, '↻ Recargar'),
-      el('button', { class: 'btn ghost', onclick: openSettings }, '⚙ Ajustes'),
-    )
-  ));
-
-  const cards = state.collection.cards || [];
-  // estadísticas
-  let total = 0, flagged = 0;
-  for (const c of cards) {
-    const v = effective(c); if (v != null) total += v * (c.quantity || 1);
-    const p = priceFor(c); if (p && p.flags && p.flags.length) flagged += 1;
-  }
-  app.append(el('section', { class: 'stats' },
-    stat('Cartas', cards.reduce((a, c) => a + (c.quantity || 1), 0)),
-    stat('Entradas', cards.length),
-    stat('Valor total', eur(total)),
-    stat('Con aviso', flagged),
-    el('div', { class: 'stat updated' },
-      el('span', { class: 'k' }, 'Precios'),
-      el('span', { class: 'v' }, generatedAt ? new Date(generatedAt).toLocaleDateString('es-ES') : 'sin datos'))
-  ));
-
-  if (!cards.length) {
-    app.append(el('div', { class: 'empty' }, 'Aún no hay cartas. Pulsa “Añadir carta”.'));
-    return;
-  }
-
-  // tabla
-  const tbody = el('tbody');
-  for (const c of cards) tbody.append(rowFor(c));
-  app.append(el('div', { class: 'tablewrap' }, el('table', {},
-    el('thead', {}, el('tr', {},
-      ...['', 'Carta', 'Set/Nº', 'Variante', 'Estado', 'Cant.', 'Precio €', 'Confianza', 'Avisos', 'Manual', ''].map(h => el('th', {}, h)))),
-    tbody
-  )));
-}
-
-function stat(k, v) {
-  return el('div', { class: 'stat' }, el('span', { class: 'k' }, k), el('span', { class: 'v' }, String(v)));
-}
-
-function rowFor(c) {
-  const p = priceFor(c);
-  const { set, number } = parseCardId(c.cardId);
-  const conf = CONF[p?.confidence || 'none'];
-  const overridden = typeof c.priceOverride === 'number';
-
-  const flags = (p?.flags || []).map(f =>
-    el('span', { class: 'flag', title: FLAG_TEXT[f] || f }, '⚠'));
-
-  const cmLink = p?.cardmarketUrl
-    ? el('a', { href: p.cardmarketUrl, target: '_blank', rel: 'noopener', class: 'cm', title: 'Ver/verificar en Cardmarket' }, '↗')
-    : null;
-
-  const override = el('input', {
-    type: 'number', step: '0.01', min: '0', class: 'ovr',
-    placeholder: 'auto', value: overridden ? c.priceOverride : '',
-    title: 'Precio manual (gana al automático)',
-    onchange: async (e) => {
-      const val = e.target.value.trim();
-      c.priceOverride = val === '' ? null : parseFloat(val);
-      await saveCollection(`fix: precio manual ${c.name}`);
-      refresh();
+/* ---- render principal ---- */
+function render(){
+  const app=$('#app');app.innerHTML='';
+  app.append(header());
+  app.append(statsBar());
+  app.append(filterBar());
+  const cards=filtered();
+  if(!(state.collection.cards||[]).length){app.append(el('div',{class:'empty'},'Aún no hay cartas. Pulsa “Añadir carta”.'));return}
+  if(!cards.length){app.append(el('div',{class:'empty'},'Ningún resultado con esos filtros.'));return}
+  if(state.filters.group){
+    const groups={};for(const c of cards){const set=parseCardId(c.cardId).set;(groups[set]=groups[set]||[]).push(c)}
+    for(const set of Object.keys(groups).sort()){
+      const g=groups[set];const tot=g.reduce((a,c)=>a+((effective(c)||0)*(c.quantity||1)),0);
+      app.append(el('div',{class:'group-h'},el('h3',{},set),el('span',{class:'gv'},`${g.length} · ${eur(tot)}`)));
+      app.append(state.view==='grid'?gridView(g):tableView(g));
     }
-  });
-
-  return el('tr', { class: overridden ? 'has-ovr' : '' },
-    el('td', {}, c.image ? el('img', { src: c.image, class: 'thumb', loading: 'lazy', alt: '' }) : ''),
-    el('td', {}, el('span', { class: 'name' }, c.name), c.language && c.language !== 'en' ? el('span', { class: 'lang' }, c.language) : null),
-    el('td', { class: 'mono' }, `${set} · ${number}`),
-    el('td', {}, VARIANT_LABEL[c.variant] || c.variant),
-    el('td', {}, c.condition || '—'),
-    el('td', { class: 'num' }, String(c.quantity || 1)),
-    el('td', { class: 'num price' }, eur(effective(c)), overridden ? el('span', { class: 'mtag', title: 'Precio manual' }, 'M') : null),
-    el('td', {}, el('span', { class: 'badge ' + conf.cls }, conf.label)),
-    el('td', { class: 'flags' }, ...flags, cmLink),
-    el('td', {}, override),
-    el('td', {}, el('button', { class: 'btn tiny danger', title: 'Eliminar',
-      onclick: async () => { if (!confirm(`¿Eliminar ${c.name}?`)) return;
-        state.collection.cards = state.collection.cards.filter(x => x.id !== c.id);
-        await saveCollection(`del: ${c.name}`); refresh(); } }, '🗑'))
-  );
-}
-
-// ---------------------------------------------------------------- añadir
-function openAdd() {
-  const results = el('div', { class: 'results' });
-  const input = el('input', { class: 'search', placeholder: 'Buscar carta por nombre (ej. Charizard)...', autofocus: true });
-  let timer;
-  input.addEventListener('input', () => {
-    clearTimeout(timer);
-    timer = setTimeout(async () => {
-      results.innerHTML = '<p class="muted">Buscando…</p>';
-      try {
-        const cards = await searchCards(input.value);
-        results.innerHTML = '';
-        if (!cards.length) { results.innerHTML = '<p class="muted">Sin resultados.</p>'; return; }
-        for (const card of cards) results.append(resultRow(card, close));
-      } catch (e) { results.innerHTML = `<p class="err">${e.message}</p>`; }
-    }, 350);
-  });
-  const { close } = modal('Añadir carta', el('div', {}, input, results));
-  input.focus();
-}
-
-function resultRow(card, closeModal) {
-  const variant = el('select', { class: 'sel' }, ...VARIANTS.map(v => el('option', { value: v.id }, v.label)));
-  const cond = el('select', { class: 'sel' }, ...CONDITIONS.map(x => el('option', { value: x }, x)));
-  const qty = el('input', { type: 'number', min: '1', value: '1', class: 'qty' });
-  const { set, number } = parseCardId(card.cardId);
-  return el('div', { class: 'rrow' },
-    card.image ? el('img', { src: card.image, class: 'thumb', loading: 'lazy', alt: '' }) : el('div', { class: 'thumb ph' }),
-    el('div', { class: 'rinfo' }, el('strong', {}, card.name), el('span', { class: 'mono muted' }, `${set} · ${number}`)),
-    variant, cond, qty,
-    el('button', { class: 'btn primary tiny', onclick: async (e) => {
-      e.target.disabled = true;
-      state.collection.cards.push({
-        id: uuid(), cardId: card.cardId, name: card.name, image: card.image,
-        variant: variant.value, condition: cond.value, quantity: parseInt(qty.value) || 1,
-        language: 'en', priceOverride: null, notes: '', addedAt: new Date().toISOString(),
-      });
-      try { await saveCollection(`add: ${card.name}`); closeModal(); refresh(); }
-      catch (err) { alert('Error guardando: ' + err.message); e.target.disabled = false; }
-    } }, 'Añadir')
-  );
-}
-
-// ---------------------------------------------------------------- ajustes
-function openSettings() {
-  const s = gh.getSettings();
-  const f = (name, ph, val, type = 'text') =>
-    el('label', { class: 'field' }, el('span', {}, name),
-      el('input', { id: 'set_' + name, type, placeholder: ph, value: val || '' }));
-  const owner = f('owner', 'tu-usuario-github', s.owner);
-  const repo = f('repo', 'pokemon-collection', s.repo);
-  const branch = f('branch', 'main', s.branch || 'main');
-  const token = f('token', 'github_pat_...', s.token, 'password');
-  const status = el('p', { class: 'muted' });
-  const body = el('div', { class: 'settings' }, owner, repo, branch, token,
-    el('p', { class: 'hint' }, 'El token (fine-grained, permiso Contents: Read and write sobre este repo) se guarda solo en este navegador.'),
-    el('div', { class: 'row' },
-      el('button', { class: 'btn', onclick: async () => {
-        save(); status.textContent = 'Probando…';
-        try { const r = await gh.testConnection(); status.innerHTML = `✅ Conectado a <b>${r.full_name}</b>`; }
-        catch (e) { status.innerHTML = `<span class="err">${e.message}</span>`; }
-      } }, 'Probar conexión'),
-      el('button', { class: 'btn primary', onclick: async () => { save(); close(); await boot(); } }, 'Guardar')
-    ), status);
-
-  function save() {
-    gh.saveSettings({
-      owner: document.querySelector('#set_owner').value.trim(),
-      repo: document.querySelector('#set_repo').value.trim(),
-      branch: document.querySelector('#set_branch').value.trim() || 'main',
-      token: document.querySelector('#set_token').value.trim(),
-    });
-  }
-  const { close } = modal('Ajustes', body);
-}
-
-// ---------------------------------------------------------------- modal
-function modal(title, content) {
-  const overlay = el('div', { class: 'overlay' });
-  const close = () => overlay.remove();
-  overlay.addEventListener('click', (e) => { if (e.target === overlay) close(); });
-  overlay.append(el('div', { class: 'dialog' },
-    el('div', { class: 'dhead' }, el('h2', {}, title), el('button', { class: 'x', onclick: close }, '×')),
-    el('div', { class: 'dbody' }, content)));
-  document.body.append(overlay);
-  return { close };
-}
-
-// ---------------------------------------------------------------- ciclo
-async function refresh() {
-  const gen = await loadPrices();
-  render(gen);
-}
-async function boot() {
-  const app = $('#app');
-  if (!gh.isConfigured()) {
-    app.innerHTML = '';
-    app.append(el('div', { class: 'welcome' },
-      el('h1', {}, 'Mi colección Pokémon'),
-      el('p', {}, 'Conecta tu repositorio de GitHub para empezar.'),
-      el('button', { class: 'btn primary', onclick: openSettings }, 'Configurar')));
-    return;
-  }
-  app.innerHTML = '<p class="muted center">Cargando colección…</p>';
-  try {
-    await loadCollection();
-    const gen = await loadPrices();
-    render(gen);
-  } catch (e) {
-    app.innerHTML = '';
-    app.append(el('div', { class: 'welcome' },
-      el('h1', {}, 'No se pudo cargar'),
-      el('p', { class: 'err' }, e.message),
-      el('button', { class: 'btn', onclick: openSettings }, 'Revisar ajustes')));
+  }else{
+    app.append(state.view==='grid'?gridView(cards):tableView(cards));
   }
 }
 
+function header(){
+  const viewSeg=el('div',{class:'seg'},
+    el('button',{class:state.view==='grid'?'on':'',html:SI.grid+'<span>Cuadrícula</span>',onclick:()=>{state.view='grid';localStorage.setItem('pkmn.view','grid');render()}}),
+    el('button',{class:state.view==='table'?'on':'',html:SI.list+'<span>Tabla</span>',onclick:()=>{state.view='table';localStorage.setItem('pkmn.view','table');render()}}));
+  return el('div',{class:'top'},
+    el('div',{class:'brand'},el('div',{class:'logo'}),
+      el('div',{},el('h1',{},'Mi colección Pokémon'),
+        el('div',{class:'sub'},state.generatedAt?'Precios: '+new Date(state.generatedAt).toLocaleDateString('es-ES'):'Precios: sin calcular'))),
+    el('div',{class:'actions'},viewSeg,
+      el('button',{class:'btn primary',html:SI.plus+'<span>Añadir carta</span>',onclick:openAdd}),
+      el('button',{class:'btn',html:SI.refresh+'<span>Recargar</span>',onclick:refresh}),
+      el('button',{class:'btn ghost',html:SI.dl,title:'Exportar CSV',onclick:exportCSV}),
+      el('button',{class:'btn ghost',html:SI.cog,title:'Ajustes',onclick:openSettings})));
+}
+
+function statsBar(){
+  const cards=state.collection.cards||[];let total=0,flagged=0;
+  for(const c of cards){const v=effective(c);if(v!=null)total+=v*(c.quantity||1);const p=priceFor(c);if(p&&p.flags&&p.flags.length&&typeof c.priceOverride!=='number')flagged++}
+  const stat=(k,v,cls='')=>el('div',{class:'stat '+cls},el('span',{class:'k'},k),el('span',{class:'v'},String(v)));
+  return el('div',{class:'stats'},
+    stat('Cartas',cards.reduce((a,c)=>a+(c.quantity||1),0)),
+    stat('Entradas',cards.length),
+    stat('Valor total',eur(total),'value'),
+    stat('Con aviso',flagged));
+}
+
+function filterBar(){
+  const cards=state.collection.cards||[];
+  const sets=[...new Set(cards.map(c=>parseCardId(c.cardId).set))].sort();
+  const f=state.filters;
+  const sb=el('div',{class:'searchbox'},el('span',{class:'icon',html:SI.search}),
+    el('input',{type:'text',placeholder:'Buscar en mi colección…',value:f.q,oninput:(e)=>{f.q=e.target.value;render();const i=$('#app .searchbox input');if(i){i.focus();i.setSelectionRange(i.value.length,i.value.length)}}}));
+  const mk=(opts,cur,on,ph)=>{const s=el('select',{onchange:(e)=>{on(e.target.value);render()}});s.append(el('option',{value:''},ph));for(const[v,l]of opts){const o=el('option',{value:v},l);if(v===cur)o.selected=true;s.append(o)}return s};
+  return el('div',{class:'filters'},sb,
+    mk(sets.map(s=>[s,s]),f.set,(v)=>f.set=v,'Todos los sets'),
+    mk(VARIANTS.map(v=>[v.id,v.label]),f.variant,(v)=>f.variant=v,'Toda variante'),
+    mk(CONDITIONS.map(c=>[c,c]),f.condition,(v)=>f.condition=v,'Todo estado'),
+    mk([['high','Alta'],['medium','Media'],['low','Baja'],['none','Sin precio']],f.confidence,(v)=>f.confidence=v,'Toda confianza'),
+    mk([['value_desc','Valor ↓'],['value_asc','Valor ↑'],['name','Nombre A-Z'],['recent','Recientes']],f.sort,(v)=>f.sort=v,'Ordenar'),
+    el('label',{class:'chk'},el('input',{type:'checkbox',checked:f.group?'checked':null,onchange:(e)=>{f.group=e.target.checked;render()}}),'Agrupar por set'));
+}
+
+/* ---- vista cuadrícula ---- */
+function gridView(cards){
+  const g=el('div',{class:'grid'});
+  for(const c of cards)g.append(pcard(c));
+  return g;
+}
+function pcard(c){
+  const p=priceFor(c);const conf=CONF[confOf(c)];const{set,number}=parseCardId(c.cardId);
+  const overridden=typeof c.priceOverride==='number';
+  const art=artFor(c.image);
+  const flags=(!overridden&&p?.flags||[]).map(fl=>el('span',{class:'flag',title:FLAG_TEXT[fl]||fl},'⚠'));
+  const cm=p?.cardmarketUrl?el('a',{href:p.cardmarketUrl,target:'_blank',rel:'noopener',class:'cm',title:'Verificar en Cardmarket'},'↗'):null;
+  const override=el('input',{type:'number',step:'0.01',min:'0',class:'ovr',placeholder:'manual €',value:overridden?c.priceOverride:'',title:'Precio manual (gana al automático)',
+    onchange:async(e)=>{const val=e.target.value.trim();c.priceOverride=val===''?null:parseFloat(val);await saveCollection(`fix: precio manual ${c.name}`);render()}});
+  return el('div',{class:'pcard'},
+    el('div',{class:'imgwrap'},
+      art?el('img',{class:'art',src:art,loading:'lazy',alt:c.name}):el('span',{class:'noart'},'sin imagen'),
+      (c.quantity>1)?el('span',{class:'qbubble'},'×'+c.quantity):null,
+      el('span',{class:'badge '+conf.cls,html:'<span></span>'+conf.label})),
+    el('div',{class:'body'},
+      el('div',{class:'nm'},c.name),
+      el('div',{class:'meta'},el('span',{class:'mono'},`${set} · ${number}`),el('span',{class:'vtag'},VARIANT_LABEL[c.variant]||c.variant),el('span',{class:'vtag'},c.condition||'—')),
+      el('div',{class:'pr'},
+        el('span',{class:'price'+(effective(c)==null?' dim':'')},eur(effective(c)),overridden?el('span',{class:'mtag'},'M'):null),
+        el('span',{},...flags,cm)),
+      el('div',{class:'row2'},override,
+        el('button',{class:'btn tiny danger',html:SI.trash,title:'Eliminar',onclick:()=>delCard(c)}))));
+}
+
+/* ---- vista tabla ---- */
+function tableView(cards){
+  const tb=el('tbody');
+  for(const c of cards){
+    const p=priceFor(c);const conf=CONF[confOf(c)];const{set,number}=parseCardId(c.cardId);const overridden=typeof c.priceOverride==='number';
+    const flags=(!overridden&&p?.flags||[]).map(fl=>el('span',{class:'flag',title:FLAG_TEXT[fl]||fl},'⚠ '));
+    const cm=p?.cardmarketUrl?el('a',{href:p.cardmarketUrl,target:'_blank',rel:'noopener',class:'cm',title:'Verificar en Cardmarket'},'↗'):null;
+    const override=el('input',{type:'number',step:'0.01',min:'0',class:'ovr',style:'width:78px',placeholder:'auto',value:overridden?c.priceOverride:'',title:'Precio manual',
+      onchange:async(e)=>{const val=e.target.value.trim();c.priceOverride=val===''?null:parseFloat(val);await saveCollection(`fix: precio manual ${c.name}`);render()}});
+    tb.append(el('tr',{},
+      el('td',{},c.image?el('img',{src:c.image,class:'thumb',loading:'lazy',alt:''}):''),
+      el('td',{class:'nm-cell'},c.name),
+      el('td',{class:'mono'},`${set} · ${number}`),
+      el('td',{},VARIANT_LABEL[c.variant]||c.variant),
+      el('td',{},c.condition||'—'),
+      el('td',{class:'num'},String(c.quantity||1)),
+      el('td',{class:'num'},el('span',{class:'price',style:'font-size:14px'},eur(effective(c)),overridden?el('span',{class:'mtag'},'M'):null)),
+      el('td',{},el('span',{class:'badge '+conf.cls,html:'<span></span>'+conf.label})),
+      el('td',{},...flags,cm),
+      el('td',{},override),
+      el('td',{},el('button',{class:'btn tiny danger',html:SI.trash,onclick:()=>delCard(c)}))));
+  }
+  return el('div',{class:'tablewrap'},el('table',{},
+    el('thead',{},el('tr',{},...['','Carta','Set/Nº','Variante','Estado','Cant.','Precio','Confianza','Avisos','Manual',''].map(h=>el('th',{},h)))),tb));
+}
+
+async function delCard(c){if(!confirm(`¿Eliminar ${c.name}?`))return;state.collection.cards=state.collection.cards.filter(x=>x.id!==c.id);await saveCollection(`del: ${c.name}`);render()}
+
+/* ---- añadir ---- */
+function openAdd(){
+  const results=el('div',{class:'results'});
+  const input=el('input',{class:'search',placeholder:'Buscar carta por nombre (ej. Charizard)…',autofocus:true});
+  let timer;input.addEventListener('input',()=>{clearTimeout(timer);timer=setTimeout(async()=>{results.innerHTML='<p class="muted">Buscando…</p>';try{const cards=await searchCards(input.value);results.innerHTML='';if(!cards.length){results.innerHTML='<p class="muted">Sin resultados.</p>';return}for(const card of cards)results.append(resultRow(card,close))}catch(e){results.innerHTML=`<p class="err">${e.message}</p>`}},350)});
+  const{close}=modal('Añadir carta',el('div',{},input,results));input.focus();
+}
+function resultRow(card,closeModal){
+  const variant=el('select',{class:'sel'},...VARIANTS.map(v=>el('option',{value:v.id},v.label)));
+  const cond=el('select',{class:'sel'},...CONDITIONS.map(x=>el('option',{value:x},x)));
+  const qty=el('input',{type:'number',min:'1',value:'1',class:'qty'});
+  const{set,number}=parseCardId(card.cardId);
+  return el('div',{class:'rrow'},
+    card.image?el('img',{src:card.image,class:'thumb',loading:'lazy',alt:''}):el('div',{class:'thumb'}),
+    el('div',{class:'rinfo'},el('strong',{},card.name),el('span',{class:'mono muted'},`${set} · ${number}`)),
+    variant,cond,qty,
+    el('button',{class:'btn primary tiny',onclick:async(e)=>{e.target.disabled=true;state.collection.cards.push({id:uuid(),cardId:card.cardId,name:card.name,image:card.image,variant:variant.value,condition:cond.value,quantity:parseInt(qty.value)||1,language:'en',priceOverride:null,notes:'',addedAt:new Date().toISOString()});try{await saveCollection(`add: ${card.name}`);closeModal();render()}catch(err){alert('Error guardando: '+err.message);e.target.disabled=false}}},'Añadir'));
+}
+
+/* ---- export CSV ---- */
+function exportCSV(){
+  const rows=[['nombre','cardId','set','numero','variante','estado','cantidad','precio_eur','confianza','manual']];
+  for(const c of state.collection.cards||[]){const{set,number}=parseCardId(c.cardId);rows.push([c.name,c.cardId,set,number,VARIANT_LABEL[c.variant]||c.variant,c.condition||'',c.quantity||1,effective(c)??'',CONF[confOf(c)].label,typeof c.priceOverride==='number'?'sí':''])}
+  const csv=rows.map(r=>r.map(x=>{const s=String(x);return /[",;\n]/.test(s)?'"'+s.replace(/"/g,'""')+'"':s}).join(',')).join('\n');
+  const blob=new Blob(['﻿'+csv],{type:'text/csv;charset=utf-8'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='coleccion-pokemon.csv';a.click();URL.revokeObjectURL(a.href);
+}
+
+/* ---- ajustes ---- */
+function openSettings(){
+  const s=gh.getSettings();
+  const f=(name,ph,val,type='text')=>el('label',{class:'field'},el('span',{},name),el('input',{id:'set_'+name,type,placeholder:ph,value:val||''}));
+  const status=el('p',{class:'muted'});
+  const body=el('div',{class:'settings'},f('owner','tu-usuario-github',s.owner),f('repo','Pokemon',s.repo),f('branch','main',s.branch||'main'),f('token','github_pat_...',s.token,'password'),
+    el('p',{class:'hint'},'El token (fine-grained, permiso Contents: Read and write sobre este repo) se guarda solo en este navegador.'),
+    el('div',{class:'rowf'},
+      el('button',{class:'btn',onclick:async()=>{save();status.textContent='Probando…';try{const r=await gh.testConnection();status.innerHTML=`✅ Conectado a <b>${r.full_name}</b>`}catch(e){status.innerHTML=`<span class="err">${e.message}</span>`}}},'Probar conexión'),
+      el('button',{class:'btn primary',onclick:async()=>{save();close();await boot()}},'Guardar')),status);
+  function save(){gh.saveSettings({owner:document.querySelector('#set_owner').value.trim(),repo:document.querySelector('#set_repo').value.trim(),branch:document.querySelector('#set_branch').value.trim()||'main',token:document.querySelector('#set_token').value.trim()})}
+  const{close}=modal('Ajustes',body);
+}
+
+/* ---- modal ---- */
+function modal(title,content){const overlay=el('div',{class:'overlay'});const close=()=>overlay.remove();overlay.addEventListener('click',(e)=>{if(e.target===overlay)close()});overlay.append(el('div',{class:'dialog'},el('div',{class:'dhead'},el('h2',{},title),el('button',{class:'x',onclick:close},'×')),el('div',{class:'dbody'},content)));document.body.append(overlay);return{close}}
+
+/* ---- ciclo ---- */
+async function refresh(){await loadPrices();render()}
+async function boot(){
+  const app=$('#app');
+  if(!gh.isConfigured()){app.innerHTML='';app.append(el('div',{class:'welcome'},el('div',{class:'logo'}),el('h1',{},'Mi colección Pokémon'),el('p',{class:'muted'},'Conecta tu repositorio de GitHub para empezar a gestionar tu colección con precios automáticos en €.'),el('button',{class:'btn primary',html:SI.cog+'<span>Configurar</span>',onclick:openSettings})));return}
+  app.innerHTML='<p class="muted center" style="padding:60px">Cargando colección…</p>';
+  try{await loadCollection();await loadPrices();render()}
+  catch(e){app.innerHTML='';app.append(el('div',{class:'welcome'},el('h1',{},'No se pudo cargar'),el('p',{class:'err'},e.message),el('button',{class:'btn',onclick:openSettings},'Revisar ajustes')))}
+}
 boot();
-
-
-  </script>
+</script>
 </body>
 </html>
