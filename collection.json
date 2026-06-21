@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-06-21T21:18:14.042Z",
+  "updatedAt": "2026-06-21T21:18:34.658Z",
   "cards": [
     {
       "id": "6ae1a33c-769c-4be6-9ea2-5ce3d88f563e",
@@ -924,6 +924,19 @@
       "priceOverride": null,
       "notes": "",
       "addedAt": "2026-06-21T21:18:14.042Z"
+    },
+    {
+      "id": "c21b0af6-e133-4bd5-abd8-b67bc4b28162",
+      "cardId": "swshp-SWSH282",
+      "name": "Galarian Articuno",
+      "image": null,
+      "variant": "normal",
+      "condition": "NM",
+      "quantity": 1,
+      "language": "en",
+      "priceOverride": null,
+      "notes": "",
+      "addedAt": "2026-06-21T21:18:34.658Z"
     }
   ]
 }
