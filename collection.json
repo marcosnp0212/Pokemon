@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-06-21T21:16:57.506Z",
+  "updatedAt": "2026-06-21T21:17:07.503Z",
   "cards": [
     {
       "id": "6ae1a33c-769c-4be6-9ea2-5ce3d88f563e",
@@ -872,6 +872,19 @@
       "priceOverride": null,
       "notes": "",
       "addedAt": "2026-06-21T21:16:57.506Z"
+    },
+    {
+      "id": "01a99e55-0697-4c7b-8ad3-4dca9b5fb501",
+      "cardId": "me03-098",
+      "name": "Doublade",
+      "image": "https://assets.tcgdex.net/en/me/me03/098/low.webp",
+      "variant": "normal",
+      "condition": "NM",
+      "quantity": 1,
+      "language": "en",
+      "priceOverride": null,
+      "notes": "",
+      "addedAt": "2026-06-21T21:17:07.503Z"
     }
   ]
 }
