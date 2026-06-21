@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-06-21T21:15:02.643Z",
+  "updatedAt": "2026-06-21T21:15:10.595Z",
   "cards": [
     {
       "id": "6ae1a33c-769c-4be6-9ea2-5ce3d88f563e",
@@ -820,6 +820,19 @@
       "priceOverride": null,
       "notes": "",
       "addedAt": "2026-06-21T21:15:02.643Z"
+    },
+    {
+      "id": "7b01ad39-e268-423f-8310-99b5c669226c",
+      "cardId": "me01-134",
+      "name": "Ivysaur",
+      "image": "https://assets.tcgdex.net/en/me/me01/134/low.webp",
+      "variant": "normal",
+      "condition": "NM",
+      "quantity": 1,
+      "language": "en",
+      "priceOverride": null,
+      "notes": "",
+      "addedAt": "2026-06-21T21:15:10.595Z"
     }
   ]
 }
