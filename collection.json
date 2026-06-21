@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-06-21T21:18:42.981Z",
+  "updatedAt": "2026-06-21T21:18:49.732Z",
   "cards": [
     {
       "id": "6ae1a33c-769c-4be6-9ea2-5ce3d88f563e",
@@ -950,6 +950,19 @@
       "priceOverride": null,
       "notes": "",
       "addedAt": "2026-06-21T21:18:42.981Z"
+    },
+    {
+      "id": "6fd7edb4-3c93-4eb6-bcdb-5e811a9a1e94",
+      "cardId": "swsh1-25",
+      "name": "Victini V",
+      "image": "https://assets.tcgdex.net/en/swsh/swsh1/25/low.webp",
+      "variant": "normal",
+      "condition": "NM",
+      "quantity": 1,
+      "language": "en",
+      "priceOverride": null,
+      "notes": "",
+      "addedAt": "2026-06-21T21:18:49.732Z"
     }
   ]
 }
