@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-06-21T21:22:53.834Z",
+  "updatedAt": "2026-06-21T21:23:00.467Z",
   "cards": [
     {
       "id": "6ae1a33c-769c-4be6-9ea2-5ce3d88f563e",
@@ -1184,6 +1184,19 @@
       "priceOverride": null,
       "notes": "",
       "addedAt": "2026-06-21T21:22:53.834Z"
+    },
+    {
+      "id": "9e1a5c7c-dc34-4ae1-a8ad-f6d669cef9a3",
+      "cardId": "swsh12.5-GG03",
+      "name": "Magmortar",
+      "image": "https://assets.tcgdex.net/en/swsh/swsh12.5/GG03/low.webp",
+      "variant": "normal",
+      "condition": "NM",
+      "quantity": 1,
+      "language": "en",
+      "priceOverride": null,
+      "notes": "",
+      "addedAt": "2026-06-21T21:23:00.467Z"
     }
   ]
 }
