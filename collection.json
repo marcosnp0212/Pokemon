@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-06-21T21:24:34.695Z",
+  "updatedAt": "2026-06-21T21:24:56.260Z",
   "cards": [
     {
       "id": "6ae1a33c-769c-4be6-9ea2-5ce3d88f563e",
@@ -310,19 +310,6 @@
       "condition": "NM",
       "quantity": 1,
       "language": "es",
-      "priceOverride": null,
-      "notes": "",
-      "addedAt": "2026-06-21T20:40:00.000Z"
-    },
-    {
-      "id": "dcbc7132-93ea-4b17-ab84-b4997439729d",
-      "cardId": "sv9-109",
-      "name": "Reshiram de N",
-      "image": "https://images.pokemontcg.io/sv9/109.png",
-      "variant": "normal",
-      "condition": "NM",
-      "quantity": 1,
-      "language": "ja",
       "priceOverride": null,
       "notes": "",
       "addedAt": "2026-06-21T20:40:00.000Z"
