@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-06-21T21:19:14.679Z",
+  "updatedAt": "2026-06-21T21:19:23.866Z",
   "cards": [
     {
       "id": "6ae1a33c-769c-4be6-9ea2-5ce3d88f563e",
@@ -989,6 +989,19 @@
       "priceOverride": null,
       "notes": "",
       "addedAt": "2026-06-21T21:19:14.679Z"
+    },
+    {
+      "id": "2807b836-42d9-43bb-8277-3bbd9e7b3988",
+      "cardId": "swsh12-135",
+      "name": "Regidrago V",
+      "image": "https://assets.tcgdex.net/en/swsh/swsh12/135/low.webp",
+      "variant": "promo",
+      "condition": "NM",
+      "quantity": 1,
+      "language": "en",
+      "priceOverride": null,
+      "notes": "",
+      "addedAt": "2026-06-21T21:19:23.866Z"
     }
   ]
 }
