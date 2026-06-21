@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-06-21T21:20:35.117Z",
+  "updatedAt": "2026-06-21T21:21:17.639Z",
   "cards": [
     {
       "id": "6ae1a33c-769c-4be6-9ea2-5ce3d88f563e",
@@ -1054,6 +1054,19 @@
       "priceOverride": null,
       "notes": "",
       "addedAt": "2026-06-21T21:20:35.117Z"
+    },
+    {
+      "id": "2886cd78-6e6c-43fa-9cec-352b98c22a80",
+      "cardId": "2024sv-13",
+      "name": "Eevee",
+      "image": null,
+      "variant": "normal",
+      "condition": "NM",
+      "quantity": 1,
+      "language": "en",
+      "priceOverride": null,
+      "notes": "",
+      "addedAt": "2026-06-21T21:21:17.639Z"
     }
   ]
 }
