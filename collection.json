@@ -1,5 +1,19 @@
 {
   "version": 1,
-  "updatedAt": null,
-  "cards": []
+  "updatedAt": "2026-06-21T20:18:37.946Z",
+  "cards": [
+    {
+      "id": "c6751dff-9347-4542-a9f5-dad872fcf2c6",
+      "cardId": "swsh11-180",
+      "name": "Aerodactyl V",
+      "image": "https://assets.tcgdex.net/en/swsh/swsh11/180/low.webp",
+      "variant": "normal",
+      "condition": "NM",
+      "quantity": 1,
+      "language": "en",
+      "priceOverride": null,
+      "notes": "",
+      "addedAt": "2026-06-21T20:18:37.946Z"
+    }
+  ]
 }
