@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-06-21T21:07:30.429Z",
+  "updatedAt": "2026-06-21T21:07:42.274Z",
   "cards": [
     {
       "id": "6ae1a33c-769c-4be6-9ea2-5ce3d88f563e",
@@ -469,6 +469,19 @@
       "priceOverride": null,
       "notes": "",
       "addedAt": "2026-06-21T21:07:30.429Z"
+    },
+    {
+      "id": "d0104905-6b1c-4129-88bb-4224feaafbe3",
+      "cardId": "mep-038",
+      "name": "Charmander",
+      "image": null,
+      "variant": "normal",
+      "condition": "NM",
+      "quantity": 1,
+      "language": "en",
+      "priceOverride": null,
+      "notes": "",
+      "addedAt": "2026-06-21T21:07:42.274Z"
     }
   ]
 }
