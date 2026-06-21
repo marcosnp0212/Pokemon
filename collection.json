@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-06-21T21:20:12.207Z",
+  "updatedAt": "2026-06-21T21:20:26.392Z",
   "cards": [
     {
       "id": "6ae1a33c-769c-4be6-9ea2-5ce3d88f563e",
@@ -1028,6 +1028,19 @@
       "priceOverride": null,
       "notes": "",
       "addedAt": "2026-06-21T21:20:12.207Z"
+    },
+    {
+      "id": "07cf309a-3cdd-4f29-a15c-a04c573cb729",
+      "cardId": "sv09-164",
+      "name": "Lillie's Ribombee",
+      "image": "https://assets.tcgdex.net/en/sv/sv09/164/low.webp",
+      "variant": "normal",
+      "condition": "NM",
+      "quantity": 1,
+      "language": "en",
+      "priceOverride": null,
+      "notes": "",
+      "addedAt": "2026-06-21T21:20:26.392Z"
     }
   ]
 }
