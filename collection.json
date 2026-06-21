@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-06-21T21:13:07.184Z",
+  "updatedAt": "2026-06-21T21:13:25.686Z",
   "cards": [
     {
       "id": "6ae1a33c-769c-4be6-9ea2-5ce3d88f563e",
@@ -703,6 +703,19 @@
       "priceOverride": null,
       "notes": "",
       "addedAt": "2026-06-21T21:13:07.184Z"
+    },
+    {
+      "id": "00431112-09a2-44c1-a664-55e2aec503ad",
+      "cardId": "svp-209",
+      "name": "Thundurus",
+      "image": null,
+      "variant": "normal",
+      "condition": "NM",
+      "quantity": 1,
+      "language": "en",
+      "priceOverride": null,
+      "notes": "",
+      "addedAt": "2026-06-21T21:13:25.686Z"
     }
   ]
 }
