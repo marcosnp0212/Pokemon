@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-06-21T20:18:37.946Z",
+  "updatedAt": "2026-06-21T20:43:42.717Z",
   "cards": [
     {
       "id": "c6751dff-9347-4542-a9f5-dad872fcf2c6",
@@ -14,6 +14,19 @@
       "priceOverride": null,
       "notes": "",
       "addedAt": "2026-06-21T20:18:37.946Z"
+    },
+    {
+      "id": "7db0a85c-473f-4acf-b6f8-841b528a8d42",
+      "cardId": "mep-041",
+      "name": "Chimchar",
+      "image": null,
+      "variant": "normal",
+      "condition": "NM",
+      "quantity": 1,
+      "language": "en",
+      "priceOverride": null,
+      "notes": "",
+      "addedAt": "2026-06-21T20:43:42.717Z"
     }
   ]
 }
