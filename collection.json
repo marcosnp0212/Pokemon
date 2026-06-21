@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-06-21T21:12:43.829Z",
+  "updatedAt": "2026-06-21T21:13:07.184Z",
   "cards": [
     {
       "id": "6ae1a33c-769c-4be6-9ea2-5ce3d88f563e",
@@ -690,6 +690,19 @@
       "priceOverride": null,
       "notes": "",
       "addedAt": "2026-06-21T21:12:43.829Z"
+    },
+    {
+      "id": "e4ec8f7b-37ef-47dc-b1a5-035e556e8303",
+      "cardId": "mep-031",
+      "name": "N's Zekrom",
+      "image": null,
+      "variant": "normal",
+      "condition": "NM",
+      "quantity": 1,
+      "language": "en",
+      "priceOverride": null,
+      "notes": "",
+      "addedAt": "2026-06-21T21:13:07.184Z"
     }
   ]
 }
