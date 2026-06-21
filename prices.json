@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-06-21T20:23:39.501Z",
+  "generatedAt": "2026-06-21T20:49:55.679Z",
   "currency": "EUR",
   "stats": {
-    "cards": 1,
-    "priced": 1,
-    "flagged": 1
+    "cards": 2,
+    "priced": 2,
+    "flagged": 2
   },
   "prices": {
     "swsh11-180|normal": {
@@ -23,6 +23,22 @@
         },
         "tcgdex": {
           "value": 162.76,
+          "field": "trend",
+          "reliable": true
+        }
+      }
+    },
+    "mep-041|normal": {
+      "eur": 9.76,
+      "confidence": "medium",
+      "spread": null,
+      "flags": [
+        "single_source"
+      ],
+      "cardmarketUrl": null,
+      "sources": {
+        "tcgdex": {
+          "value": 9.76,
           "field": "trend",
           "reliable": true
         }
