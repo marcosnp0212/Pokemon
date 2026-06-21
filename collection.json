@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-06-21T21:15:16.841Z",
+  "updatedAt": "2026-06-21T21:15:27.934Z",
   "cards": [
     {
       "id": "6ae1a33c-769c-4be6-9ea2-5ce3d88f563e",
@@ -846,6 +846,19 @@
       "priceOverride": null,
       "notes": "",
       "addedAt": "2026-06-21T21:15:16.841Z"
+    },
+    {
+      "id": "4db13b7d-8c32-4e0b-8f7a-05b0485af6bc",
+      "cardId": "me01-148",
+      "name": "Spiritomb",
+      "image": "https://assets.tcgdex.net/en/me/me01/148/low.webp",
+      "variant": "normal",
+      "condition": "NM",
+      "quantity": 1,
+      "language": "en",
+      "priceOverride": null,
+      "notes": "",
+      "addedAt": "2026-06-21T21:15:27.934Z"
     }
   ]
 }
