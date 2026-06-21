@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-06-21T21:17:30.363Z",
+  "updatedAt": "2026-06-21T21:17:57.345Z",
   "cards": [
     {
       "id": "6ae1a33c-769c-4be6-9ea2-5ce3d88f563e",
@@ -898,6 +898,19 @@
       "priceOverride": null,
       "notes": "",
       "addedAt": "2026-06-21T21:17:30.363Z"
+    },
+    {
+      "id": "3ca3f2c8-5a0c-432a-b125-a96ade2cc3af",
+      "cardId": "sv10-209",
+      "name": "Ethan's Ho-Oh ex",
+      "image": "https://assets.tcgdex.net/en/sv/sv10/209/low.webp",
+      "variant": "normal",
+      "condition": "NM",
+      "quantity": 1,
+      "language": "en",
+      "priceOverride": null,
+      "notes": "",
+      "addedAt": "2026-06-21T21:17:57.345Z"
     }
   ]
 }
