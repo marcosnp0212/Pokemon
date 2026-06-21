@@ -1,5 +1,32 @@
 {
-  "generatedAt": null,
+  "generatedAt": "2026-06-21T20:23:39.501Z",
   "currency": "EUR",
-  "prices": {}
+  "stats": {
+    "cards": 1,
+    "priced": 1,
+    "flagged": 1
+  },
+  "prices": {
+    "swsh11-180|normal": {
+      "eur": 145.85,
+      "confidence": "low",
+      "spread": 33.81,
+      "flags": [
+        "sources_diverge"
+      ],
+      "cardmarketUrl": "https://prices.pokemontcg.io/cardmarket/swsh11-180",
+      "sources": {
+        "ptcg": {
+          "value": 128.95,
+          "field": "trendPrice",
+          "reliable": true
+        },
+        "tcgdex": {
+          "value": 162.76,
+          "field": "trend",
+          "reliable": true
+        }
+      }
+    }
+  }
 }
