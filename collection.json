@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-06-21T21:24:56.260Z",
+  "updatedAt": "2026-06-21T21:25:25.337Z",
   "cards": [
     {
       "id": "6ae1a33c-769c-4be6-9ea2-5ce3d88f563e",
@@ -1249,6 +1249,19 @@
       "priceOverride": null,
       "notes": "",
       "addedAt": "2026-06-21T21:24:34.695Z"
+    },
+    {
+      "id": "022213fb-3fcc-4c6a-9691-942981490e06",
+      "cardId": "me02-123",
+      "name": "Switch",
+      "image": "https://assets.tcgdex.net/en/me/me02/123/low.webp",
+      "variant": "normal",
+      "condition": "NM",
+      "quantity": 1,
+      "language": "en",
+      "priceOverride": null,
+      "notes": "",
+      "addedAt": "2026-06-21T21:25:25.337Z"
     }
   ]
 }
