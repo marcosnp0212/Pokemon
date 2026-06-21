@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-06-21T21:13:25.686Z",
+  "updatedAt": "2026-06-21T21:13:35.000Z",
   "cards": [
     {
       "id": "6ae1a33c-769c-4be6-9ea2-5ce3d88f563e",
@@ -716,6 +716,19 @@
       "priceOverride": null,
       "notes": "",
       "addedAt": "2026-06-21T21:13:25.686Z"
+    },
+    {
+      "id": "fef89228-f030-42d0-8a5a-9f26db3a57e8",
+      "cardId": "sv10.5b-163",
+      "name": "N's Plan",
+      "image": "https://assets.tcgdex.net/en/sv/sv10.5b/163/low.webp",
+      "variant": "normal",
+      "condition": "NM",
+      "quantity": 1,
+      "language": "en",
+      "priceOverride": null,
+      "notes": "",
+      "addedAt": "2026-06-21T21:13:35.000Z"
     }
   ]
 }
