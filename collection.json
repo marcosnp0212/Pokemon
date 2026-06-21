@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-06-21T21:05:41.637Z",
+  "updatedAt": "2026-06-21T21:05:44.726Z",
   "cards": [
     {
       "id": "6ae1a33c-769c-4be6-9ea2-5ce3d88f563e",
@@ -397,19 +397,6 @@
       "cardId": "sv8pt5-64",
       "name": "Tyranitar ex",
       "image": "https://images.pokemontcg.io/sv8pt5/64.png",
-      "variant": "normal",
-      "condition": "NM",
-      "quantity": 1,
-      "language": "es",
-      "priceOverride": null,
-      "notes": "",
-      "addedAt": "2026-06-21T20:40:00.000Z"
-    },
-    {
-      "id": "d6fdefa2-2f90-47a2-a27c-f4b525855a8d",
-      "cardId": "sv9-103",
-      "name": "Wailord",
-      "image": "https://images.pokemontcg.io/sv9/103.png",
       "variant": "normal",
       "condition": "NM",
       "quantity": 1,
