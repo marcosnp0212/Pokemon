@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-06-21T21:09:51.105Z",
+  "updatedAt": "2026-06-21T21:10:07.232Z",
   "cards": [
     {
       "id": "6ae1a33c-769c-4be6-9ea2-5ce3d88f563e",
@@ -612,6 +612,19 @@
       "priceOverride": null,
       "notes": "",
       "addedAt": "2026-06-21T21:09:51.105Z"
+    },
+    {
+      "id": "bf5f0f0e-83d5-46e0-8562-5cdb50f3d20f",
+      "cardId": "me02-100",
+      "name": "Zacian",
+      "image": "https://assets.tcgdex.net/en/me/me02/100/low.webp",
+      "variant": "normal",
+      "condition": "NM",
+      "quantity": 1,
+      "language": "en",
+      "priceOverride": null,
+      "notes": "",
+      "addedAt": "2026-06-21T21:10:07.232Z"
     }
   ]
 }
