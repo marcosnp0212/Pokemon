@@ -15,7 +15,67 @@
 import { readFile, writeFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
-import { VARIANTS, PRICE_MAP, THRESHOLDS, pickField } from './variants.js';
+
+// --- config de variantes (inline) ---
+// Configuración compartida de variantes y mapeo de campos de precio.
+// La importan tanto el trabajador (Node, scripts/update-prices.mjs)
+// como el frontend (navegador, src/app.js).
+//
+// IDEA CENTRAL: la VARIANTE es la unidad de precio. Una misma carta (cardId)
+// tiene varias impresiones que en Cardmarket son productos distintos con
+// precios distintos. Aquí declaramos, por cada variante y cada fuente,
+// QUÉ campo leer y SI esa fuente es fiable para esa variante.
+
+const VARIANTS = [
+  { id: 'normal',       label: 'Normal' },
+  { id: 'holo',         label: 'Holo' },
+  { id: 'reverse',      label: 'Reverse Holo' },
+  { id: 'firstEdition', label: '1ª Edición' },
+  { id: 'promo',        label: 'Promo' },
+];
+
+const VARIANT_LABEL = Object.fromEntries(VARIANTS.map(v => [v.id, v.label]));
+
+// Mapeo por fuente. Cada entrada: { fields: [...orden de preferencia], reliable: bool }
+// - fields: se prueban en orden; se usa el primero con un número > 0.
+// - reliable: si false, el valor existe pero NO se usa para el cálculo de
+//   consenso (solo informativo), porque la fuente no distingue esa variante.
+const PRICE_MAP = {
+  // pokemontcg.io -> objeto card.cardmarket.prices (EUR)
+  ptcg: {
+    normal:       { fields: ['trendPrice', 'averageSellPrice', 'avg7'], reliable: true },
+    holo:         { fields: ['trendPrice', 'averageSellPrice', 'avg7'], reliable: true },
+    reverse:      { fields: ['reverseHoloTrend', 'reverseHoloSell', 'reverseHoloAvg7'], reliable: true },
+    firstEdition: { fields: ['trendPrice', 'averageSellPrice', 'avg7'], reliable: false },
+    promo:        { fields: ['trendPrice', 'averageSellPrice', 'avg7'], reliable: true },
+  },
+  // TCGdex -> objeto card.pricing.cardmarket (EUR)
+  tcgdex: {
+    normal:       { fields: ['trend', 'avg', 'avg7'], reliable: true },
+    holo:         { fields: ['trend-holo', 'avg-holo', 'avg7-holo'], reliable: true },
+    // TCGdex NO tiene campo de reverse holo en Cardmarket: solo standard/holo.
+    // Por eso es la causa raíz del bug. La marcamos NO fiable para reverse.
+    reverse:      { fields: ['trend-holo', 'avg-holo', 'trend', 'avg'], reliable: false },
+    firstEdition: { fields: ['trend', 'avg'], reliable: false },
+    promo:        { fields: ['trend', 'avg'], reliable: false },
+  },
+};
+
+// Umbrales de consenso entre fuentes fiables.
+const THRESHOLDS = {
+  divergeRel: 0.20, // 20% de diferencia relativa
+  divergeAbs: 0.50, // o 0,50 € de diferencia absoluta
+};
+
+// Extrae el primer campo válido (> 0) de un objeto de precios según la lista.
+function pickField(priceObj, fields) {
+  if (!priceObj) return null;
+  for (const f of fields) {
+    const v = priceObj[f];
+    if (typeof v === 'number' && v > 0) return { value: v, field: f };
+  }
+  return null;
+}
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = __dirname;
@@ -123,7 +183,9 @@ async function mapPool(items, limit, fn) {
 
 // --- main ------------------------------------------------------------------
 async function main() {
-  const collection = JSON.parse(await readFile(COLLECTION, 'utf8'));
+  let collection = { cards: [] };
+  try { collection = JSON.parse(await readFile(COLLECTION, 'utf8')); }
+  catch { console.log('No hay collection.json todavía; nada que precificar.'); }
   const cards = collection.cards || [];
 
   // cardIds únicos y conjunto de variantes pedidas por carta
