@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-06-21T21:09:18.631Z",
+  "updatedAt": "2026-06-21T21:09:31.427Z",
   "cards": [
     {
       "id": "6ae1a33c-769c-4be6-9ea2-5ce3d88f563e",
@@ -586,6 +586,19 @@
       "priceOverride": null,
       "notes": "",
       "addedAt": "2026-06-21T21:09:18.631Z"
+    },
+    {
+      "id": "2a270f3c-a77d-46d6-9a9e-e255cee19ccd",
+      "cardId": "sv01-207",
+      "name": "Dondozo",
+      "image": "https://assets.tcgdex.net/en/sv/sv01/207/low.webp",
+      "variant": "normal",
+      "condition": "NM",
+      "quantity": 1,
+      "language": "en",
+      "priceOverride": null,
+      "notes": "",
+      "addedAt": "2026-06-21T21:09:31.427Z"
     }
   ]
 }
