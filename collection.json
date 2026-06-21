@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-06-21T21:23:42.281Z",
+  "updatedAt": "2026-06-21T21:24:06.501Z",
   "cards": [
     {
       "id": "6ae1a33c-769c-4be6-9ea2-5ce3d88f563e",
@@ -1236,6 +1236,19 @@
       "priceOverride": null,
       "notes": "",
       "addedAt": "2026-06-21T21:23:42.281Z"
+    },
+    {
+      "id": "8704abc4-750f-4211-b114-133ad4fb0130",
+      "cardId": "me03-123",
+      "name": "Rosa's Encouragement",
+      "image": "https://assets.tcgdex.net/en/me/me03/123/low.webp",
+      "variant": "normal",
+      "condition": "NM",
+      "quantity": 1,
+      "language": "en",
+      "priceOverride": null,
+      "notes": "",
+      "addedAt": "2026-06-21T21:24:06.501Z"
     }
   ]
 }
