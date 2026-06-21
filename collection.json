@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-06-21T21:19:05.268Z",
+  "updatedAt": "2026-06-21T21:19:14.679Z",
   "cards": [
     {
       "id": "6ae1a33c-769c-4be6-9ea2-5ce3d88f563e",
@@ -976,6 +976,19 @@
       "priceOverride": null,
       "notes": "",
       "addedAt": "2026-06-21T21:19:05.268Z"
+    },
+    {
+      "id": "57244196-5d68-408b-a8f5-8f9fcb3c43fb",
+      "cardId": "swsh12-058",
+      "name": "Regieleki VMAX",
+      "image": "https://assets.tcgdex.net/en/swsh/swsh12/058/low.webp",
+      "variant": "promo",
+      "condition": "NM",
+      "quantity": 1,
+      "language": "en",
+      "priceOverride": null,
+      "notes": "",
+      "addedAt": "2026-06-21T21:19:14.679Z"
     }
   ]
 }
