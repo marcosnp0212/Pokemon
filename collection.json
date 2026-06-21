@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-06-21T21:21:29.239Z",
+  "updatedAt": "2026-06-21T21:21:37.094Z",
   "cards": [
     {
       "id": "6ae1a33c-769c-4be6-9ea2-5ce3d88f563e",
@@ -1080,6 +1080,19 @@
       "priceOverride": null,
       "notes": "",
       "addedAt": "2026-06-21T21:21:29.239Z"
+    },
+    {
+      "id": "b7828c93-db4b-409b-8088-3db3cbe3ba9a",
+      "cardId": "me02-099",
+      "name": "Yamper",
+      "image": "https://assets.tcgdex.net/en/me/me02/099/low.webp",
+      "variant": "normal",
+      "condition": "NM",
+      "quantity": 1,
+      "language": "en",
+      "priceOverride": null,
+      "notes": "",
+      "addedAt": "2026-06-21T21:21:37.094Z"
     }
   ]
 }
