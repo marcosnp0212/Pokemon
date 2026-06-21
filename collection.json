@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-06-21T21:21:37.094Z",
+  "updatedAt": "2026-06-21T21:21:46.082Z",
   "cards": [
     {
       "id": "6ae1a33c-769c-4be6-9ea2-5ce3d88f563e",
@@ -1093,6 +1093,19 @@
       "priceOverride": null,
       "notes": "",
       "addedAt": "2026-06-21T21:21:37.094Z"
+    },
+    {
+      "id": "c85c23f6-af36-4f43-bf37-23bdba7ca615",
+      "cardId": "me01-154",
+      "name": "Stufful",
+      "image": "https://assets.tcgdex.net/en/me/me01/154/low.webp",
+      "variant": "normal",
+      "condition": "NM",
+      "quantity": 1,
+      "language": "en",
+      "priceOverride": null,
+      "notes": "",
+      "addedAt": "2026-06-21T21:21:46.082Z"
     }
   ]
 }
