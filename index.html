@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Mi colección Pokémon</title>
+<style>
+  :root{
+    --bg:#0f1115; --panel:#171a21; --panel2:#1f232c; --line:#2a2f3a;
+    --txt:#e7e9ee; --muted:#9aa3b2; --pri:#ffcb05; --pri2:#3b6cff;
+    --green:#36c275; --yellow:#e8b73a; --red:#e2564d; --grey:#5b6270; }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--txt);font:15px/1.45 system-ui,Segoe UI,Roboto,sans-serif}
+  #app{max-width:1100px;margin:0 auto;padding:20px 16px 60px}
+  h1{font-size:22px;margin:0}
+  .center{text-align:center}.muted{color:var(--muted)}.err{color:var(--red)}.mono{font-family:ui-monospace,Menlo,monospace;font-size:13px}
+  .top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:16px}
+  .actions{display:flex;gap:8px;flex-wrap:wrap}
+  .btn{background:var(--panel2);color:var(--txt);border:1px solid var(--line);border-radius:8px;padding:8px 12px;cursor:pointer;font-size:14px}
+  .btn:hover{border-color:#3a4150}
+  .btn.primary{background:var(--pri);color:#1a1a1a;border-color:var(--pri);font-weight:600}
+  .btn.ghost{background:transparent}
+  .btn.tiny{padding:5px 9px;font-size:13px}
+  .btn.danger{color:var(--red)}
+  /* stats */
+  .stats{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:18px}
+  .stat{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px}
+  .stat .k{display:block;color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.04em}
+  .stat .v{display:block;font-size:20px;font-weight:600;margin-top:2px}
+  /* tabla */
+  .tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:10px}
+  table{width:100%;border-collapse:collapse;min-width:760px}
+  th,td{padding:9px 10px;text-align:left;border-bottom:1px solid var(--line);vertical-align:middle}
+  th{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.03em;background:var(--panel)}
+  tr:last-child td{border-bottom:none}
+  tr:hover td{background:#141821}
+  .thumb{width:36px;height:50px;object-fit:contain;border-radius:4px;background:#0c0e12}
+  .thumb.ph{display:inline-block}
+  .name{font-weight:600}.lang{margin-left:6px;font-size:11px;color:var(--muted);text-transform:uppercase}
+  .num{text-align:right;font-variant-numeric:tabular-nums}
+  .price{font-weight:600}
+  .mtag{margin-left:5px;font-size:10px;background:var(--pri2);color:#fff;border-radius:4px;padding:1px 4px}
+  .badge{font-size:12px;padding:3px 8px;border-radius:20px;font-weight:600}
+  .c-high{background:rgba(54,194,117,.16);color:var(--green)}
+  .c-med{background:rgba(232,183,58,.16);color:var(--yellow)}
+  .c-low{background:rgba(226,86,77,.16);color:var(--red)}
+  .c-none{background:rgba(120,130,150,.16);color:var(--muted)}
+  .flags{white-space:nowrap}
+  .flag{color:var(--yellow);margin-right:3px;cursor:help}
+  .cm{color:var(--pri2);text-decoration:none;font-weight:700;margin-left:4px}
+  .ovr{width:74px;background:var(--panel2);border:1px solid var(--line);border-radius:6px;color:var(--txt);padding:5px 6px}
+  .has-ovr td{background:rgba(59,108,255,.05)}
+  .empty,.welcome{text-align:center;padding:60px 20px;color:var(--muted)}
+  .welcome h1{color:var(--txt);margin-bottom:8px}
+  /* modal */
+  .overlay{position:fixed;inset:0;background:rgba(0,0,0,.6);display:flex;align-items:flex-start;justify-content:center;padding:40px 16px;z-index:50;overflow:auto}
+  .dialog{background:var(--panel);border:1px solid var(--line);border-radius:14px;width:100%;max-width:620px}
+  .dhead{display:flex;justify-content:space-between;align-items:center;padding:14px 18px;border-bottom:1px solid var(--line)}
+  .dhead h2{font-size:17px;margin:0}
+  .x{background:none;border:none;color:var(--muted);font-size:24px;cursor:pointer;line-height:1}
+  .dbody{padding:18px}
+  .search{width:100%;background:var(--panel2);border:1px solid var(--line);border-radius:8px;color:var(--txt);padding:10px 12px;font-size:15px}
+  .results{margin-top:14px;display:flex;flex-direction:column;gap:8px;max-height:50vh;overflow:auto}
+  .rrow{display:flex;align-items:center;gap:10px;background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:8px 10px}
+  .rinfo{flex:1;display:flex;flex-direction:column;min-width:0}
+  .rinfo strong{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .sel,.qty{background:var(--bg);border:1px solid var(--line);border-radius:7px;color:var(--txt);padding:6px}
+  .qty{width:56px}
+  .settings{display:flex;flex-direction:column;gap:12px}
+  .field{display:flex;flex-direction:column;gap:5px}
+  .field span{font-size:13px;color:var(--muted)}
+  .field input{background:var(--panel2);border:1px solid var(--line);border-radius:8px;color:var(--txt);padding:9px 11px}
+  .hint{font-size:12px;color:var(--muted);background:var(--panel2);border-radius:8px;padding:10px;border:1px solid var(--line)}
+  .row{display:flex;gap:10px}
+  @media(max-width:640px){ .stats{grid-template-columns:repeat(2,1fr)} .stat.updated{grid-column:span 2} }
+</style>
+</head>
+<body>
+  <main id="app"><p class="muted center">Cargando…</p></main>
+  <script type="module" src="./app.js"></script>
+</body>
+</html>

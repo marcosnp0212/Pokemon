@@ -1,0 +1,9 @@
+{
+  "name": "pokemon-collection",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "prices": "node scripts/update-prices.mjs"
+  }
+}
