@@ -1,1 +1,41 @@
+name: Actualizar precios
+
+on:
+  schedule:
+    - cron: '0 5 * * *'      # cada día a las 05:00 UTC
+  workflow_dispatch: {}        # botón para ejecutarlo a mano
+
+permissions:
+  contents: write              # para hacer commit de prices.json
+
+concurrency:
+  group: update-prices
+  cancel-in-progress: false
+
+jobs:
+  prices:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Calcular precios
+        env:
+          POKEMONTCG_API_KEY: ${{ secrets.POKEMONTCG_API_KEY }}
+        run: node update-prices.mjs
+
+      - name: Commit si hay cambios
+        run: |
+          git config user.name  "prices-bot"
+          git config user.email "prices-bot@users.noreply.github.com"
+          if ! git diff --quiet -- prices.json; then
+            git add prices.json
+            git commit -m "chore: actualizar precios $(date -u +%Y-%m-%d)"
+            git push
+          else
+            echo "Sin cambios de precio."
+          fi
 
