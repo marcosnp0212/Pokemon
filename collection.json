@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-06-21T21:21:17.639Z",
+  "updatedAt": "2026-06-21T21:21:29.239Z",
   "cards": [
     {
       "id": "6ae1a33c-769c-4be6-9ea2-5ce3d88f563e",
@@ -1067,6 +1067,19 @@
       "priceOverride": null,
       "notes": "",
       "addedAt": "2026-06-21T21:21:17.639Z"
+    },
+    {
+      "id": "d022ed13-4fb8-467b-b54d-40c31814391e",
+      "cardId": "sv09-168",
+      "name": "Furret",
+      "image": "https://assets.tcgdex.net/en/sv/sv09/168/low.webp",
+      "variant": "normal",
+      "condition": "NM",
+      "quantity": 1,
+      "language": "en",
+      "priceOverride": null,
+      "notes": "",
+      "addedAt": "2026-06-21T21:21:29.239Z"
     }
   ]
 }
