@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-06-21T21:08:39.316Z",
+  "updatedAt": "2026-06-21T21:08:56.466Z",
   "cards": [
     {
       "id": "6ae1a33c-769c-4be6-9ea2-5ce3d88f563e",
@@ -560,6 +560,19 @@
       "priceOverride": null,
       "notes": "",
       "addedAt": "2026-06-21T21:08:39.316Z"
+    },
+    {
+      "id": "10feb5f5-9d65-4d21-a60c-e4007541b763",
+      "cardId": "swshp-SWSH291",
+      "name": "Lucario VSTAR",
+      "image": "https://assets.tcgdex.net/en/swsh/swshp/SWSH291/low.webp",
+      "variant": "normal",
+      "condition": "NM",
+      "quantity": 1,
+      "language": "en",
+      "priceOverride": null,
+      "notes": "",
+      "addedAt": "2026-06-21T21:08:56.466Z"
     }
   ]
 }
