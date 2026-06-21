@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-06-21T21:18:34.658Z",
+  "updatedAt": "2026-06-21T21:18:42.981Z",
   "cards": [
     {
       "id": "6ae1a33c-769c-4be6-9ea2-5ce3d88f563e",
@@ -937,6 +937,19 @@
       "priceOverride": null,
       "notes": "",
       "addedAt": "2026-06-21T21:18:34.658Z"
+    },
+    {
+      "id": "12cab3d4-5079-4aca-a562-564b1b548d51",
+      "cardId": "swsh10.5-030",
+      "name": "Mewtwo V",
+      "image": "https://assets.tcgdex.net/en/swsh/swsh10.5/030/low.webp",
+      "variant": "normal",
+      "condition": "NM",
+      "quantity": 1,
+      "language": "en",
+      "priceOverride": null,
+      "notes": "",
+      "addedAt": "2026-06-21T21:18:42.981Z"
     }
   ]
 }
