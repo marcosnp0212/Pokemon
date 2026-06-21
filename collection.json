@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-06-21T21:18:49.732Z",
+  "updatedAt": "2026-06-21T21:19:05.268Z",
   "cards": [
     {
       "id": "6ae1a33c-769c-4be6-9ea2-5ce3d88f563e",
@@ -963,6 +963,19 @@
       "priceOverride": null,
       "notes": "",
       "addedAt": "2026-06-21T21:18:49.732Z"
+    },
+    {
+      "id": "b4314079-a558-47ce-88cd-6c696381195b",
+      "cardId": "swsh12-057",
+      "name": "Regieleki V",
+      "image": "https://assets.tcgdex.net/en/swsh/swsh12/057/low.webp",
+      "variant": "promo",
+      "condition": "NM",
+      "quantity": 1,
+      "language": "en",
+      "priceOverride": null,
+      "notes": "",
+      "addedAt": "2026-06-21T21:19:05.268Z"
     }
   ]
 }
