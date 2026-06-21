@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-06-21T21:19:47.533Z",
+  "updatedAt": "2026-06-21T21:20:12.207Z",
   "cards": [
     {
       "id": "6ae1a33c-769c-4be6-9ea2-5ce3d88f563e",
@@ -1015,6 +1015,19 @@
       "priceOverride": null,
       "notes": "",
       "addedAt": "2026-06-21T21:19:47.533Z"
+    },
+    {
+      "id": "a03e1c85-2b51-476b-900d-3a093c784aa4",
+      "cardId": "me02-106",
+      "name": "Meowth",
+      "image": "https://assets.tcgdex.net/en/me/me02/106/low.webp",
+      "variant": "normal",
+      "condition": "NM",
+      "quantity": 1,
+      "language": "en",
+      "priceOverride": null,
+      "notes": "",
+      "addedAt": "2026-06-21T21:20:12.207Z"
     }
   ]
 }
