@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-06-21T21:20:26.392Z",
+  "updatedAt": "2026-06-21T21:20:35.117Z",
   "cards": [
     {
       "id": "6ae1a33c-769c-4be6-9ea2-5ce3d88f563e",
@@ -1041,6 +1041,19 @@
       "priceOverride": null,
       "notes": "",
       "addedAt": "2026-06-21T21:20:26.392Z"
+    },
+    {
+      "id": "8adc7622-e0bb-4eaf-a54a-27bcb477d0c7",
+      "cardId": "me02.5-225",
+      "name": "Scorbunny",
+      "image": "https://assets.tcgdex.net/en/me/me02.5/225/low.webp",
+      "variant": "normal",
+      "condition": "NM",
+      "quantity": 1,
+      "language": "en",
+      "priceOverride": null,
+      "notes": "",
+      "addedAt": "2026-06-21T21:20:35.117Z"
     }
   ]
 }
