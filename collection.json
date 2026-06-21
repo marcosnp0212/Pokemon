@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-06-21T21:17:07.503Z",
+  "updatedAt": "2026-06-21T21:17:30.363Z",
   "cards": [
     {
       "id": "6ae1a33c-769c-4be6-9ea2-5ce3d88f563e",
@@ -885,6 +885,19 @@
       "priceOverride": null,
       "notes": "",
       "addedAt": "2026-06-21T21:17:07.503Z"
+    },
+    {
+      "id": "50217323-5cc1-414a-96da-3937c41526d3",
+      "cardId": "svp-166",
+      "name": "Teal Mask Ogerpon ex",
+      "image": "https://assets.tcgdex.net/en/sv/svp/166/low.webp",
+      "variant": "normal",
+      "condition": "NM",
+      "quantity": 1,
+      "language": "en",
+      "priceOverride": null,
+      "notes": "",
+      "addedAt": "2026-06-21T21:17:30.363Z"
     }
   ]
 }
