@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-06-21T21:23:20.957Z",
+  "updatedAt": "2026-06-21T21:23:42.281Z",
   "cards": [
     {
       "id": "6ae1a33c-769c-4be6-9ea2-5ce3d88f563e",
@@ -1223,6 +1223,19 @@
       "priceOverride": null,
       "notes": "",
       "addedAt": "2026-06-21T21:23:20.957Z"
+    },
+    {
+      "id": "90838877-f70d-4fb3-8fde-856e9d11d347",
+      "cardId": "me02.5-264",
+      "name": "Ultra Ball",
+      "image": "https://assets.tcgdex.net/en/me/me02.5/264/low.webp",
+      "variant": "normal",
+      "condition": "NM",
+      "quantity": 1,
+      "language": "en",
+      "priceOverride": null,
+      "notes": "",
+      "addedAt": "2026-06-21T21:23:42.281Z"
     }
   ]
 }
