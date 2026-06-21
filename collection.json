@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-06-21T21:08:56.466Z",
+  "updatedAt": "2026-06-21T21:09:18.631Z",
   "cards": [
     {
       "id": "6ae1a33c-769c-4be6-9ea2-5ce3d88f563e",
@@ -573,6 +573,19 @@
       "priceOverride": null,
       "notes": "",
       "addedAt": "2026-06-21T21:08:56.466Z"
+    },
+    {
+      "id": "22e852d2-4ee4-474f-b139-1fbce8a6087d",
+      "cardId": "me02.5-289",
+      "name": "Steven's Metagross ex",
+      "image": "https://assets.tcgdex.net/en/me/me02.5/289/low.webp",
+      "variant": "normal",
+      "condition": "NM",
+      "quantity": 1,
+      "language": "en",
+      "priceOverride": null,
+      "notes": "",
+      "addedAt": "2026-06-21T21:09:18.631Z"
     }
   ]
 }
