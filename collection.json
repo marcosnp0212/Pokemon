@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-06-21T21:07:42.274Z",
+  "updatedAt": "2026-06-21T21:07:51.704Z",
   "cards": [
     {
       "id": "6ae1a33c-769c-4be6-9ea2-5ce3d88f563e",
@@ -482,6 +482,19 @@
       "priceOverride": null,
       "notes": "",
       "addedAt": "2026-06-21T21:07:42.274Z"
+    },
+    {
+      "id": "f49b1e05-b666-4ce7-a8b6-617ababe649e",
+      "cardId": "mep-042",
+      "name": "Piplup",
+      "image": null,
+      "variant": "normal",
+      "condition": "NM",
+      "quantity": 1,
+      "language": "en",
+      "priceOverride": null,
+      "notes": "",
+      "addedAt": "2026-06-21T21:07:51.704Z"
     }
   ]
 }
