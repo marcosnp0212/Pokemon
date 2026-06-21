@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-06-21T21:07:10.807Z",
+  "updatedAt": "2026-06-21T21:07:30.429Z",
   "cards": [
     {
       "id": "6ae1a33c-769c-4be6-9ea2-5ce3d88f563e",
@@ -456,6 +456,19 @@
       "priceOverride": null,
       "notes": "",
       "addedAt": "2026-06-21T21:07:10.807Z"
+    },
+    {
+      "id": "dd1cd245-6f11-4457-9d64-36969a74b1cb",
+      "cardId": "mep-039",
+      "name": "Squirtle",
+      "image": null,
+      "variant": "normal",
+      "condition": "NM",
+      "quantity": 1,
+      "language": "en",
+      "priceOverride": null,
+      "notes": "",
+      "addedAt": "2026-06-21T21:07:30.429Z"
     }
   ]
 }
