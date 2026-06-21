@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-06-21T21:14:21.088Z",
+  "updatedAt": "2026-06-21T21:14:30.508Z",
   "cards": [
     {
       "id": "6ae1a33c-769c-4be6-9ea2-5ce3d88f563e",
@@ -781,6 +781,19 @@
       "priceOverride": null,
       "notes": "",
       "addedAt": "2026-06-21T21:14:21.088Z"
+    },
+    {
+      "id": "aee5c779-4790-4149-9e10-747b19e17df5",
+      "cardId": "me02-107",
+      "name": "Ambipom",
+      "image": "https://assets.tcgdex.net/en/me/me02/107/low.webp",
+      "variant": "normal",
+      "condition": "NM",
+      "quantity": 1,
+      "language": "en",
+      "priceOverride": null,
+      "notes": "",
+      "addedAt": "2026-06-21T21:14:30.508Z"
     }
   ]
 }
