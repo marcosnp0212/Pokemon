@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-06-21T21:09:31.427Z",
+  "updatedAt": "2026-06-21T21:09:51.105Z",
   "cards": [
     {
       "id": "6ae1a33c-769c-4be6-9ea2-5ce3d88f563e",
@@ -599,6 +599,19 @@
       "priceOverride": null,
       "notes": "",
       "addedAt": "2026-06-21T21:09:31.427Z"
+    },
+    {
+      "id": "1b844ca7-fbe5-4512-85e5-57995c359f74",
+      "cardId": "swsh12.5-GG12",
+      "name": "Deoxys",
+      "image": "https://assets.tcgdex.net/en/swsh/swsh12.5/GG12/low.webp",
+      "variant": "normal",
+      "condition": "NM",
+      "quantity": 1,
+      "language": "en",
+      "priceOverride": null,
+      "notes": "",
+      "addedAt": "2026-06-21T21:09:51.105Z"
     }
   ]
 }
