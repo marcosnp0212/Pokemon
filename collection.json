@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-06-21T21:19:23.866Z",
+  "updatedAt": "2026-06-21T21:19:47.533Z",
   "cards": [
     {
       "id": "6ae1a33c-769c-4be6-9ea2-5ce3d88f563e",
@@ -1002,6 +1002,19 @@
       "priceOverride": null,
       "notes": "",
       "addedAt": "2026-06-21T21:19:23.866Z"
+    },
+    {
+      "id": "a5f4ed16-89ac-4f7e-9187-aa625fae7b6a",
+      "cardId": "me02-104",
+      "name": "Togedemaru",
+      "image": "https://assets.tcgdex.net/en/me/me02/104/low.webp",
+      "variant": "normal",
+      "condition": "NM",
+      "quantity": 1,
+      "language": "en",
+      "priceOverride": null,
+      "notes": "",
+      "addedAt": "2026-06-21T21:19:47.533Z"
     }
   ]
 }
