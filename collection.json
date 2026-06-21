@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-06-21T21:08:24.112Z",
+  "updatedAt": "2026-06-21T21:08:30.355Z",
   "cards": [
     {
       "id": "6ae1a33c-769c-4be6-9ea2-5ce3d88f563e",
@@ -534,6 +534,19 @@
       "priceOverride": null,
       "notes": "",
       "addedAt": "2026-06-21T21:08:24.112Z"
+    },
+    {
+      "id": "3f2f5944-bd5e-4459-a616-35ba90e3135a",
+      "cardId": "mep-045",
+      "name": "Popplio",
+      "image": null,
+      "variant": "normal",
+      "condition": "NM",
+      "quantity": 1,
+      "language": "en",
+      "priceOverride": null,
+      "notes": "",
+      "addedAt": "2026-06-21T21:08:30.355Z"
     }
   ]
 }
