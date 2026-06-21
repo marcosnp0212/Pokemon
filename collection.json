@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-06-21T21:15:33.025Z",
+  "updatedAt": "2026-06-21T21:16:38.103Z",
   "cards": [
     {
       "id": "6ae1a33c-769c-4be6-9ea2-5ce3d88f563e",
@@ -846,6 +846,19 @@
       "priceOverride": null,
       "notes": "",
       "addedAt": "2026-06-21T21:15:27.934Z"
+    },
+    {
+      "id": "d6dc061e-4cf5-40fa-a4f6-2118fcf99b62",
+      "cardId": "sv04.5-225",
+      "name": "Palafin",
+      "image": "https://assets.tcgdex.net/en/sv/sv04.5/225/low.webp",
+      "variant": "normal",
+      "condition": "NM",
+      "quantity": 1,
+      "language": "en",
+      "priceOverride": null,
+      "notes": "",
+      "addedAt": "2026-06-21T21:16:38.103Z"
     }
   ]
 }
