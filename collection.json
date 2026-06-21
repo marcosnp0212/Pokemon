@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-06-21T21:06:32.877Z",
+  "updatedAt": "2026-06-21T21:07:10.807Z",
   "cards": [
     {
       "id": "6ae1a33c-769c-4be6-9ea2-5ce3d88f563e",
@@ -443,6 +443,19 @@
       "priceOverride": null,
       "notes": "",
       "addedAt": "2026-06-21T21:06:32.877Z"
+    },
+    {
+      "id": "e1343bc7-0c16-4781-85be-f9ecda9b7f8d",
+      "cardId": "mep-037",
+      "name": "Bulbasaur",
+      "image": null,
+      "variant": "normal",
+      "condition": "NM",
+      "quantity": 1,
+      "language": "en",
+      "priceOverride": null,
+      "notes": "",
+      "addedAt": "2026-06-21T21:07:10.807Z"
     }
   ]
 }
