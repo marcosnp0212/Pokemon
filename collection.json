@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-06-21T21:10:27.274Z",
+  "updatedAt": "2026-06-21T21:11:09.324Z",
   "cards": [
     {
       "id": "6ae1a33c-769c-4be6-9ea2-5ce3d88f563e",
@@ -651,6 +651,19 @@
       "priceOverride": null,
       "notes": "",
       "addedAt": "2026-06-21T21:10:27.274Z"
+    },
+    {
+      "id": "150f234d-0ce8-4a3c-9abe-20a8652bb374",
+      "cardId": "mep-009",
+      "name": "Alakazam",
+      "image": null,
+      "variant": "normal",
+      "condition": "NM",
+      "quantity": 1,
+      "language": "en",
+      "priceOverride": null,
+      "notes": "",
+      "addedAt": "2026-06-21T21:11:09.324Z"
     }
   ]
 }
