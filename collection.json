@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-06-21T21:24:06.501Z",
+  "updatedAt": "2026-06-21T21:24:34.695Z",
   "cards": [
     {
       "id": "6ae1a33c-769c-4be6-9ea2-5ce3d88f563e",
@@ -1249,6 +1249,19 @@
       "priceOverride": null,
       "notes": "",
       "addedAt": "2026-06-21T21:24:06.501Z"
+    },
+    {
+      "id": "932dcacd-b67f-42d5-96cf-7c2862528094",
+      "cardId": "sv02-251",
+      "name": "Falkner",
+      "image": "https://assets.tcgdex.net/en/sv/sv02/251/low.webp",
+      "variant": "normal",
+      "condition": "NM",
+      "quantity": 1,
+      "language": "en",
+      "priceOverride": null,
+      "notes": "",
+      "addedAt": "2026-06-21T21:24:34.695Z"
     }
   ]
 }
