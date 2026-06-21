@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-06-21T21:22:22.938Z",
+  "updatedAt": "2026-06-21T21:22:28.394Z",
   "cards": [
     {
       "id": "6ae1a33c-769c-4be6-9ea2-5ce3d88f563e",
@@ -1145,6 +1145,19 @@
       "priceOverride": null,
       "notes": "",
       "addedAt": "2026-06-21T21:22:22.938Z"
+    },
+    {
+      "id": "05060ad6-8f40-4b65-b846-fae08c58ef19",
+      "cardId": "mep-022",
+      "name": "Charcadet",
+      "image": null,
+      "variant": "normal",
+      "condition": "NM",
+      "quantity": 1,
+      "language": "en",
+      "priceOverride": null,
+      "notes": "",
+      "addedAt": "2026-06-21T21:22:28.394Z"
     }
   ]
 }
