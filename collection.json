@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-06-21T21:13:48.265Z",
+  "updatedAt": "2026-06-21T21:14:03.254Z",
   "cards": [
     {
       "id": "6ae1a33c-769c-4be6-9ea2-5ce3d88f563e",
@@ -742,6 +742,19 @@
       "priceOverride": null,
       "notes": "",
       "addedAt": "2026-06-21T21:13:48.265Z"
+    },
+    {
+      "id": "91e53e9e-73c3-4d0a-bbb4-aaf6bcfb0514",
+      "cardId": "svp-208",
+      "name": "Victini",
+      "image": null,
+      "variant": "normal",
+      "condition": "NM",
+      "quantity": 1,
+      "language": "en",
+      "priceOverride": null,
+      "notes": "",
+      "addedAt": "2026-06-21T21:14:03.254Z"
     }
   ]
 }
