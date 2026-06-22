@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-21T21:27:05.262Z",
+  "generatedAt": "2026-06-22T10:45:13.270Z",
   "currency": "EUR",
   "stats": {
     "cards": 94,
@@ -27,7 +27,24 @@
           "value": 162.76,
           "field": "trend",
           "reliable": true,
-          "updated": "2026-06-20T22:58:40.268Z"
+          "updated": "2026-06-21T22:58:40.200Z"
+        }
+      }
+    },
+    "sv8pt5-65|reverse": {
+      "eur": 0.14,
+      "confidence": "low",
+      "spread": null,
+      "flags": [
+        "estimate_from_usd"
+      ],
+      "cardmarketUrl": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-65",
+      "sources": {
+        "tcgplayer_usd": {
+          "value": 0.15,
+          "field": "market",
+          "reliable": false,
+          "unit": "USD"
         }
       }
     },
@@ -65,37 +82,54 @@
         }
       }
     },
-    "sv8pt5-65|reverse": {
-      "eur": 0.17,
+    "swsh10tg-TG15|normal": {
+      "eur": 8.66,
+      "confidence": "medium",
+      "spread": null,
+      "flags": [
+        "single_source"
+      ],
+      "cardmarketUrl": "https://prices.pokemontcg.io/cardmarket/swsh10tg-TG15",
+      "sources": {
+        "ptcg": {
+          "value": 8.66,
+          "field": "trendPrice",
+          "reliable": true,
+          "updated": "2026/06/22"
+        }
+      }
+    },
+    "sv8pt5-142|normal": {
+      "eur": 0.71,
       "confidence": "low",
       "spread": null,
       "flags": [
         "estimate_from_usd"
       ],
-      "cardmarketUrl": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-65",
+      "cardmarketUrl": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-142",
       "sources": {
         "tcgplayer_usd": {
-          "value": 0.18,
+          "value": 0.77,
           "field": "market",
           "reliable": false,
           "unit": "USD"
         }
       }
     },
-    "sv8-36|normal": {
-      "eur": 1.92,
-      "confidence": "medium",
+    "sv8pt5-73|normal": {
+      "eur": 1.25,
+      "confidence": "low",
       "spread": null,
       "flags": [
-        "single_source"
+        "estimate_from_usd"
       ],
-      "cardmarketUrl": "https://prices.pokemontcg.io/cardmarket/sv8-36",
+      "cardmarketUrl": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-73",
       "sources": {
-        "ptcg": {
-          "value": 1.92,
-          "field": "trendPrice",
-          "reliable": true,
-          "updated": "2026/03/08"
+        "tcgplayer_usd": {
+          "value": 1.36,
+          "field": "market",
+          "reliable": false,
+          "unit": "USD"
         }
       }
     },
@@ -116,59 +150,8 @@
         }
       }
     },
-    "sv8pt5-142|normal": {
-      "eur": 0.65,
-      "confidence": "low",
-      "spread": null,
-      "flags": [
-        "estimate_from_usd"
-      ],
-      "cardmarketUrl": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-142",
-      "sources": {
-        "tcgplayer_usd": {
-          "value": 0.71,
-          "field": "market",
-          "reliable": false,
-          "unit": "USD"
-        }
-      }
-    },
-    "sv8pt5-73|normal": {
-      "eur": 1.2,
-      "confidence": "low",
-      "spread": null,
-      "flags": [
-        "estimate_from_usd"
-      ],
-      "cardmarketUrl": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-73",
-      "sources": {
-        "tcgplayer_usd": {
-          "value": 1.3,
-          "field": "market",
-          "reliable": false,
-          "unit": "USD"
-        }
-      }
-    },
-    "sv8pt5-136|normal": {
-      "eur": 0.88,
-      "confidence": "low",
-      "spread": null,
-      "flags": [
-        "estimate_from_usd"
-      ],
-      "cardmarketUrl": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-136",
-      "sources": {
-        "tcgplayer_usd": {
-          "value": 0.96,
-          "field": "market",
-          "reliable": false,
-          "unit": "USD"
-        }
-      }
-    },
     "sv8pt5-26|normal": {
-      "eur": 1.96,
+      "eur": 2.35,
       "confidence": "low",
       "spread": null,
       "flags": [
@@ -177,7 +160,41 @@
       "cardmarketUrl": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-26",
       "sources": {
         "tcgplayer_usd": {
-          "value": 2.13,
+          "value": 2.55,
+          "field": "market",
+          "reliable": false,
+          "unit": "USD"
+        }
+      }
+    },
+    "sv8-207|normal": {
+      "eur": 5.55,
+      "confidence": "medium",
+      "spread": null,
+      "flags": [
+        "single_source"
+      ],
+      "cardmarketUrl": "https://prices.pokemontcg.io/cardmarket/sv8-207",
+      "sources": {
+        "ptcg": {
+          "value": 5.55,
+          "field": "trendPrice",
+          "reliable": true,
+          "updated": "2025/11/18"
+        }
+      }
+    },
+    "sv8pt5-136|normal": {
+      "eur": 0.84,
+      "confidence": "low",
+      "spread": null,
+      "flags": [
+        "estimate_from_usd"
+      ],
+      "cardmarketUrl": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-136",
+      "sources": {
+        "tcgplayer_usd": {
+          "value": 0.91,
           "field": "market",
           "reliable": false,
           "unit": "USD"
@@ -201,8 +218,25 @@
         }
       }
     },
+    "swsh11-49|normal": {
+      "eur": 1.4,
+      "confidence": "medium",
+      "spread": null,
+      "flags": [
+        "single_source"
+      ],
+      "cardmarketUrl": "https://prices.pokemontcg.io/cardmarket/swsh11-49",
+      "sources": {
+        "ptcg": {
+          "value": 1.4,
+          "field": "trendPrice",
+          "reliable": true,
+          "updated": "2026/02/21"
+        }
+      }
+    },
     "sv8pt5-119|normal": {
-      "eur": 0.47,
+      "eur": 0.52,
       "confidence": "low",
       "spread": null,
       "flags": [
@@ -211,7 +245,7 @@
       "cardmarketUrl": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-119",
       "sources": {
         "tcgplayer_usd": {
-          "value": 0.51,
+          "value": 0.56,
           "field": "market",
           "reliable": false,
           "unit": "USD"
@@ -235,20 +269,20 @@
         }
       }
     },
-    "swsh10tg-TG15|normal": {
-      "eur": 8.73,
+    "sv9-181|normal": {
+      "eur": 0.9,
       "confidence": "medium",
       "spread": null,
       "flags": [
         "single_source"
       ],
-      "cardmarketUrl": "https://prices.pokemontcg.io/cardmarket/swsh10tg-TG15",
+      "cardmarketUrl": "https://prices.pokemontcg.io/cardmarket/sv9-181",
       "sources": {
         "ptcg": {
-          "value": 8.73,
+          "value": 0.9,
           "field": "trendPrice",
           "reliable": true,
-          "updated": "2026/06/21"
+          "updated": "2025/11/18"
         }
       }
     },
@@ -269,42 +303,8 @@
         }
       }
     },
-    "swsh11-49|normal": {
-      "eur": 1.4,
-      "confidence": "medium",
-      "spread": null,
-      "flags": [
-        "single_source"
-      ],
-      "cardmarketUrl": "https://prices.pokemontcg.io/cardmarket/swsh11-49",
-      "sources": {
-        "ptcg": {
-          "value": 1.4,
-          "field": "trendPrice",
-          "reliable": true,
-          "updated": "2026/02/21"
-        }
-      }
-    },
-    "sv9-79|normal": {
-      "eur": 0.54,
-      "confidence": "medium",
-      "spread": null,
-      "flags": [
-        "single_source"
-      ],
-      "cardmarketUrl": "https://prices.pokemontcg.io/cardmarket/sv9-79",
-      "sources": {
-        "ptcg": {
-          "value": 0.54,
-          "field": "trendPrice",
-          "reliable": true,
-          "updated": "2026/01/19"
-        }
-      }
-    },
     "me1-181|normal": {
-      "eur": 88.84,
+      "eur": 88.57,
       "confidence": "low",
       "spread": null,
       "flags": [
@@ -313,7 +313,7 @@
       "cardmarketUrl": "https://prices.pokemontcg.io/tcgplayer/me1-181",
       "sources": {
         "tcgplayer_usd": {
-          "value": 96.56,
+          "value": 96.27,
           "field": "market",
           "reliable": false,
           "unit": "USD"
@@ -321,7 +321,7 @@
       }
     },
     "sv8pt5-56|normal": {
-      "eur": 0.67,
+      "eur": 0.64,
       "confidence": "low",
       "spread": null,
       "flags": [
@@ -330,27 +330,27 @@
       "cardmarketUrl": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-56",
       "sources": {
         "tcgplayer_usd": {
-          "value": 0.73,
+          "value": 0.7,
           "field": "market",
           "reliable": false,
           "unit": "USD"
         }
       }
     },
-    "me2-98|normal": {
-      "eur": 16.47,
-      "confidence": "low",
+    "swsh10-49|normal": {
+      "eur": 0.83,
+      "confidence": "medium",
       "spread": null,
       "flags": [
-        "estimate_from_usd"
+        "single_source"
       ],
-      "cardmarketUrl": "https://prices.pokemontcg.io/tcgplayer/me2-98",
+      "cardmarketUrl": "https://prices.pokemontcg.io/cardmarket/swsh10-49",
       "sources": {
-        "tcgplayer_usd": {
-          "value": 17.9,
-          "field": "market",
-          "reliable": false,
-          "unit": "USD"
+        "ptcg": {
+          "value": 0.83,
+          "field": "trendPrice",
+          "reliable": true,
+          "updated": "2026/02/19"
         }
       }
     },
@@ -372,7 +372,7 @@
       }
     },
     "me2-111|normal": {
-      "eur": 1.35,
+      "eur": 1.34,
       "confidence": "low",
       "spread": null,
       "flags": [
@@ -381,10 +381,27 @@
       "cardmarketUrl": "https://prices.pokemontcg.io/tcgplayer/me2-111",
       "sources": {
         "tcgplayer_usd": {
-          "value": 1.47,
+          "value": 1.46,
           "field": "market",
           "reliable": false,
           "unit": "USD"
+        }
+      }
+    },
+    "sv9-79|normal": {
+      "eur": 0.54,
+      "confidence": "medium",
+      "spread": null,
+      "flags": [
+        "single_source"
+      ],
+      "cardmarketUrl": "https://prices.pokemontcg.io/cardmarket/sv9-79",
+      "sources": {
+        "ptcg": {
+          "value": 0.54,
+          "field": "trendPrice",
+          "reliable": true,
+          "updated": "2026/01/19"
         }
       }
     },
@@ -405,7 +422,24 @@
           "value": 0.63,
           "field": "trend",
           "reliable": true,
-          "updated": "2026-06-20T22:58:40.268Z"
+          "updated": "2026-06-21T22:58:40.200Z"
+        }
+      }
+    },
+    "me2-98|normal": {
+      "eur": 16.22,
+      "confidence": "low",
+      "spread": null,
+      "flags": [
+        "estimate_from_usd"
+      ],
+      "cardmarketUrl": "https://prices.pokemontcg.io/tcgplayer/me2-98",
+      "sources": {
+        "tcgplayer_usd": {
+          "value": 17.63,
+          "field": "market",
+          "reliable": false,
+          "unit": "USD"
         }
       }
     },
@@ -426,25 +460,8 @@
         }
       }
     },
-    "swsh10-49|normal": {
-      "eur": 0.83,
-      "confidence": "medium",
-      "spread": null,
-      "flags": [
-        "single_source"
-      ],
-      "cardmarketUrl": "https://prices.pokemontcg.io/cardmarket/swsh10-49",
-      "sources": {
-        "ptcg": {
-          "value": 0.83,
-          "field": "trendPrice",
-          "reliable": true,
-          "updated": "2026/02/19"
-        }
-      }
-    },
     "sv8pt5-64|normal": {
-      "eur": 0.85,
+      "eur": 0.81,
       "confidence": "low",
       "spread": null,
       "flags": [
@@ -453,27 +470,10 @@
       "cardmarketUrl": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-64",
       "sources": {
         "tcgplayer_usd": {
-          "value": 0.92,
+          "value": 0.88,
           "field": "market",
           "reliable": false,
           "unit": "USD"
-        }
-      }
-    },
-    "sv9-98|normal": {
-      "eur": 2.74,
-      "confidence": "medium",
-      "spread": null,
-      "flags": [
-        "single_source"
-      ],
-      "cardmarketUrl": "https://prices.pokemontcg.io/cardmarket/sv9-98",
-      "sources": {
-        "ptcg": {
-          "value": 2.74,
-          "field": "trendPrice",
-          "reliable": true,
-          "updated": "2026/01/16"
         }
       }
     },
@@ -494,7 +494,41 @@
           "value": 0.82,
           "field": "trend",
           "reliable": true,
-          "updated": "2026-06-20T22:58:40.268Z"
+          "updated": "2026-06-21T22:58:40.200Z"
+        }
+      }
+    },
+    "sv9-98|normal": {
+      "eur": 2.74,
+      "confidence": "medium",
+      "spread": null,
+      "flags": [
+        "single_source"
+      ],
+      "cardmarketUrl": "https://prices.pokemontcg.io/cardmarket/sv9-98",
+      "sources": {
+        "ptcg": {
+          "value": 2.74,
+          "field": "trendPrice",
+          "reliable": true,
+          "updated": "2026/01/16"
+        }
+      }
+    },
+    "sv09-162|normal": {
+      "eur": 13.68,
+      "confidence": "medium",
+      "spread": null,
+      "flags": [
+        "single_source"
+      ],
+      "cardmarketUrl": null,
+      "sources": {
+        "tcgdex": {
+          "value": 13.68,
+          "field": "trend",
+          "reliable": true,
+          "updated": "2026-06-21T22:58:40.200Z"
         }
       }
     },
@@ -511,46 +545,12 @@
           "value": 31.56,
           "field": "trend",
           "reliable": true,
-          "updated": "2026-06-20T22:58:40.323Z"
-        }
-      }
-    },
-    "mep-037|normal": {
-      "eur": 44.53,
-      "confidence": "medium",
-      "spread": null,
-      "flags": [
-        "single_source"
-      ],
-      "cardmarketUrl": null,
-      "sources": {
-        "tcgdex": {
-          "value": 44.53,
-          "field": "trend",
-          "reliable": true,
-          "updated": "2026-06-20T22:58:40.323Z"
-        }
-      }
-    },
-    "mep-039|normal": {
-      "eur": 33.18,
-      "confidence": "medium",
-      "spread": null,
-      "flags": [
-        "single_source"
-      ],
-      "cardmarketUrl": null,
-      "sources": {
-        "tcgdex": {
-          "value": 33.18,
-          "field": "trend",
-          "reliable": true,
-          "updated": "2026-06-20T22:58:40.323Z"
+          "updated": "2026-06-21T22:58:40.200Z"
         }
       }
     },
     "mep-038|normal": {
-      "eur": 51.61,
+      "eur": 51.95,
       "confidence": "medium",
       "spread": null,
       "flags": [
@@ -559,15 +559,32 @@
       "cardmarketUrl": null,
       "sources": {
         "tcgdex": {
-          "value": 51.61,
+          "value": 51.95,
           "field": "trend",
           "reliable": true,
-          "updated": "2026-06-20T22:58:40.323Z"
+          "updated": "2026-06-21T22:58:40.338Z"
+        }
+      }
+    },
+    "mep-037|normal": {
+      "eur": 43.83,
+      "confidence": "medium",
+      "spread": null,
+      "flags": [
+        "single_source"
+      ],
+      "cardmarketUrl": null,
+      "sources": {
+        "tcgdex": {
+          "value": 43.83,
+          "field": "trend",
+          "reliable": true,
+          "updated": "2026-06-21T22:58:40.338Z"
         }
       }
     },
     "mep-042|normal": {
-      "eur": 13.58,
+      "eur": 13.59,
       "confidence": "medium",
       "spread": null,
       "flags": [
@@ -576,15 +593,49 @@
       "cardmarketUrl": null,
       "sources": {
         "tcgdex": {
-          "value": 13.58,
+          "value": 13.59,
           "field": "trend",
           "reliable": true,
-          "updated": "2026-06-20T22:58:40.323Z"
+          "updated": "2026-06-21T22:58:40.338Z"
+        }
+      }
+    },
+    "mep-041|normal": {
+      "eur": 9.78,
+      "confidence": "medium",
+      "spread": null,
+      "flags": [
+        "single_source"
+      ],
+      "cardmarketUrl": null,
+      "sources": {
+        "tcgdex": {
+          "value": 9.78,
+          "field": "trend",
+          "reliable": true,
+          "updated": "2026-06-21T22:58:40.200Z"
+        }
+      }
+    },
+    "sv8-36|normal": {
+      "eur": 1.92,
+      "confidence": "medium",
+      "spread": null,
+      "flags": [
+        "single_source"
+      ],
+      "cardmarketUrl": "https://prices.pokemontcg.io/cardmarket/sv8-36",
+      "sources": {
+        "ptcg": {
+          "value": 1.92,
+          "field": "trendPrice",
+          "reliable": true,
+          "updated": "2026/03/08"
         }
       }
     },
     "mep-040|normal": {
-      "eur": 9.62,
+      "eur": 9.54,
       "confidence": "medium",
       "spread": null,
       "flags": [
@@ -593,49 +644,15 @@
       "cardmarketUrl": null,
       "sources": {
         "tcgdex": {
-          "value": 9.62,
+          "value": 9.54,
           "field": "trend",
           "reliable": true,
-          "updated": "2026-06-20T22:58:40.323Z"
-        }
-      }
-    },
-    "sv09-162|normal": {
-      "eur": 14.38,
-      "confidence": "medium",
-      "spread": null,
-      "flags": [
-        "single_source"
-      ],
-      "cardmarketUrl": null,
-      "sources": {
-        "tcgdex": {
-          "value": 14.38,
-          "field": "trend",
-          "reliable": true,
-          "updated": "2026-06-20T22:58:40.268Z"
-        }
-      }
-    },
-    "mep-044|normal": {
-      "eur": 7.97,
-      "confidence": "medium",
-      "spread": null,
-      "flags": [
-        "single_source"
-      ],
-      "cardmarketUrl": null,
-      "sources": {
-        "tcgdex": {
-          "value": 7.97,
-          "field": "trend",
-          "reliable": true,
-          "updated": "2026-06-20T22:58:40.323Z"
+          "updated": "2026-06-21T22:58:40.338Z"
         }
       }
     },
     "mep-045|normal": {
-      "eur": 7.46,
+      "eur": 7.35,
       "confidence": "medium",
       "spread": null,
       "flags": [
@@ -644,34 +661,17 @@
       "cardmarketUrl": null,
       "sources": {
         "tcgdex": {
-          "value": 7.46,
+          "value": 7.35,
           "field": "trend",
           "reliable": true,
-          "updated": "2026-06-20T22:58:40.323Z"
-        }
-      }
-    },
-    "mep-043|normal": {
-      "eur": 11.74,
-      "confidence": "medium",
-      "spread": null,
-      "flags": [
-        "single_source"
-      ],
-      "cardmarketUrl": null,
-      "sources": {
-        "tcgdex": {
-          "value": 11.74,
-          "field": "trend",
-          "reliable": true,
-          "updated": "2026-06-20T22:58:40.268Z"
+          "updated": "2026-06-21T22:58:40.338Z"
         }
       }
     },
     "swshp-SWSH291|normal": {
-      "eur": 64.93,
+      "eur": 61.3,
       "confidence": "low",
-      "spread": 112.18,
+      "spread": 104.93,
       "flags": [
         "sources_diverge"
       ],
@@ -684,15 +684,15 @@
           "updated": "2025/11/18"
         },
         "tcgdex": {
-          "value": 121.02,
+          "value": 113.77,
           "field": "trend",
           "reliable": true,
-          "updated": "2026-06-20T22:58:40.323Z"
+          "updated": "2026-06-21T22:58:40.338Z"
         }
       }
     },
     "me02.5-289|normal": {
-      "eur": 81.21,
+      "eur": 77.85,
       "confidence": "medium",
       "spread": null,
       "flags": [
@@ -701,15 +701,32 @@
       "cardmarketUrl": null,
       "sources": {
         "tcgdex": {
-          "value": 81.21,
+          "value": 77.85,
           "field": "trend",
           "reliable": true,
-          "updated": "2026-06-20T22:58:40.323Z"
+          "updated": "2026-06-21T22:58:40.338Z"
+        }
+      }
+    },
+    "mep-043|normal": {
+      "eur": 11.49,
+      "confidence": "medium",
+      "spread": null,
+      "flags": [
+        "single_source"
+      ],
+      "cardmarketUrl": null,
+      "sources": {
+        "tcgdex": {
+          "value": 11.49,
+          "field": "trend",
+          "reliable": true,
+          "updated": "2026-06-21T22:58:40.200Z"
         }
       }
     },
     "sv01-207|normal": {
-      "eur": 12.55,
+      "eur": 12.1,
       "confidence": "medium",
       "spread": null,
       "flags": [
@@ -718,32 +735,15 @@
       "cardmarketUrl": null,
       "sources": {
         "tcgdex": {
-          "value": 12.55,
+          "value": 12.1,
           "field": "trend",
           "reliable": true,
-          "updated": "2026-06-20T22:58:40.323Z"
-        }
-      }
-    },
-    "swsh12.5-GG12|normal": {
-      "eur": 21.79,
-      "confidence": "medium",
-      "spread": null,
-      "flags": [
-        "single_source"
-      ],
-      "cardmarketUrl": null,
-      "sources": {
-        "tcgdex": {
-          "value": 21.79,
-          "field": "trend",
-          "reliable": true,
-          "updated": "2026-06-20T22:58:40.323Z"
+          "updated": "2026-06-21T22:58:40.338Z"
         }
       }
     },
     "me02-100|normal": {
-      "eur": 3.68,
+      "eur": 4.21,
       "confidence": "medium",
       "spread": null,
       "flags": [
@@ -752,10 +752,122 @@
       "cardmarketUrl": null,
       "sources": {
         "tcgdex": {
-          "value": 3.68,
+          "value": 4.21,
           "field": "trend",
           "reliable": true,
-          "updated": "2026-06-20T22:58:40.268Z"
+          "updated": "2026-06-21T22:58:40.338Z"
+        }
+      }
+    },
+    "swsh12.5-GG12|normal": {
+      "eur": 21.39,
+      "confidence": "medium",
+      "spread": null,
+      "flags": [
+        "single_source"
+      ],
+      "cardmarketUrl": null,
+      "sources": {
+        "tcgdex": {
+          "value": 21.39,
+          "field": "trend",
+          "reliable": true,
+          "updated": "2026-06-21T22:58:40.338Z"
+        }
+      }
+    },
+    "mep-009|normal": {
+      "eur": 17.56,
+      "confidence": "medium",
+      "spread": null,
+      "flags": [
+        "single_source"
+      ],
+      "cardmarketUrl": null,
+      "sources": {
+        "tcgdex": {
+          "value": 17.56,
+          "field": "trend",
+          "reliable": true,
+          "updated": "2026-06-21T22:58:40.338Z"
+        }
+      }
+    },
+    "swsh12.5-GG01|normal": {
+      "eur": 2.69,
+      "confidence": "medium",
+      "spread": null,
+      "flags": [
+        "single_source"
+      ],
+      "cardmarketUrl": null,
+      "sources": {
+        "tcgdex": {
+          "value": 2.69,
+          "field": "trend",
+          "reliable": true,
+          "updated": "2026-06-21T22:58:40.338Z"
+        }
+      }
+    },
+    "mep-039|normal": {
+      "eur": 33.12,
+      "confidence": "medium",
+      "spread": null,
+      "flags": [
+        "single_source"
+      ],
+      "cardmarketUrl": null,
+      "sources": {
+        "tcgdex": {
+          "value": 33.12,
+          "field": "trend",
+          "reliable": true,
+          "updated": "2026-06-21T22:58:40.338Z"
+        }
+      }
+    },
+    "mep-031|normal": {
+      "eur": null,
+      "confidence": "none",
+      "spread": null,
+      "flags": [
+        "no_data"
+      ],
+      "cardmarketUrl": null,
+      "sources": {}
+    },
+    "mep-044|normal": {
+      "eur": 7.88,
+      "confidence": "medium",
+      "spread": null,
+      "flags": [
+        "single_source"
+      ],
+      "cardmarketUrl": null,
+      "sources": {
+        "tcgdex": {
+          "value": 7.88,
+          "field": "trend",
+          "reliable": true,
+          "updated": "2026-06-21T22:58:40.338Z"
+        }
+      }
+    },
+    "sv10.5b-163|normal": {
+      "eur": 3.16,
+      "confidence": "medium",
+      "spread": null,
+      "flags": [
+        "single_source"
+      ],
+      "cardmarketUrl": null,
+      "sources": {
+        "tcgdex": {
+          "value": 3.16,
+          "field": "trend",
+          "reliable": true,
+          "updated": "2026-06-21T22:58:40.200Z"
         }
       }
     },
@@ -772,12 +884,12 @@
           "value": 0.02,
           "field": "trend",
           "reliable": true,
-          "updated": "2026-06-20T22:58:40.268Z"
+          "updated": "2026-06-21T22:58:40.338Z"
         }
       }
     },
-    "mep-009|normal": {
-      "eur": 17.34,
+    "svp-208|normal": {
+      "eur": 13.08,
       "confidence": "medium",
       "spread": null,
       "flags": [
@@ -786,83 +898,15 @@
       "cardmarketUrl": null,
       "sources": {
         "tcgdex": {
-          "value": 17.34,
+          "value": 13.08,
           "field": "trend",
           "reliable": true,
-          "updated": "2026-06-20T22:58:40.268Z"
-        }
-      }
-    },
-    "swsh12.5-GG01|normal": {
-      "eur": 2.76,
-      "confidence": "medium",
-      "spread": null,
-      "flags": [
-        "single_source"
-      ],
-      "cardmarketUrl": null,
-      "sources": {
-        "tcgdex": {
-          "value": 2.76,
-          "field": "trend",
-          "reliable": true,
-          "updated": "2026-06-20T22:58:40.268Z"
-        }
-      }
-    },
-    "me03-094|normal": {
-      "eur": 25.04,
-      "confidence": "medium",
-      "spread": null,
-      "flags": [
-        "single_source"
-      ],
-      "cardmarketUrl": null,
-      "sources": {
-        "tcgdex": {
-          "value": 25.04,
-          "field": "trend",
-          "reliable": true,
-          "updated": "2026-06-20T22:58:40.268Z"
-        }
-      }
-    },
-    "sv8-207|normal": {
-      "eur": 5.55,
-      "confidence": "medium",
-      "spread": null,
-      "flags": [
-        "single_source"
-      ],
-      "cardmarketUrl": "https://prices.pokemontcg.io/cardmarket/sv8-207",
-      "sources": {
-        "ptcg": {
-          "value": 5.55,
-          "field": "trendPrice",
-          "reliable": true,
-          "updated": "2025/11/18"
-        }
-      }
-    },
-    "sv9-181|normal": {
-      "eur": 0.9,
-      "confidence": "medium",
-      "spread": null,
-      "flags": [
-        "single_source"
-      ],
-      "cardmarketUrl": "https://prices.pokemontcg.io/cardmarket/sv9-181",
-      "sources": {
-        "ptcg": {
-          "value": 0.9,
-          "field": "trendPrice",
-          "reliable": true,
-          "updated": "2025/11/18"
+          "updated": "2026-06-21T22:58:40.200Z"
         }
       }
     },
     "svp-209|normal": {
-      "eur": 2.27,
+      "eur": 2.21,
       "confidence": "medium",
       "spread": null,
       "flags": [
@@ -871,25 +915,15 @@
       "cardmarketUrl": null,
       "sources": {
         "tcgdex": {
-          "value": 2.27,
+          "value": 2.21,
           "field": "trend",
           "reliable": true,
-          "updated": "2026-06-20T22:58:40.268Z"
+          "updated": "2026-06-21T22:58:40.200Z"
         }
       }
-    },
-    "mep-031|normal": {
-      "eur": null,
-      "confidence": "none",
-      "spread": null,
-      "flags": [
-        "no_data"
-      ],
-      "cardmarketUrl": null,
-      "sources": {}
     },
     "sv10.5b-131|normal": {
-      "eur": 37.03,
+      "eur": 37.85,
       "confidence": "medium",
       "spread": null,
       "flags": [
@@ -898,27 +932,10 @@
       "cardmarketUrl": null,
       "sources": {
         "tcgdex": {
-          "value": 37.03,
+          "value": 37.85,
           "field": "trend",
           "reliable": true,
-          "updated": "2026-06-20T22:58:40.268Z"
-        }
-      }
-    },
-    "sv10.5b-163|normal": {
-      "eur": 3.18,
-      "confidence": "medium",
-      "spread": null,
-      "flags": [
-        "single_source"
-      ],
-      "cardmarketUrl": null,
-      "sources": {
-        "tcgdex": {
-          "value": 3.18,
-          "field": "trend",
-          "reliable": true,
-          "updated": "2026-06-20T22:58:40.268Z"
+          "updated": "2026-06-21T22:58:40.200Z"
         }
       }
     },
@@ -939,93 +956,8 @@
         }
       }
     },
-    "sv10.5b-144|normal": {
-      "eur": 29.79,
-      "confidence": "medium",
-      "spread": null,
-      "flags": [
-        "single_source"
-      ],
-      "cardmarketUrl": null,
-      "sources": {
-        "tcgdex": {
-          "value": 29.79,
-          "field": "trend",
-          "reliable": true,
-          "updated": "2026-06-20T22:58:40.428Z"
-        }
-      }
-    },
-    "me02-107|normal": {
-      "eur": 1.86,
-      "confidence": "medium",
-      "spread": null,
-      "flags": [
-        "single_source"
-      ],
-      "cardmarketUrl": null,
-      "sources": {
-        "tcgdex": {
-          "value": 1.86,
-          "field": "trend",
-          "reliable": true,
-          "updated": "2026-06-20T22:58:40.428Z"
-        }
-      }
-    },
-    "mep-041|normal": {
-      "eur": 9.76,
-      "confidence": "medium",
-      "spread": null,
-      "flags": [
-        "single_source"
-      ],
-      "cardmarketUrl": null,
-      "sources": {
-        "tcgdex": {
-          "value": 9.76,
-          "field": "trend",
-          "reliable": true,
-          "updated": "2026-06-20T22:58:40.323Z"
-        }
-      }
-    },
-    "svp-208|normal": {
-      "eur": 13.44,
-      "confidence": "medium",
-      "spread": null,
-      "flags": [
-        "single_source"
-      ],
-      "cardmarketUrl": null,
-      "sources": {
-        "tcgdex": {
-          "value": 13.44,
-          "field": "trend",
-          "reliable": true,
-          "updated": "2026-06-20T22:58:40.268Z"
-        }
-      }
-    },
-    "me01-148|normal": {
-      "eur": 2.66,
-      "confidence": "medium",
-      "spread": null,
-      "flags": [
-        "single_source"
-      ],
-      "cardmarketUrl": null,
-      "sources": {
-        "tcgdex": {
-          "value": 2.66,
-          "field": "trend",
-          "reliable": true,
-          "updated": "2026-06-20T22:58:40.428Z"
-        }
-      }
-    },
     "sv08-213|normal": {
-      "eur": 5.14,
+      "eur": 5.04,
       "confidence": "medium",
       "spread": null,
       "flags": [
@@ -1034,49 +966,15 @@
       "cardmarketUrl": null,
       "sources": {
         "tcgdex": {
-          "value": 5.14,
+          "value": 5.04,
           "field": "trend",
           "reliable": true,
-          "updated": "2026-06-20T22:58:40.428Z"
-        }
-      }
-    },
-    "svp-203|normal": {
-      "eur": 7.32,
-      "confidence": "medium",
-      "spread": null,
-      "flags": [
-        "single_source"
-      ],
-      "cardmarketUrl": "https://prices.pokemontcg.io/cardmarket/svp-203",
-      "sources": {
-        "ptcg": {
-          "value": 7.32,
-          "field": "trendPrice",
-          "reliable": true,
-          "updated": "2025/11/18"
-        }
-      }
-    },
-    "sv04.5-225|normal": {
-      "eur": 1.38,
-      "confidence": "medium",
-      "spread": null,
-      "flags": [
-        "single_source"
-      ],
-      "cardmarketUrl": null,
-      "sources": {
-        "tcgdex": {
-          "value": 1.38,
-          "field": "trend",
-          "reliable": true,
-          "updated": "2026-06-20T22:58:40.268Z"
+          "updated": "2026-06-21T22:58:40.200Z"
         }
       }
     },
     "sv06.5-070|normal": {
-      "eur": 19.83,
+      "eur": 19.19,
       "confidence": "medium",
       "spread": null,
       "flags": [
@@ -1085,33 +983,95 @@
       "cardmarketUrl": null,
       "sources": {
         "tcgdex": {
-          "value": 19.83,
+          "value": 19.19,
           "field": "trend",
           "reliable": true,
-          "updated": "2026-06-20T22:58:40.428Z"
+          "updated": "2026-06-21T22:58:40.200Z"
         }
       }
     },
-    "sv10-209|normal": {
-      "eur": 5.38,
-      "confidence": "low",
-      "spread": 1.61,
+    "me02-107|normal": {
+      "eur": 1.81,
+      "confidence": "medium",
+      "spread": null,
       "flags": [
-        "sources_diverge"
+        "single_source"
       ],
-      "cardmarketUrl": "https://prices.pokemontcg.io/cardmarket/sv10-209",
+      "cardmarketUrl": null,
       "sources": {
-        "ptcg": {
-          "value": 6.18,
-          "field": "trendPrice",
-          "reliable": true,
-          "updated": "2025/11/18"
-        },
         "tcgdex": {
-          "value": 4.57,
+          "value": 1.81,
           "field": "trend",
           "reliable": true,
-          "updated": "2026-06-20T22:58:40.268Z"
+          "updated": "2026-06-21T22:58:40.200Z"
+        }
+      }
+    },
+    "me01-148|normal": {
+      "eur": 2.65,
+      "confidence": "medium",
+      "spread": null,
+      "flags": [
+        "single_source"
+      ],
+      "cardmarketUrl": null,
+      "sources": {
+        "tcgdex": {
+          "value": 2.65,
+          "field": "trend",
+          "reliable": true,
+          "updated": "2026-06-21T22:58:40.231Z"
+        }
+      }
+    },
+    "sv10.5b-144|normal": {
+      "eur": 29.87,
+      "confidence": "medium",
+      "spread": null,
+      "flags": [
+        "single_source"
+      ],
+      "cardmarketUrl": null,
+      "sources": {
+        "tcgdex": {
+          "value": 29.87,
+          "field": "trend",
+          "reliable": true,
+          "updated": "2026-06-21T22:58:40.338Z"
+        }
+      }
+    },
+    "me01-134|normal": {
+      "eur": 20.44,
+      "confidence": "medium",
+      "spread": null,
+      "flags": [
+        "single_source"
+      ],
+      "cardmarketUrl": null,
+      "sources": {
+        "tcgdex": {
+          "value": 20.44,
+          "field": "trend",
+          "reliable": true,
+          "updated": "2026-06-21T22:58:40.338Z"
+        }
+      }
+    },
+    "me03-098|normal": {
+      "eur": 3.59,
+      "confidence": "medium",
+      "spread": null,
+      "flags": [
+        "single_source"
+      ],
+      "cardmarketUrl": null,
+      "sources": {
+        "tcgdex": {
+          "value": 3.59,
+          "field": "trend",
+          "reliable": true,
+          "updated": "2026-06-21T22:58:40.338Z"
         }
       }
     },
@@ -1132,42 +1092,48 @@
         }
       }
     },
-    "me03-098|normal": {
-      "eur": 3.59,
+    "svp-203|normal": {
+      "eur": 7.32,
       "confidence": "medium",
       "spread": null,
       "flags": [
         "single_source"
       ],
-      "cardmarketUrl": null,
+      "cardmarketUrl": "https://prices.pokemontcg.io/cardmarket/svp-203",
       "sources": {
-        "tcgdex": {
-          "value": 3.59,
-          "field": "trend",
+        "ptcg": {
+          "value": 7.32,
+          "field": "trendPrice",
           "reliable": true,
-          "updated": "2026-06-20T22:58:40.268Z"
+          "updated": "2025/11/18"
         }
       }
     },
-    "swsh10.5-030|normal": {
-      "eur": 1.91,
-      "confidence": "medium",
-      "spread": null,
+    "sv10-209|normal": {
+      "eur": 5.38,
+      "confidence": "low",
+      "spread": 1.59,
       "flags": [
-        "single_source"
+        "sources_diverge"
       ],
-      "cardmarketUrl": null,
+      "cardmarketUrl": "https://prices.pokemontcg.io/cardmarket/sv10-209",
       "sources": {
+        "ptcg": {
+          "value": 6.18,
+          "field": "trendPrice",
+          "reliable": true,
+          "updated": "2025/11/18"
+        },
         "tcgdex": {
-          "value": 1.91,
+          "value": 4.59,
           "field": "trend",
           "reliable": true,
-          "updated": "2026-06-20T22:58:40.268Z"
+          "updated": "2026-06-21T22:58:40.338Z"
         }
       }
     },
     "sv09-161|normal": {
-      "eur": 29.62,
+      "eur": 29.43,
       "confidence": "medium",
       "spread": null,
       "flags": [
@@ -1176,224 +1142,10 @@
       "cardmarketUrl": null,
       "sources": {
         "tcgdex": {
-          "value": 29.62,
+          "value": 29.43,
           "field": "trend",
           "reliable": true,
-          "updated": "2026-06-20T22:58:40.268Z"
-        }
-      }
-    },
-    "swsh12-057|promo": {
-      "eur": 0.48,
-      "confidence": "low",
-      "spread": null,
-      "flags": [
-        "no_reliable_source"
-      ],
-      "cardmarketUrl": null,
-      "sources": {
-        "tcgdex": {
-          "value": 0.48,
-          "field": "trend",
-          "reliable": false,
-          "updated": "2026-06-20T22:58:40.268Z"
-        }
-      }
-    },
-    "swsh12-058|promo": {
-      "eur": 1.03,
-      "confidence": "low",
-      "spread": null,
-      "flags": [
-        "no_reliable_source"
-      ],
-      "cardmarketUrl": null,
-      "sources": {
-        "tcgdex": {
-          "value": 1.03,
-          "field": "trend",
-          "reliable": false,
-          "updated": "2026-06-20T22:58:40.268Z"
-        }
-      }
-    },
-    "swsh1-25|normal": {
-      "eur": 1.58,
-      "confidence": "high",
-      "spread": 0.5,
-      "flags": [],
-      "cardmarketUrl": "https://prices.pokemontcg.io/cardmarket/swsh1-25",
-      "sources": {
-        "ptcg": {
-          "value": 1.33,
-          "field": "trendPrice",
-          "reliable": true,
-          "updated": "2026/03/11"
-        },
-        "tcgdex": {
-          "value": 1.83,
-          "field": "trend",
-          "reliable": true,
-          "updated": "2026-06-20T22:58:40.268Z"
-        }
-      }
-    },
-    "swsh12-135|promo": {
-      "eur": 0.61,
-      "confidence": "medium",
-      "spread": null,
-      "flags": [
-        "single_source"
-      ],
-      "cardmarketUrl": "https://prices.pokemontcg.io/cardmarket/swsh12-135",
-      "sources": {
-        "ptcg": {
-          "value": 0.61,
-          "field": "trendPrice",
-          "reliable": true,
-          "updated": "2025/11/21"
-        },
-        "tcgdex": {
-          "value": 0.65,
-          "field": "trend",
-          "reliable": false,
-          "updated": "2026-06-20T22:58:40.268Z"
-        }
-      }
-    },
-    "me02-106|normal": {
-      "eur": 27.42,
-      "confidence": "medium",
-      "spread": null,
-      "flags": [
-        "single_source"
-      ],
-      "cardmarketUrl": null,
-      "sources": {
-        "tcgdex": {
-          "value": 27.42,
-          "field": "trend",
-          "reliable": true,
-          "updated": "2026-06-20T22:58:40.268Z"
-        }
-      }
-    },
-    "me02-104|normal": {
-      "eur": 1.76,
-      "confidence": "medium",
-      "spread": null,
-      "flags": [
-        "single_source"
-      ],
-      "cardmarketUrl": null,
-      "sources": {
-        "tcgdex": {
-          "value": 1.76,
-          "field": "trend",
-          "reliable": true,
-          "updated": "2026-06-20T22:58:40.268Z"
-        }
-      }
-    },
-    "me02.5-225|normal": {
-      "eur": 8.38,
-      "confidence": "medium",
-      "spread": null,
-      "flags": [
-        "single_source"
-      ],
-      "cardmarketUrl": null,
-      "sources": {
-        "tcgdex": {
-          "value": 8.38,
-          "field": "trend",
-          "reliable": true,
-          "updated": "2026-06-20T22:58:40.428Z"
-        }
-      }
-    },
-    "sv09-164|normal": {
-      "eur": 4.63,
-      "confidence": "medium",
-      "spread": null,
-      "flags": [
-        "single_source"
-      ],
-      "cardmarketUrl": null,
-      "sources": {
-        "tcgdex": {
-          "value": 4.63,
-          "field": "trend",
-          "reliable": true,
-          "updated": "2026-06-20T22:58:40.268Z"
-        }
-      }
-    },
-    "sv09-168|normal": {
-      "eur": 6.84,
-      "confidence": "medium",
-      "spread": null,
-      "flags": [
-        "single_source"
-      ],
-      "cardmarketUrl": null,
-      "sources": {
-        "tcgdex": {
-          "value": 6.84,
-          "field": "trend",
-          "reliable": true,
-          "updated": "2026-06-20T22:58:40.428Z"
-        }
-      }
-    },
-    "me02-099|normal": {
-      "eur": 1.9,
-      "confidence": "medium",
-      "spread": null,
-      "flags": [
-        "single_source"
-      ],
-      "cardmarketUrl": null,
-      "sources": {
-        "tcgdex": {
-          "value": 1.9,
-          "field": "trend",
-          "reliable": true,
-          "updated": "2026-06-20T22:58:40.428Z"
-        }
-      }
-    },
-    "me01-154|normal": {
-      "eur": 3.95,
-      "confidence": "medium",
-      "spread": null,
-      "flags": [
-        "single_source"
-      ],
-      "cardmarketUrl": null,
-      "sources": {
-        "tcgdex": {
-          "value": 3.95,
-          "field": "trend",
-          "reliable": true,
-          "updated": "2026-06-20T22:58:40.428Z"
-        }
-      }
-    },
-    "2024sv-13|normal": {
-      "eur": 0.1,
-      "confidence": "medium",
-      "spread": null,
-      "flags": [
-        "single_source"
-      ],
-      "cardmarketUrl": null,
-      "sources": {
-        "tcgdex": {
-          "value": 0.1,
-          "field": "trend",
-          "reliable": true,
-          "updated": "2026-06-20T22:58:40.428Z"
+          "updated": "2026-06-21T22:58:40.200Z"
         }
       }
     },
@@ -1414,18 +1166,8 @@
         }
       }
     },
-    "mep-070|normal": {
-      "eur": null,
-      "confidence": "none",
-      "spread": null,
-      "flags": [
-        "no_data"
-      ],
-      "cardmarketUrl": null,
-      "sources": {}
-    },
-    "swsh12.5-GG18|normal": {
-      "eur": 5.3,
+    "swsh10.5-030|normal": {
+      "eur": 1.91,
       "confidence": "medium",
       "spread": null,
       "flags": [
@@ -1434,49 +1176,70 @@
       "cardmarketUrl": null,
       "sources": {
         "tcgdex": {
-          "value": 5.3,
+          "value": 1.91,
           "field": "trend",
           "reliable": true,
-          "updated": "2026-06-20T22:58:40.428Z"
+          "updated": "2026-06-21T22:58:40.200Z"
         }
       }
     },
-    "swsh12.5-GG03|normal": {
-      "eur": 10.7,
-      "confidence": "medium",
+    "swsh12-057|promo": {
+      "eur": 0.48,
+      "confidence": "low",
       "spread": null,
       "flags": [
-        "single_source"
+        "no_reliable_source"
       ],
       "cardmarketUrl": null,
       "sources": {
         "tcgdex": {
-          "value": 10.7,
+          "value": 0.48,
           "field": "trend",
-          "reliable": true,
-          "updated": "2026-06-20T22:58:40.428Z"
+          "reliable": false,
+          "updated": "2026-06-21T22:58:40.338Z"
         }
       }
     },
-    "me02.5-227|normal": {
-      "eur": 5.01,
-      "confidence": "medium",
-      "spread": null,
-      "flags": [
-        "single_source"
-      ],
-      "cardmarketUrl": null,
+    "swsh1-25|normal": {
+      "eur": 1.54,
+      "confidence": "high",
+      "spread": 0.43,
+      "flags": [],
+      "cardmarketUrl": "https://prices.pokemontcg.io/cardmarket/swsh1-25",
       "sources": {
+        "ptcg": {
+          "value": 1.33,
+          "field": "trendPrice",
+          "reliable": true,
+          "updated": "2026/03/11"
+        },
         "tcgdex": {
-          "value": 5.01,
+          "value": 1.76,
           "field": "trend",
           "reliable": true,
-          "updated": "2026-06-20T22:58:40.428Z"
+          "updated": "2026-06-21T22:58:40.338Z"
         }
       }
     },
-    "me02.5-238|normal": {
-      "eur": 15.23,
+    "swsh12-058|promo": {
+      "eur": 1.02,
+      "confidence": "low",
+      "spread": null,
+      "flags": [
+        "no_reliable_source"
+      ],
+      "cardmarketUrl": null,
+      "sources": {
+        "tcgdex": {
+          "value": 1.02,
+          "field": "trend",
+          "reliable": false,
+          "updated": "2026-06-21T22:58:40.200Z"
+        }
+      }
+    },
+    "me02-104|normal": {
+      "eur": 1.75,
       "confidence": "medium",
       "spread": null,
       "flags": [
@@ -1485,10 +1248,135 @@
       "cardmarketUrl": null,
       "sources": {
         "tcgdex": {
-          "value": 15.23,
+          "value": 1.75,
           "field": "trend",
           "reliable": true,
-          "updated": "2026-06-20T22:58:40.428Z"
+          "updated": "2026-06-21T22:58:40.200Z"
+        }
+      }
+    },
+    "me02-106|normal": {
+      "eur": 27.7,
+      "confidence": "medium",
+      "spread": null,
+      "flags": [
+        "single_source"
+      ],
+      "cardmarketUrl": null,
+      "sources": {
+        "tcgdex": {
+          "value": 27.7,
+          "field": "trend",
+          "reliable": true,
+          "updated": "2026-06-21T22:58:40.200Z"
+        }
+      }
+    },
+    "swsh12-135|promo": {
+      "eur": 0.61,
+      "confidence": "medium",
+      "spread": null,
+      "flags": [
+        "single_source"
+      ],
+      "cardmarketUrl": "https://prices.pokemontcg.io/cardmarket/swsh12-135",
+      "sources": {
+        "ptcg": {
+          "value": 0.61,
+          "field": "trendPrice",
+          "reliable": true,
+          "updated": "2025/11/21"
+        },
+        "tcgdex": {
+          "value": 0.69,
+          "field": "trend",
+          "reliable": false,
+          "updated": "2026-06-21T22:58:40.200Z"
+        }
+      }
+    },
+    "sv09-164|normal": {
+      "eur": 4.55,
+      "confidence": "medium",
+      "spread": null,
+      "flags": [
+        "single_source"
+      ],
+      "cardmarketUrl": null,
+      "sources": {
+        "tcgdex": {
+          "value": 4.55,
+          "field": "trend",
+          "reliable": true,
+          "updated": "2026-06-21T22:58:40.200Z"
+        }
+      }
+    },
+    "me02.5-225|normal": {
+      "eur": 8.55,
+      "confidence": "medium",
+      "spread": null,
+      "flags": [
+        "single_source"
+      ],
+      "cardmarketUrl": null,
+      "sources": {
+        "tcgdex": {
+          "value": 8.55,
+          "field": "trend",
+          "reliable": true,
+          "updated": "2026-06-21T22:58:40.200Z"
+        }
+      }
+    },
+    "2024sv-13|normal": {
+      "eur": 0.1,
+      "confidence": "medium",
+      "spread": null,
+      "flags": [
+        "single_source"
+      ],
+      "cardmarketUrl": null,
+      "sources": {
+        "tcgdex": {
+          "value": 0.1,
+          "field": "trend",
+          "reliable": true,
+          "updated": "2026-06-21T22:58:40.200Z"
+        }
+      }
+    },
+    "me02-099|normal": {
+      "eur": 1.89,
+      "confidence": "medium",
+      "spread": null,
+      "flags": [
+        "single_source"
+      ],
+      "cardmarketUrl": null,
+      "sources": {
+        "tcgdex": {
+          "value": 1.89,
+          "field": "trend",
+          "reliable": true,
+          "updated": "2026-06-21T22:58:40.231Z"
+        }
+      }
+    },
+    "sv09-168|normal": {
+      "eur": 6.84,
+      "confidence": "medium",
+      "spread": null,
+      "flags": [
+        "single_source"
+      ],
+      "cardmarketUrl": null,
+      "sources": {
+        "tcgdex": {
+          "value": 6.84,
+          "field": "trend",
+          "reliable": true,
+          "updated": "2026-06-21T22:58:40.231Z"
         }
       }
     },
@@ -1502,25 +1390,18 @@
       "cardmarketUrl": null,
       "sources": {}
     },
-    "me02.5-264|normal": {
-      "eur": 4.9,
-      "confidence": "medium",
+    "mep-070|normal": {
+      "eur": null,
+      "confidence": "none",
       "spread": null,
       "flags": [
-        "single_source"
+        "no_data"
       ],
       "cardmarketUrl": null,
-      "sources": {
-        "tcgdex": {
-          "value": 4.9,
-          "field": "trend",
-          "reliable": true,
-          "updated": "2026-06-20T22:58:40.428Z"
-        }
-      }
+      "sources": {}
     },
-    "sv02-251|normal": {
-      "eur": 1.85,
+    "me01-154|normal": {
+      "eur": 3.95,
       "confidence": "medium",
       "spread": null,
       "flags": [
@@ -1529,66 +1410,15 @@
       "cardmarketUrl": null,
       "sources": {
         "tcgdex": {
-          "value": 1.85,
+          "value": 3.95,
           "field": "trend",
           "reliable": true,
-          "updated": "2026-06-20T22:58:40.323Z"
-        }
-      }
-    },
-    "me03-123|normal": {
-      "eur": 57.69,
-      "confidence": "medium",
-      "spread": null,
-      "flags": [
-        "single_source"
-      ],
-      "cardmarketUrl": null,
-      "sources": {
-        "tcgdex": {
-          "value": 57.69,
-          "field": "trend",
-          "reliable": true,
-          "updated": "2026-06-20T22:58:40.428Z"
-        }
-      }
-    },
-    "me01-174|normal": {
-      "eur": 2.8,
-      "confidence": "medium",
-      "spread": null,
-      "flags": [
-        "single_source"
-      ],
-      "cardmarketUrl": null,
-      "sources": {
-        "tcgdex": {
-          "value": 2.8,
-          "field": "trend",
-          "reliable": true,
-          "updated": "2026-06-20T22:58:40.268Z"
-        }
-      }
-    },
-    "me01-134|normal": {
-      "eur": 20.22,
-      "confidence": "medium",
-      "spread": null,
-      "flags": [
-        "single_source"
-      ],
-      "cardmarketUrl": null,
-      "sources": {
-        "tcgdex": {
-          "value": 20.22,
-          "field": "trend",
-          "reliable": true,
-          "updated": "2026-06-20T22:58:40.268Z"
+          "updated": "2026-06-21T22:58:40.231Z"
         }
       }
     },
     "sv10.5b-154|normal": {
-      "eur": 5.67,
+      "eur": 5.81,
       "confidence": "medium",
       "spread": null,
       "flags": [
@@ -1597,15 +1427,134 @@
       "cardmarketUrl": null,
       "sources": {
         "tcgdex": {
-          "value": 5.67,
+          "value": 5.81,
           "field": "trend",
           "reliable": true,
-          "updated": "2026-06-20T22:58:40.428Z"
+          "updated": "2026-06-21T22:58:40.231Z"
+        }
+      }
+    },
+    "swsh12.5-GG18|normal": {
+      "eur": 5.22,
+      "confidence": "medium",
+      "spread": null,
+      "flags": [
+        "single_source"
+      ],
+      "cardmarketUrl": null,
+      "sources": {
+        "tcgdex": {
+          "value": 5.22,
+          "field": "trend",
+          "reliable": true,
+          "updated": "2026-06-21T22:58:40.200Z"
+        }
+      }
+    },
+    "me02.5-227|normal": {
+      "eur": 5.05,
+      "confidence": "medium",
+      "spread": null,
+      "flags": [
+        "single_source"
+      ],
+      "cardmarketUrl": null,
+      "sources": {
+        "tcgdex": {
+          "value": 5.05,
+          "field": "trend",
+          "reliable": true,
+          "updated": "2026-06-21T22:58:40.200Z"
+        }
+      }
+    },
+    "me02.5-238|normal": {
+      "eur": 15.04,
+      "confidence": "medium",
+      "spread": null,
+      "flags": [
+        "single_source"
+      ],
+      "cardmarketUrl": null,
+      "sources": {
+        "tcgdex": {
+          "value": 15.04,
+          "field": "trend",
+          "reliable": true,
+          "updated": "2026-06-21T22:58:40.200Z"
+        }
+      }
+    },
+    "me02.5-264|normal": {
+      "eur": 4.89,
+      "confidence": "medium",
+      "spread": null,
+      "flags": [
+        "single_source"
+      ],
+      "cardmarketUrl": null,
+      "sources": {
+        "tcgdex": {
+          "value": 4.89,
+          "field": "trend",
+          "reliable": true,
+          "updated": "2026-06-21T22:58:40.338Z"
+        }
+      }
+    },
+    "me03-123|normal": {
+      "eur": 57.17,
+      "confidence": "medium",
+      "spread": null,
+      "flags": [
+        "single_source"
+      ],
+      "cardmarketUrl": null,
+      "sources": {
+        "tcgdex": {
+          "value": 57.17,
+          "field": "trend",
+          "reliable": true,
+          "updated": "2026-06-21T22:58:40.338Z"
+        }
+      }
+    },
+    "sv02-251|normal": {
+      "eur": 1.8,
+      "confidence": "medium",
+      "spread": null,
+      "flags": [
+        "single_source"
+      ],
+      "cardmarketUrl": null,
+      "sources": {
+        "tcgdex": {
+          "value": 1.8,
+          "field": "trend",
+          "reliable": true,
+          "updated": "2026-06-21T22:58:40.200Z"
+        }
+      }
+    },
+    "swsh12.5-GG03|normal": {
+      "eur": 10.84,
+      "confidence": "medium",
+      "spread": null,
+      "flags": [
+        "single_source"
+      ],
+      "cardmarketUrl": null,
+      "sources": {
+        "tcgdex": {
+          "value": 10.84,
+          "field": "trend",
+          "reliable": true,
+          "updated": "2026-06-21T22:58:40.200Z"
         }
       }
     },
     "me02-123|normal": {
-      "eur": 1.44,
+      "eur": 1.43,
       "confidence": "medium",
       "spread": null,
       "flags": [
@@ -1614,10 +1563,61 @@
       "cardmarketUrl": null,
       "sources": {
         "tcgdex": {
-          "value": 1.44,
+          "value": 1.43,
           "field": "trend",
           "reliable": true,
-          "updated": "2026-06-20T22:58:40.268Z"
+          "updated": "2026-06-21T22:58:40.338Z"
+        }
+      }
+    },
+    "me01-174|normal": {
+      "eur": 2.72,
+      "confidence": "medium",
+      "spread": null,
+      "flags": [
+        "single_source"
+      ],
+      "cardmarketUrl": null,
+      "sources": {
+        "tcgdex": {
+          "value": 2.72,
+          "field": "trend",
+          "reliable": true,
+          "updated": "2026-06-21T22:58:40.338Z"
+        }
+      }
+    },
+    "sv04.5-225|normal": {
+      "eur": 1.35,
+      "confidence": "medium",
+      "spread": null,
+      "flags": [
+        "single_source"
+      ],
+      "cardmarketUrl": null,
+      "sources": {
+        "tcgdex": {
+          "value": 1.35,
+          "field": "trend",
+          "reliable": true,
+          "updated": "2026-06-21T22:58:40.200Z"
+        }
+      }
+    },
+    "me03-094|normal": {
+      "eur": 24.89,
+      "confidence": "medium",
+      "spread": null,
+      "flags": [
+        "single_source"
+      ],
+      "cardmarketUrl": null,
+      "sources": {
+        "tcgdex": {
+          "value": 24.89,
+          "field": "trend",
+          "reliable": true,
+          "updated": "2026-06-21T22:58:40.338Z"
         }
       }
     }
