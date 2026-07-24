@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-24T20:21:42.554Z",
+  "updatedAt": "2026-07-24T20:27:00.323Z",
   "cards": [
     {
       "id": "6ae1a33c-769c-4be6-9ea2-5ce3d88f563e",
@@ -1288,6 +1288,19 @@
       "priceOverride": null,
       "notes": "",
       "addedAt": "2026-07-24T20:21:42.554Z"
+    },
+    {
+      "id": "57d841d4-09e8-4aeb-a510-4790cf71d98b",
+      "cardId": "sv10.5w-096",
+      "name": "Tepig",
+      "image": "https://assets.tcgdex.net/en/sv/sv10.5w/096/low.webp",
+      "variant": "normal",
+      "condition": "NM",
+      "quantity": 1,
+      "language": "en",
+      "priceOverride": null,
+      "notes": "",
+      "addedAt": "2026-07-24T20:27:00.323Z"
     }
   ]
 }
