@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-24T20:27:00.323Z",
+  "updatedAt": "2026-07-24T20:27:25.652Z",
   "cards": [
     {
       "id": "6ae1a33c-769c-4be6-9ea2-5ce3d88f563e",
@@ -1301,6 +1301,19 @@
       "priceOverride": null,
       "notes": "",
       "addedAt": "2026-07-24T20:27:00.323Z"
+    },
+    {
+      "id": "405d0be4-611d-4a41-be8e-97ea6d46967a",
+      "cardId": "2011bw-4",
+      "name": "Oshawott",
+      "image": null,
+      "variant": "normal",
+      "condition": "NM",
+      "quantity": 1,
+      "language": "en",
+      "priceOverride": null,
+      "notes": "",
+      "addedAt": "2026-07-24T20:27:25.652Z"
     }
   ]
 }
