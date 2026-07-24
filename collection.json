@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-24T20:29:24.931Z",
+  "updatedAt": "2026-07-24T20:29:32.207Z",
   "cards": [
     {
       "id": "6ae1a33c-769c-4be6-9ea2-5ce3d88f563e",
@@ -1353,6 +1353,19 @@
       "priceOverride": null,
       "notes": "",
       "addedAt": "2026-07-24T20:29:24.931Z"
+    },
+    {
+      "id": "e4af9c88-d046-4f99-9380-0c38ef89baa2",
+      "cardId": "2021swsh-8",
+      "name": "Grookey",
+      "image": null,
+      "variant": "normal",
+      "condition": "NM",
+      "quantity": 1,
+      "language": "en",
+      "priceOverride": null,
+      "notes": "",
+      "addedAt": "2026-07-24T20:29:32.207Z"
     }
   ]
 }
