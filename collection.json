@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-24T20:31:33.125Z",
+  "updatedAt": "2026-07-24T20:31:44.893Z",
   "cards": [
     {
       "id": "6ae1a33c-769c-4be6-9ea2-5ce3d88f563e",
@@ -1181,7 +1181,7 @@
       "condition": "NM",
       "quantity": 1,
       "language": "en",
-      "priceOverride": null,
+      "priceOverride": 5,
       "notes": "",
       "addedAt": "2026-06-21T21:23:00.467Z"
     },
