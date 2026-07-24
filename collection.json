@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-24T20:27:25.652Z",
+  "updatedAt": "2026-07-24T20:28:47.335Z",
   "cards": [
     {
       "id": "6ae1a33c-769c-4be6-9ea2-5ce3d88f563e",
@@ -1314,6 +1314,19 @@
       "priceOverride": null,
       "notes": "",
       "addedAt": "2026-07-24T20:27:25.652Z"
+    },
+    {
+      "id": "3b70ec53-c02d-46f6-acbc-b87d3ec8f44a",
+      "cardId": "sv10.5b-087",
+      "name": "Snivy",
+      "image": "https://assets.tcgdex.net/en/sv/sv10.5b/087/low.webp",
+      "variant": "normal",
+      "condition": "NM",
+      "quantity": 1,
+      "language": "en",
+      "priceOverride": null,
+      "notes": "",
+      "addedAt": "2026-07-24T20:28:47.335Z"
     }
   ]
 }
