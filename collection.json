@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-06-24T10:16:30.867Z",
+  "updatedAt": "2026-07-24T20:21:42.554Z",
   "cards": [
     {
       "id": "6ae1a33c-769c-4be6-9ea2-5ce3d88f563e",
@@ -1275,6 +1275,19 @@
       "priceOverride": null,
       "notes": "",
       "addedAt": "2026-06-21T21:25:44.597Z"
+    },
+    {
+      "id": "2e3645f4-41ec-4d1d-b59d-7b0de329e1f0",
+      "cardId": "A3-199",
+      "name": "Dhelmise ex",
+      "image": "https://assets.tcgdex.net/en/tcgp/A3/199/low.webp",
+      "variant": "normal",
+      "condition": "NM",
+      "quantity": 1,
+      "language": "en",
+      "priceOverride": null,
+      "notes": "",
+      "addedAt": "2026-07-24T20:21:42.554Z"
     }
   ]
 }
