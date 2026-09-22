@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-09-22T07:26:47.579Z",
+  "updatedAt": "2026-09-22T07:27:08.320Z",
   "cards": [
     {
       "id": "6ae1a33c-769c-4be6-9ea2-5ce3d88f563e",
@@ -1366,6 +1366,19 @@
       "priceOverride": null,
       "notes": "",
       "addedAt": "2026-09-22T07:26:47.579Z"
+    },
+    {
+      "id": "83706c96-06cd-457a-a2ee-204c904e2ca5",
+      "cardId": "mep-061",
+      "name": "Sprigatito",
+      "image": null,
+      "variant": "normal",
+      "condition": "NM",
+      "quantity": 1,
+      "language": "en",
+      "priceOverride": null,
+      "notes": "",
+      "addedAt": "2026-09-22T07:27:08.320Z"
     }
   ]
 }
