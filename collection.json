@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-09-22T07:26:34.828Z",
+  "updatedAt": "2026-09-22T07:26:37.981Z",
   "cards": [
     {
       "id": "6ae1a33c-769c-4be6-9ea2-5ce3d88f563e",
@@ -508,19 +508,6 @@
       "priceOverride": null,
       "notes": "",
       "addedAt": "2026-06-21T21:08:30.355Z"
-    },
-    {
-      "id": "94317013-0dd9-4885-8850-59dda8399d42",
-      "cardId": "mep-043",
-      "name": "Rowlet",
-      "image": null,
-      "variant": "normal",
-      "condition": "NM",
-      "quantity": 1,
-      "language": "en",
-      "priceOverride": null,
-      "notes": "",
-      "addedAt": "2026-06-21T21:08:39.316Z"
     },
     {
       "id": "10feb5f5-9d65-4d21-a60c-e4007541b763",
