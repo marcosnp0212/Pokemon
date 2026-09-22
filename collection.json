@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-09-22T07:27:08.320Z",
+  "updatedAt": "2026-09-22T07:27:17.782Z",
   "cards": [
     {
       "id": "6ae1a33c-769c-4be6-9ea2-5ce3d88f563e",
@@ -1379,6 +1379,19 @@
       "priceOverride": null,
       "notes": "",
       "addedAt": "2026-09-22T07:27:08.320Z"
+    },
+    {
+      "id": "be9336b5-47d3-479e-a953-96887def580a",
+      "cardId": "mep-063",
+      "name": "Quaxly",
+      "image": null,
+      "variant": "normal",
+      "condition": "NM",
+      "quantity": 1,
+      "language": "en",
+      "priceOverride": null,
+      "notes": "",
+      "addedAt": "2026-09-22T07:27:17.782Z"
     }
   ]
 }
