@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-09-22T07:26:27.377Z",
+  "updatedAt": "2026-09-22T07:26:34.828Z",
   "cards": [
     {
       "id": "6ae1a33c-769c-4be6-9ea2-5ce3d88f563e",
@@ -495,19 +495,6 @@
       "priceOverride": null,
       "notes": "",
       "addedAt": "2026-06-21T21:08:13.518Z"
-    },
-    {
-      "id": "3d52f2b7-27ca-4f91-bbc6-8247dd20968a",
-      "cardId": "mep-044",
-      "name": "Litten",
-      "image": null,
-      "variant": "normal",
-      "condition": "NM",
-      "quantity": 1,
-      "language": "en",
-      "priceOverride": null,
-      "notes": "",
-      "addedAt": "2026-06-21T21:08:24.112Z"
     },
     {
       "id": "3f2f5944-bd5e-4459-a616-35ba90e3135a",
