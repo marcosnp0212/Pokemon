@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-09-22T07:26:37.981Z",
+  "updatedAt": "2026-09-22T07:26:47.579Z",
   "cards": [
     {
       "id": "6ae1a33c-769c-4be6-9ea2-5ce3d88f563e",
@@ -1353,6 +1353,19 @@
       "priceOverride": null,
       "notes": "",
       "addedAt": "2026-09-22T07:25:16.999Z"
+    },
+    {
+      "id": "c9e416f9-6d18-4ea8-b2c6-19a56cd5b144",
+      "cardId": "mep-062",
+      "name": "Fuecoco",
+      "image": null,
+      "variant": "normal",
+      "condition": "NM",
+      "quantity": 1,
+      "language": "en",
+      "priceOverride": null,
+      "notes": "",
+      "addedAt": "2026-09-22T07:26:47.579Z"
     }
   ]
 }
