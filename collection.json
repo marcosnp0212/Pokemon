@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-09-22T07:27:17.782Z",
+  "updatedAt": "2026-09-22T07:27:26.990Z",
   "cards": [
     {
       "id": "6ae1a33c-769c-4be6-9ea2-5ce3d88f563e",
@@ -1392,6 +1392,19 @@
       "priceOverride": null,
       "notes": "",
       "addedAt": "2026-09-22T07:27:17.782Z"
+    },
+    {
+      "id": "5099879f-cb7e-4ca3-8809-74f45cd11bcb",
+      "cardId": "me05-095",
+      "name": "Silvally",
+      "image": "https://assets.tcgdex.net/en/me/me05/095/low.webp",
+      "variant": "normal",
+      "condition": "NM",
+      "quantity": 1,
+      "language": "en",
+      "priceOverride": null,
+      "notes": "",
+      "addedAt": "2026-09-22T07:27:26.990Z"
     }
   ]
 }
